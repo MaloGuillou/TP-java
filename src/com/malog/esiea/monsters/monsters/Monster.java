@@ -173,4 +173,18 @@ public class Monster {
     public int getMaxHP(){
         return this.hp_max;
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public Attack getSpecialAttack(int pos){
+        return switch (pos) {
+            case 1 -> attack_1;
+            case 2 -> attack_2;
+            case 3 -> attack_3;
+            case 4 -> attack_4;
+            default -> throw new AssertionError();
+        };
+    }
 }

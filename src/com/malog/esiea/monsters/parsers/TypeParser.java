@@ -17,7 +17,7 @@ public class TypeParser {
                 if(!found.containsKey("paralysis")){
                     yield null;
                 }
-                int paralysis_probability = Integer.parseInt(found.get("paralysis"));
+                int paralysis_probability = (int) (Float.parseFloat(found.get("paralysis")) * 100);
                 yield new ElectricStats(type, paralysis_probability);
             }
             case FIRE -> {
@@ -25,7 +25,7 @@ public class TypeParser {
                 if(!found.containsKey("burn")){
                     yield null;
                 }
-                int fire_probability = Integer.parseInt(found.get("burn"));
+                int fire_probability = (int) (Float.parseFloat(found.get("burn")) * 100);
                 yield new FireStats(type, fire_probability);
             }
             case NATURE -> switch (sub_type) {
@@ -34,7 +34,7 @@ public class TypeParser {
                     if(!found.containsKey("heal")){
                         yield null;
                     }
-                    int heal_probability = Integer.parseInt(found.get("heal"));
+                    int heal_probability = (int) (Float.parseFloat(found.get("heal")) * 100);
                     yield new GrassStats(type, heal_probability);
                 }
                 case Insect -> new InsectStats(type);
@@ -44,8 +44,8 @@ public class TypeParser {
                 if(!found.containsKey("flood") || !found.containsKey("falling")){
                     yield null;
                 }
-                int flooding_probability = Integer.parseInt(found.get("flood"));
-                int falling_probability = Integer.parseInt(found.get("fall"));
+                int flooding_probability = (int) (Float.parseFloat(found.get("flood")) * 100);
+                int falling_probability = (int) (Float.parseFloat(found.get("fall")) * 100);
                 yield new WaterStats(type, flooding_probability, falling_probability);
             }
         };

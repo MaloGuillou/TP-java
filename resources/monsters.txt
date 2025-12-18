@@ -1,4 +1,5 @@
 Monster
+Number 1
 Name Pikachu
 Type Electric
 HP 110 141
@@ -7,7 +8,9 @@ Attack 75 106
 Defense 50 82
 Paralysis 0.2
 EndMonster
+
 Monster
+Number 2
 Name Cerapuca
 Type Water
 HP 119 150

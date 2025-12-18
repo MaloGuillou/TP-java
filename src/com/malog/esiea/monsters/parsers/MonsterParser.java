@@ -44,7 +44,7 @@ public class MonsterParser {
     }
 
     private static MonsterBuilder parseMonster(List<String> lines) {
-        List<String> search_fields = List.of("name", "type", "hp", "speed", "attack", "defense");
+        List<String> search_fields = List.of("name", "number", "type", "hp", "speed", "attack", "defense");
 
         ArrayList<String> unknown = new ArrayList<>();
 
@@ -62,6 +62,7 @@ public class MonsterParser {
         if(
                 full_found.isEmpty()
                 || !full_found.containsKey("name")
+                || !full_found.containsKey("number")
                 || !full_found.containsKey("type")
                 || !full_found.containsKey("hp_max")
                 || !full_found.containsKey("speed_max")
@@ -71,7 +72,8 @@ public class MonsterParser {
             throw new UnparsableFile("Missing required fields in monster");
         }else{
             String name =  full_found.get("name");
-            System.out.println(full_found);
+            int id =  Integer.parseInt(full_found.get("number"));
+
             int hp_max = Integer.parseInt(full_found.get("hp_max"));
             int hp_min = Integer.parseInt(full_found.get("hp_min"));
 
@@ -106,23 +108,24 @@ public class MonsterParser {
                     switch(SubType.valueOf(full_found.get("type"))) {
                         case Grass -> {
                             type = Type.NATURE;
-                            subType =  SubType.Grass;
+                            subType = SubType.Grass;
                         }
                         case Insect -> {
                             type = Type.NATURE;
-                            subType =  SubType.Insect;
+                            subType = SubType.Insect;
                         }
                     }
                 }
             }
 
-            if (type == null || subType == null) {
+            if (type == null && subType == null) {
                 throw new UnparsableFile("Type or SubType not found");
             }
 
             TypeStats type_stats = TypeParser.parseType(unknown, type, subType);
 
             return new MonsterBuilder(
+                    id,
                     name,
                     type_stats,
                     hp_max,

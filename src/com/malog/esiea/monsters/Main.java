@@ -12,7 +12,7 @@ void main(String[] args) throws FileNotFoundException {
     File monsters_file = new File("resources/monsters.txt");
     File attacks_file = new File("resources/attacks.txt");
     //Parse monsters
-    List<MonsterBuilder> monsters = MonsterParser.parseFile(monsters_file);
+    Map<Integer, MonsterBuilder> monsters = MonsterParser.parseFile(monsters_file).stream().collect(Collectors.toMap(MonsterBuilder::getId, Function.identity()));
     //Parse attacks
     List<Attack> attacks = AttackParser.parseFile(attacks_file);
     //Init gameManager
@@ -24,7 +24,7 @@ void main(String[] args) throws FileNotFoundException {
     String pseudo = ui.getPseudo();
     Player player = new Player(pseudo);
 
-    player.set_team(ui.chooseTeam(player, monsters));
+    player.set_team(ui.chooseTeam(player, monsters, attacks));
 
     //Start main loop
     boolean exit = false;
@@ -33,6 +33,8 @@ void main(String[] args) throws FileNotFoundException {
         //Handle user input
         //Work
         //Update ui
+
+        exit = true;
     }
 
 }

@@ -5,6 +5,7 @@ import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
 import com.malog.esiea.monsters.states.State;
 
 public class MonsterBuilder {
+    private final int id;
     private final String name;
     private final TypeStats type;
 
@@ -18,6 +19,7 @@ public class MonsterBuilder {
     private final int speed_min;
 
     public MonsterBuilder(
+            int id,
             String name,
             TypeStats type,
             int hp_max,
@@ -29,6 +31,7 @@ public class MonsterBuilder {
             int speed_max,
             int speed_min
     ) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.hp_max = hp_max;
@@ -55,5 +58,14 @@ public class MonsterBuilder {
                 defense,
                 speed
         );
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d. %s", this.id, this.name);
+    }
+
+    public int getId() {
+        return this.id;
     }
 }
