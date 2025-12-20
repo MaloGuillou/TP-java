@@ -87,4 +87,14 @@ public class Team {
         monster.change_attack(new_attack, old_attack_pos);
     }
 
+    @Override
+    public String toString(){
+        return "1." + monster_1.toString() + "\n" +
+                "2." + monster_2.toString() + "\n" +
+                "3." + monster_3.toString() + "\n" +
+                "4." + monster_4.toString() + "\n" +
+                "5." + monster_5.toString() + "\n" +
+                "6." + monster_6.toString() + "\n";
+    }
+
 }

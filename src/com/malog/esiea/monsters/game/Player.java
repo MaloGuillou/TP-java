@@ -18,6 +18,10 @@ public class Player {
         this.team = team;
     }
 
+    public Team get_team(){
+        return this.team;
+    }
+
     public void change_active_monster(int new_active){
         if(new_active >= 1 && new_active <= 6){
             this.active_monster = new_active;
