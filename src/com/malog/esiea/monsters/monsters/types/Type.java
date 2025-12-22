@@ -50,7 +50,8 @@ public enum Type {
         public boolean is_weak_against(Type type) {
             return type.equals(ELECTRIC);
         }
-    };
+    },
+    NORMAL;
 
     public boolean is_strong_against(Type type) {
         return false;

@@ -1,17 +1,15 @@
 package com.malog.esiea.monsters.ui;
 
+import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.ui.actions.*;
-import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.game.Team;
 import com.malog.esiea.monsters.game.event.*;
 import com.malog.esiea.monsters.monsters.Monster;
-import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
-import com.malog.esiea.monsters.ui.actions.player.ChangePseudoAction;
-import com.malog.esiea.monsters.ui.actions.team.GoToModifyMonsterAction;
-import com.malog.esiea.monsters.ui.actions.team.GoToReplaceAttackAction;
-import com.malog.esiea.monsters.ui.actions.team.GoToReplaceMonsterAction;
-import com.malog.esiea.monsters.ui.actions.team.MoveMonstersAction;
+import com.malog.esiea.monsters.ui.actions.team.*;
+import com.malog.esiea.monsters.ui.actions.team.monster.GoToModifyAttackMenu;
+import com.malog.esiea.monsters.ui.actions.team.monster.GoToReplaceAttackAction;
+import com.malog.esiea.monsters.ui.actions.team.monster.ReplaceAttackAction;
 
 import java.util.List;
 import java.util.Map;
@@ -66,10 +64,10 @@ public class ConsoleInterface extends UserInterface {
     @Override
     public UIAction settingsMenu() { //TODO real options
         System.out.println("---Settings Menu---");
-        System.out.println("1.Go back");
+        System.out.println("-1.Go back");
         int choice = scanner.nextInt();
         return switch (choice) {
-            case 1 -> new GoBackAction(UIState.SETTINGS);
+            case -1 -> new GoBackAction(UIState.SETTINGS);
             default -> new NoAction(UIState.SETTINGS);
         };
     }
@@ -77,12 +75,10 @@ public class ConsoleInterface extends UserInterface {
     @Override
     public UIAction playerMenu() {
         System.out.println("---Player Menu---");
-        System.out.println("1.Change pseudo");
-        System.out.println("2.Go back");
+        System.out.println("-1.Go back");
         int choice = scanner.nextInt();
         return switch (choice) {
-            case 1 -> new ChangePseudoAction(UIState.PLAYER_MENU);
-            case 2 -> new GoBackAction(UIState.PLAYER_MENU);
+            case -1 -> new GoBackAction(UIState.PLAYER_MENU);
             default -> new NoAction(UIState.PLAYER_MENU);
         };
     }
@@ -93,16 +89,16 @@ public class ConsoleInterface extends UserInterface {
         System.out.println("Current team:");
         System.out.println(team);
         System.out.println("What do you want to do?");
+        System.out.println("-1.Go back");
         System.out.println("1.Modify a monster");
         System.out.println("2.Replace a monster");
         System.out.println("3.Move a monster");
-        System.out.println("4.Go back");
         int choice = scanner.nextInt();
         return switch (choice) {
             case 1 -> modifyWhichMonster(UIState.TEAM_MENU);
             case 2 -> replaceWhichMonster(UIState.TEAM_MENU);
             case 3 -> moveWhichMonster(UIState.TEAM_MENU);
-            case 4 -> new GoBackAction(UIState.TEAM_MENU);
+            case -1 -> new GoBackAction(UIState.TEAM_MENU);
             default -> new NoAction(UIState.TEAM_MENU);
         };
     }
@@ -147,51 +143,71 @@ public class ConsoleInterface extends UserInterface {
     }
 
     @Override
+    public UIAction replaceMonsterMenu(int monster_id, Map<Integer, MonsterBuilder> monsters) {
+        System.out.println("---Team Menu---");
+        System.out.println("Which monster do you want instead?");
+        System.out.println("-1.Cancel and go back");
+        for(int i : monsters.keySet()){
+            System.out.println(monsters.get(i));
+        }
+        int choice = scanner.nextInt();
+        if(monsters.containsKey(choice)){
+            return new ReplaceMonsterAction(UIState.REPLACE_MONSTER_MENU, monster_id, monsters.get(choice).build());
+        }else if (choice == -1) {
+            return new GoBackAction(UIState.REPLACE_MONSTER_MENU);
+        }else{
+            return new NoAction(UIState.REPLACE_MONSTER_MENU);
+        }
+    }
+
+    @Override
     public UIAction modifyMonsterMenu(Monster monster) {
         System.out.println("---Monster Menu---");
         System.out.println(monster);
         System.out.println("What do you want to do?");
+        System.out.println("-1.Go back");
         System.out.println("1.Replace attacks");
-        System.out.println("2.Go back");
         int choice = scanner.nextInt();
         return switch (choice) {
-            case 1 -> new GoToAction(UIState.MODIFY_ATTACKS_MENU, UIState.TEAM_MENU);
-            case 2 -> new GoBackAction(UIState.TEAM_MENU);
-            default -> new NoAction(UIState.TEAM_MENU);
+            case 1 -> new GoToModifyAttackMenu(UIState.MODIFY_MONSTER_MENU, monster);
+            case -1 -> new GoBackAction(UIState.MODIFY_MONSTER_MENU);
+            default -> new NoAction(UIState.MODIFY_MONSTER_MENU);
         };
     }
 
-    public UIAction replaceMonsterMenu(Monster monster) {
-
-    }
-
+    @Override
     public UIAction modifyAttacksMenu(Monster monster) {
         System.out.println("---Monster Menu---");
         System.out.println(monster);
         System.out.println("Which attacks do you want to replace?");
+        System.out.println("-1.Go back");
         for(int i = 1; i <= 4; i++){
             System.out.println(i + "." + monster.getSpecialAttack(i));
         }
-        System.out.println("5.Go back");
         int choice = scanner.nextInt();
         return switch (choice){
-            case 1,2,3,4 -> new GoToReplaceAttackAction(UIState.MODIFY_ATTACKS_MENU, monster, choice);
-            case 5 -> new GoBackAction(UIState.MODIFY_ATTACKS_MENU);
-            default -> new NoAction(UIState.MODIFY_ATTACKS_MENU);
+            case 1,2,3,4 -> new GoToReplaceAttackAction(UIState.MODIFY_ATTACK_MENU, monster, choice);
+            case -1 -> new GoBackAction(UIState.MODIFY_ATTACK_MENU);
+            default -> new NoAction(UIState.MODIFY_ATTACK_MENU);
         };
     }
 
+    @Override
     public UIAction replaceAttacksMenu(List<Attack> attacks, Monster monster, int attack_id){
         System.out.println("---Monster Menu---");
         System.out.println(monster);
         System.out.println("Which attack do you want instead?");
+        System.out.println("-1.Cancel and go back");
         for(int i = 0; i < attacks.size(); i++){
             System.out.println(i + "." + attacks.get(i));
         }
-        System.out.println("5.Cancel and go back");
         int choice = scanner.nextInt();
         if(choice >= 0 && choice <= attacks.size()){
-
+            return new ReplaceAttackAction(UIState.REPLACE_ATTACK_MENU, attack_id, attacks.get(choice), monster);
+        }else if (choice == -1){
+            return new GoBackAction(UIState.REPLACE_ATTACK_MENU);
+        }else{
+            return new NoAction(UIState.REPLACE_ATTACK_MENU);
         }
     }
 

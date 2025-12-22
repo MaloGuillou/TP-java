@@ -13,8 +13,8 @@ public enum UIActionEnum {
     REPLACE_MONSTER,
     MOVE_MONSTER,
 
-    REPLACE_ATTACKS,
-    MOVE_ATTACKS,
+    REPLACE_ATTACK,
+    MOVE_ATTACK,
 
     //Player actions
     CHANGE_PSEUDO,

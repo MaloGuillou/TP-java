@@ -4,8 +4,8 @@ import com.malog.esiea.monsters.ui.UIActionEnum;
 import com.malog.esiea.monsters.ui.UIState;
 
 public abstract class UIAction {
-    private final UIActionEnum uiActionEnum;
-    private final UIState uiState;
+    protected final UIActionEnum uiActionEnum;
+    protected final UIState uiState;
 
     public UIAction(UIActionEnum uiActionEnum, UIState uiState) {
         this.uiActionEnum = uiActionEnum;

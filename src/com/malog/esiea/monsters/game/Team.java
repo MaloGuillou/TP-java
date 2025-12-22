@@ -89,12 +89,12 @@ public class Team {
 
     @Override
     public String toString(){
-        return "1." + monster_1.toString() + "\n" +
-                "2." + monster_2.toString() + "\n" +
-                "3." + monster_3.toString() + "\n" +
-                "4." + monster_4.toString() + "\n" +
-                "5." + monster_5.toString() + "\n" +
-                "6." + monster_6.toString() + "\n";
+        return "1." + monster_1 + "\n" +
+                "2." + monster_2 + "\n" +
+                "3." + monster_3 + "\n" +
+                "4." + monster_4 + "\n" +
+                "5." + monster_5 + "\n" +
+                "6." + monster_6 + "\n";
     }
 
 }

@@ -48,6 +48,7 @@ public class TypeParser {
                 int falling_probability = (int) (Float.parseFloat(found.get("fall")) * 100);
                 yield new WaterStats(type, flooding_probability, falling_probability);
             }
+            case NORMAL -> null;
         };
     }
 }

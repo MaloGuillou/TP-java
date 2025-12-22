@@ -57,25 +57,16 @@ public class AttackParser {
             String name =  full_found.get("name");
             int nb_use_max = Integer.parseInt(full_found.get("nbuse"));
             int attack_power = Integer.parseInt(full_found.get("power"));
-            int miss_probability = Integer.parseInt(full_found.get("fail"));
+            int miss_probability = (int) (Double.parseDouble(full_found.get("fail")) * 100);
 
             Type type = null;
-            switch (Type.valueOf(full_found.get("type"))) {
-                case EARTH -> {
-                    type = Type.EARTH;
-                }
-                case ELECTRIC -> {
-                    type = Type.ELECTRIC;
-                }
-                case FIRE -> {
-                    type = Type.FIRE;
-                }
-                case NATURE -> {
-                    type = Type.NATURE;
-                }
-                case WATER -> {
-                    type = Type.WATER;
-                }
+            switch (Type.valueOf(full_found.get("type").toUpperCase())) {
+                case EARTH -> type = Type.EARTH;
+                case ELECTRIC -> type = Type.ELECTRIC;
+                case FIRE -> type = Type.FIRE;
+                case NATURE -> type = Type.NATURE;
+                case WATER -> type = Type.WATER;
+                case NORMAL -> type = Type.NORMAL;
                 default -> {
                     switch(SubType.valueOf(full_found.get("type"))) {
                         case Grass, Insect -> {
