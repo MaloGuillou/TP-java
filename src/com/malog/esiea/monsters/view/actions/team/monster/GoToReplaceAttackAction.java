@@ -1,8 +1,8 @@
-package com.malog.esiea.monsters.ui.actions.team.monster;
+package com.malog.esiea.monsters.view.actions.team.monster;
 
 import com.malog.esiea.monsters.monsters.Monster;
-import com.malog.esiea.monsters.ui.UIState;
-import com.malog.esiea.monsters.ui.actions.GoToAction;
+import com.malog.esiea.monsters.view.UIState;
+import com.malog.esiea.monsters.view.actions.GoToAction;
 
 public class GoToReplaceAttackAction extends GoToAction {
     private final Monster monster;

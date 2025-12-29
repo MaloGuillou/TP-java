@@ -1,4 +1,4 @@
-package com.malog.esiea.monsters.ui;
+package com.malog.esiea.monsters.view;
 
 public enum UIActionEnum {
 

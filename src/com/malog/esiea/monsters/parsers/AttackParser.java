@@ -1,17 +1,16 @@
 package com.malog.esiea.monsters.parsers;
 
-import com.malog.esiea.monsters.exceptions.UnparsableFile;
 import com.malog.esiea.monsters.helpers.StringHelper;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 import com.malog.esiea.monsters.monsters.types.SubType;
 import com.malog.esiea.monsters.monsters.types.Type;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class AttackParser {
-    public static List<Attack> parseFile(File file) throws FileNotFoundException {
+    public static List<Attack> parseFile(File file) throws IOException {
 
         List<Attack> attacks = new ArrayList<>();
         Scanner scanner = new Scanner(file);
@@ -22,7 +21,7 @@ public class AttackParser {
             String line = StringHelper.cleanString(scanner.nextLine());
             if(line.startsWith("attack")){
                 if(parsing_attacks){
-                    throw new UnparsableFile("File wrongly formatted");
+                    throw new IOException("File wrongly formatted");
                 }
                 attack_lines  = new ArrayList<>();
                 parsing_attacks = true;
@@ -37,7 +36,7 @@ public class AttackParser {
         return attacks;
     }
 
-    private static Attack parseAttack(List<String> lines) {
+    private static Attack parseAttack(List<String> lines) throws IOException {
         List<String> search_fields = List.of("name", "type", "power", "nbuse", "fail");
 
         ArrayList<String> unknown = new ArrayList<>();
@@ -52,7 +51,7 @@ public class AttackParser {
                         || !full_found.containsKey("nbuse")
                         || !full_found.containsKey("fail")
         ){
-            throw new UnparsableFile("Missing required parameters in attack");
+            throw new IOException("Missing required parameters in attack");
         }else{
             String name =  full_found.get("name");
             int nb_use_max = Integer.parseInt(full_found.get("nbuse"));
@@ -77,7 +76,7 @@ public class AttackParser {
             }
 
             if (type == null) {
-                throw new UnparsableFile("Missing required parameters in attack");
+                throw new IOException("Missing required parameters in attack");
             }
 
             return new Attack(

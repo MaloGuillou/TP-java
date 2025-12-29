@@ -1,10 +1,10 @@
-package com.malog.esiea.monsters.ui.actions.team.monster;
+package com.malog.esiea.monsters.view.actions.team.monster;
 
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
-import com.malog.esiea.monsters.ui.UIActionEnum;
-import com.malog.esiea.monsters.ui.UIState;
-import com.malog.esiea.monsters.ui.actions.UIAction;
+import com.malog.esiea.monsters.view.UIActionEnum;
+import com.malog.esiea.monsters.view.UIState;
+import com.malog.esiea.monsters.view.actions.UIAction;
 
 public class ReplaceAttackAction extends UIAction {
     private final int attack_index;

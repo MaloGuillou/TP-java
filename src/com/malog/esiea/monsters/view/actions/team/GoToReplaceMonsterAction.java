@@ -1,7 +1,7 @@
-package com.malog.esiea.monsters.ui.actions.team;
+package com.malog.esiea.monsters.view.actions.team;
 
-import com.malog.esiea.monsters.ui.UIState;
-import com.malog.esiea.monsters.ui.actions.GoToAction;
+import com.malog.esiea.monsters.view.UIState;
+import com.malog.esiea.monsters.view.actions.GoToAction;
 
 public class GoToReplaceMonsterAction extends GoToAction {
     private final int monsterId;

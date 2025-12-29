@@ -1,9 +1,9 @@
-package com.malog.esiea.monsters.ui.actions.team;
+package com.malog.esiea.monsters.view.actions.team;
 
 import com.malog.esiea.monsters.monsters.Monster;
-import com.malog.esiea.monsters.ui.UIActionEnum;
-import com.malog.esiea.monsters.ui.UIState;
-import com.malog.esiea.monsters.ui.actions.UIAction;
+import com.malog.esiea.monsters.view.UIActionEnum;
+import com.malog.esiea.monsters.view.UIState;
+import com.malog.esiea.monsters.view.actions.UIAction;
 
 public class ReplaceMonsterAction extends UIAction {
     private final int monster_index;

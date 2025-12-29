@@ -1,13 +1,12 @@
-package com.malog.esiea.monsters.ui;
+package com.malog.esiea.monsters.view;
 
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
-import com.malog.esiea.monsters.ui.actions.UIAction;
+import com.malog.esiea.monsters.view.actions.UIAction;
 import com.malog.esiea.monsters.game.Team;
 import com.malog.esiea.monsters.game.event.Event;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

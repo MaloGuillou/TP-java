@@ -1,27 +1,26 @@
 package com.malog.esiea.monsters;
 
-import com.malog.esiea.monsters.ui.ConsoleInterface;
-import com.malog.esiea.monsters.ui.actions.GoBackAction;
-import com.malog.esiea.monsters.ui.actions.GoToAction;
-import com.malog.esiea.monsters.ui.actions.NoAction;
-import com.malog.esiea.monsters.ui.actions.UIAction;
-import com.malog.esiea.monsters.ui.UIState;
-import com.malog.esiea.monsters.ui.UserInterface;
+import com.malog.esiea.monsters.view.console.ConsoleInterface;
+import com.malog.esiea.monsters.view.actions.GoBackAction;
+import com.malog.esiea.monsters.view.actions.GoToAction;
+import com.malog.esiea.monsters.view.actions.NoAction;
+import com.malog.esiea.monsters.view.actions.UIAction;
+import com.malog.esiea.monsters.view.UIState;
+import com.malog.esiea.monsters.view.UserInterface;
 import com.malog.esiea.monsters.game.MatchesManager;
 import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
-import com.malog.esiea.monsters.ui.actions.team.GoToModifyMonsterAction;
-import com.malog.esiea.monsters.ui.actions.team.GoToReplaceMonsterAction;
-import com.malog.esiea.monsters.ui.actions.team.ReplaceMonsterAction;
-import com.malog.esiea.monsters.ui.actions.team.monster.GoToModifyAttackMenu;
-import com.malog.esiea.monsters.ui.actions.team.monster.GoToReplaceAttackAction;
-import com.malog.esiea.monsters.ui.actions.team.monster.ReplaceAttackAction;
+import com.malog.esiea.monsters.view.actions.team.GoToModifyMonsterAction;
+import com.malog.esiea.monsters.view.actions.team.GoToReplaceMonsterAction;
+import com.malog.esiea.monsters.view.actions.team.ReplaceMonsterAction;
+import com.malog.esiea.monsters.view.actions.team.monster.GoToModifyAttackMenu;
+import com.malog.esiea.monsters.view.actions.team.monster.GoToReplaceAttackAction;
+import com.malog.esiea.monsters.view.actions.team.monster.ReplaceAttackAction;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
-import java.util.stream.Collectors;
 
 public class ClientApp {
 

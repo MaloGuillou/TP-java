@@ -1,6 +1,5 @@
 package com.malog.esiea.monsters.parsers;
 
-import com.malog.esiea.monsters.exceptions.UnparsableFile;
 import com.malog.esiea.monsters.helpers.StringHelper;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.types.SubType;
@@ -8,12 +7,12 @@ import com.malog.esiea.monsters.monsters.types.Type;
 import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class MonsterParser {
 
-    public static List<MonsterBuilder> parseFile(File file) throws FileNotFoundException {
+    public static List<MonsterBuilder> parseFile(File file) throws IOException {
 
         List<MonsterBuilder> monsters = new ArrayList<>();
         Scanner scanner = new Scanner(file);
@@ -27,7 +26,7 @@ public class MonsterParser {
             String line = StringHelper.cleanString(scanner.nextLine());
             if(line.startsWith("monster")){
                 if(parsing_monsters){
-                    throw new UnparsableFile("File wrongly formatted at line " + line_index);
+                    throw new IOException("File wrongly formatted at line " + line_index);
                 }
                 monster_lines  = new ArrayList<>();
                 parsing_monsters = true;
@@ -43,7 +42,7 @@ public class MonsterParser {
         return monsters;
     }
 
-    private static MonsterBuilder parseMonster(List<String> lines) {
+    private static MonsterBuilder parseMonster(List<String> lines) throws IOException {
         List<String> search_fields = List.of("name", "number", "type", "hp", "speed", "attack", "defense");
 
         ArrayList<String> unknown = new ArrayList<>();
@@ -69,7 +68,7 @@ public class MonsterParser {
                 || !full_found.containsKey("attack_max")
                 || !full_found.containsKey("defense_max")
         ){
-            throw new UnparsableFile("Missing required fields in monster");
+            throw new IOException("Missing required fields in monster");
         }else{
             String name =  full_found.get("name");
             int id =  Integer.parseInt(full_found.get("number"));
@@ -119,7 +118,7 @@ public class MonsterParser {
             }
 
             if (type == null && subType == null) {
-                throw new UnparsableFile("Type or SubType not found");
+                throw new IOException("Type or SubType not found");
             }
 
             TypeStats type_stats = TypeParser.parseType(unknown, type, subType);

@@ -1,7 +1,7 @@
-package com.malog.esiea.monsters.ui.actions;
+package com.malog.esiea.monsters.view.actions;
 
-import com.malog.esiea.monsters.ui.UIActionEnum;
-import com.malog.esiea.monsters.ui.UIState;
+import com.malog.esiea.monsters.view.UIActionEnum;
+import com.malog.esiea.monsters.view.UIState;
 
 public class GoToAction extends UIAction{
     protected final UIState destination;
