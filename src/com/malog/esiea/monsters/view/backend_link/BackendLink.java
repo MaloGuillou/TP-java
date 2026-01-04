@@ -1,4 +1,4 @@
-package com.malog.esiea.monsters.view;
+package com.malog.esiea.monsters.view.backend_link;
 
 import com.malog.esiea.monsters.game.Team;
 
@@ -20,5 +20,4 @@ public abstract class BackendLink {
     public abstract Team replaceMonster(int current_monster_team_index, int new_monster_id);
     public abstract Team modifyMonsterAttacks(int monster_team_index, int current_attack_index, int new_attack_id);
     public abstract Team moveMonster(int first_monster_team_index, int second_monster_team_index);
-
 }

@@ -1,15 +1,8 @@
 package com.malog.esiea.monsters.view.console;
 
-import com.malog.esiea.monsters.monsters.Monster;
-import com.malog.esiea.monsters.view.BackendLink;
+import com.malog.esiea.monsters.view.backend_link.BackendLink;
 import com.malog.esiea.monsters.view.UI;
 import com.malog.esiea.monsters.view.UIState;
-import com.malog.esiea.monsters.view.actions.GoBackAction;
-import com.malog.esiea.monsters.view.actions.GoToAction;
-import com.malog.esiea.monsters.view.actions.NoAction;
-import com.malog.esiea.monsters.view.actions.UIAction;
-import com.malog.esiea.monsters.view.actions.team.monster.GoToModifyAttackMenu;
-import com.malog.esiea.monsters.view.actions.team.monster.GoToReplaceAttackAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,13 +114,13 @@ public class TerminalUserInterface extends UI {
 
     private void renderModifyMonster(){
         String message = "Which monster do you want to modify?";
-        this.current_monster_team_index = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message);
+        this.current_monster_team_index = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message, team);
         this.currentState = UIState.MONSTER_MENU;
     }
 
     private void renderReplaceMonster(){
         String message = "Which monster do you want to replace?";
-        int result1 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message);
+        int result1 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message, team);
         message = "Which monster do you want instead?";
         int result2 = ConsoleHelper.getMonsterMapIdFromUser(scanner, message, monsters);
         team = backendLink.replaceMonster(result1, result2);
@@ -135,9 +128,9 @@ public class TerminalUserInterface extends UI {
 
     private void renderMoveMonster(){
         String message = "Which monster do you want to move?";
-        int result1 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message);
+        int result1 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message, team);
         message = "With which other?";
-        int result2 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message);
+        int result2 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message, team);
 
         team = backendLink.moveMonster(result1, result2);
     }
@@ -147,32 +140,25 @@ public class TerminalUserInterface extends UI {
         System.out.println("---Monster Menu---");
         System.out.println(this.team.getMonster(this.current_monster_team_index));
         System.out.println("What do you want to do?");
-        List<ConsoleChoice>  choices = new ArrayList<>();
+        List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
         choices.add(new ConsoleChoice(1, "Replace attacks"));
-        switch (ConsoleHelper.selectAction(choices).getOptionNumber()) {
+        switch (ConsoleHelper.selectAction(scanner, choices).getOptionNumber()) {
             case -1:
                 this.currentState = UIState.TEAM_MENU;
                 break;
-            case 2:
-
+            case 1:
+                renderModifyAttacks();
+                break;
         }
     }
 
-    private void renderModifyAttacks(Monster monster) {
+    private void renderModifyAttacks() {
         System.out.println("---Monster Menu---");
-        System.out.println(monster);
-        System.out.println("Which attacks do you want to replace?");
-        System.out.println("-1.Go back");
-        for(int i = 1; i <= 4; i++){
-            System.out.println(i + "." + monster.getSpecialAttack(i));
-        }
-        int choice = scanner.nextInt();
-        return switch (choice){
-            case 1,2,3,4 -> new GoToReplaceAttackAction(UIState.MODIFY_ATTACK_MENU, monster, choice);
-            case -1 -> new GoBackAction(UIState.MODIFY_ATTACK_MENU);
-            default -> new NoAction(UIState.MODIFY_ATTACK_MENU);
-        };
+        System.out.println(this.team.getMonster(this.current_monster_team_index));
+        int attackPos = ConsoleHelper.getAttackIdFromUser(scanner, "Which attacks do you want to replace?", this.team.getMonster(this.current_monster_team_index));
+        int newAttackId = ConsoleHelper.getAttackMapIdFromUser(scanner, "Which attack do you want instead?", attacks);
+        team = backendLink.modifyMonsterAttacks(current_monster_team_index, attackPos, newAttackId);
     }
 
     @Override

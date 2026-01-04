@@ -1,10 +1,8 @@
 package com.malog.esiea.monsters.view;
 
 import com.malog.esiea.monsters.game.Team;
-import com.malog.esiea.monsters.monsters.MonsterBuilder;
-import com.malog.esiea.monsters.monsters.attacks.Attack;
+import com.malog.esiea.monsters.view.backend_link.BackendLink;
 
-import java.util.List;
 import java.util.Map;
 
 public abstract class UI implements Runnable {
