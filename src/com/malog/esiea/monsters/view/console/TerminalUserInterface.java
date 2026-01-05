@@ -35,6 +35,7 @@ public class TerminalUserInterface extends UI {
         System.out.println("Hi " + pseudo);
 
         backendLink.sendPseudo(pseudo);
+        this.currentState = UIState.MAIN_MENU;
     }
 
     @Override
@@ -45,7 +46,7 @@ public class TerminalUserInterface extends UI {
         choices.add(new ConsoleChoice(2, "Edit player"));
         choices.add(new ConsoleChoice(3,"Play Match"));
         choices.add(new ConsoleChoice(4,"Settings"));
-        switch(ConsoleHelper.selectAction(choices).getOptionNumber()){
+        switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case 1:
                 this.currentState = UIState.TEAM_MENU;
                 break;
@@ -66,7 +67,7 @@ public class TerminalUserInterface extends UI {
         System.out.println("---Settings Menu---");
         List<ConsoleChoice>  choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
-        switch(ConsoleHelper.selectAction(choices).getOptionNumber()){
+        switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case -1:
                 this.currentState = UIState.MAIN_MENU;
                 break;
@@ -78,7 +79,7 @@ public class TerminalUserInterface extends UI {
         System.out.println("---Player Menu---");
         List<ConsoleChoice>  choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
-        switch(ConsoleHelper.selectAction(choices).getOptionNumber()){
+        switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case -1:
                 this.currentState = UIState.MAIN_MENU;
                 break;
@@ -96,17 +97,17 @@ public class TerminalUserInterface extends UI {
         choices.add(new ConsoleChoice(1, "Modify a monster"));
         choices.add(new ConsoleChoice(2, "Replace a monster"));
         choices.add(new ConsoleChoice(3, "Move a monster"));
-        switch(ConsoleHelper.selectAction(choices).getOptionNumber()){
+        switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case -1:
                 this.currentState = UIState.MAIN_MENU;
                 break;
-            case 2:
+            case 1:
                 renderModifyMonster();
                 break;
-            case 3:
+            case 2:
                 renderReplaceMonster();
                 break;
-            case 4:
+            case 3:
                 renderMoveMonster();
                 break;
         }
@@ -122,7 +123,7 @@ public class TerminalUserInterface extends UI {
         String message = "Which monster do you want to replace?";
         int result1 = ConsoleHelper.getMonsterTeamIdFromUser(scanner, message, team);
         message = "Which monster do you want instead?";
-        int result2 = ConsoleHelper.getMonsterMapIdFromUser(scanner, message, monsters);
+        int result2 = ConsoleHelper.getItemMapIdFromUser(scanner, message, monsters);
         team = backendLink.replaceMonster(result1, result2);
     }
 
@@ -157,7 +158,7 @@ public class TerminalUserInterface extends UI {
         System.out.println("---Monster Menu---");
         System.out.println(this.team.getMonster(this.current_monster_team_index));
         int attackPos = ConsoleHelper.getAttackIdFromUser(scanner, "Which attacks do you want to replace?", this.team.getMonster(this.current_monster_team_index));
-        int newAttackId = ConsoleHelper.getAttackMapIdFromUser(scanner, "Which attack do you want instead?", attacks);
+        int newAttackId = ConsoleHelper.getItemMapIdFromUser(scanner, "Which attack do you want instead?", attacks);
         team = backendLink.modifyMonsterAttacks(current_monster_team_index, attackPos, newAttackId);
     }
 

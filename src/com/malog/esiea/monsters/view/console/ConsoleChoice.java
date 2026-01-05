@@ -1,7 +1,5 @@
 package com.malog.esiea.monsters.view.console;
 
-import com.malog.esiea.monsters.view.actions.UIAction;
-
 public class ConsoleChoice {
     private final int option_number;
     private final String option;

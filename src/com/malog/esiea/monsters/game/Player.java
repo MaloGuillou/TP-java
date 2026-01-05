@@ -5,13 +5,17 @@ import com.malog.esiea.monsters.monsters.attacks.Attack;
 
 public class Player {
     private int active_monster; // 1-6
-    private final String pseudo;
+    private String pseudo;
     private Team team;
 
     public Player(String pseudo){
         this.pseudo = pseudo;
         this.active_monster = 1;
         this.team = new Team();
+    }
+
+    public void setPseudo(String pseudo){
+        this.pseudo = pseudo;
     }
 
     public void set_team(Team team){

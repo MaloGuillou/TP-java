@@ -4,6 +4,7 @@ import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.monsters.types.Type;
 
 public class Attack {
+    private final int id;
     private final String name;
     private final Type type;
     private final int nb_use_max;
@@ -12,18 +13,24 @@ public class Attack {
     private final int miss_probability; // 0: never miss, 100: always miss
 
     public Attack(
+            int id,
             String name,
             Type type,
             int nb_use_max,
             int attack_power,
             int miss_probability
     ) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.nb_use_max = nb_use_max;
         this.nb_use_remaining = nb_use_max;
         this.attack_power = attack_power;
         this.miss_probability = miss_probability;
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public boolean is_same_type_as(Type type){

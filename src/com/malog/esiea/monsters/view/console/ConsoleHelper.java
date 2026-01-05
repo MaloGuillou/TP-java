@@ -2,8 +2,6 @@ package com.malog.esiea.monsters.view.console;
 
 import com.malog.esiea.monsters.game.Team;
 import com.malog.esiea.monsters.monsters.Monster;
-import com.malog.esiea.monsters.view.UIState;
-import com.malog.esiea.monsters.view.actions.team.monster.GoToReplaceAttackAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,41 +98,24 @@ public class ConsoleHelper {
     public static int getMonsterTeamIdFromUser(Scanner scanner, String message, Team team) {
         System.out.println(message);
         List<ConsoleChoice> choices = new ArrayList<>();
-        // Assumes a team size of 4
-        for (int i = 1; i <= 4; i++) {
-            choices.add(new ConsoleChoice(i, i + ". " + team.getMonster(i)));
+        for (int i = 1; i <= 6; i++) {
+            choices.add(new ConsoleChoice(i, team.getMonster(i) + ""));
         }
         return selectAction(scanner, choices).getOptionNumber();
     }
 
     /**
-     * Prompts the user to select a monster from a generic map of monsters.
+     * Prompts the user to select an item from a generic map(Integer, String).
      * @param scanner The Scanner used for input.
      * @param message A custom header message.
-     * @param monsters A Map where the key is the ID and the value is the monster's name.
+     * @param map A Map where the key is the ID and the value is the printable title.
      * @return The ID of the selected monster from the map.
      */
-    public static int getMonsterMapIdFromUser(Scanner scanner, String message, Map<Integer, String> monsters) {
+    public static int getItemMapIdFromUser(Scanner scanner, String message, Map<Integer, String> map) {
         List<ConsoleChoice> choices = new ArrayList<>();
         System.out.println(message);
-        for (int i : monsters.keySet()) {
-            choices.add(new ConsoleChoice(i, i + ". " + monsters.get(i)));
-        }
-        return selectAction(scanner, choices).getOptionNumber();
-    }
-
-    /**
-     * Prompts the user to select a monster from a generic map of monsters.
-     * @param scanner The Scanner used for input.
-     * @param message A custom header message.
-     * @param attacks A Map where the key is the ID and the value is the monster's name.
-     * @return The ID of the selected monster from the map.
-     */
-    public static int getAttackMapIdFromUser(Scanner scanner, String message, Map<Integer, String> attacks) {
-        List<ConsoleChoice> choices = new ArrayList<>();
-        System.out.println(message);
-        for (int i : attacks.keySet()) {
-            choices.add(new ConsoleChoice(i, i + ". " + attacks.get(i)));
+        for (int i : map.keySet()) {
+            choices.add(new ConsoleChoice(i, map.get(i)));
         }
         return selectAction(scanner, choices).getOptionNumber();
     }
@@ -148,7 +129,7 @@ public class ConsoleHelper {
      */
     public static int getAttackIdFromUser(Scanner scanner, String message, Monster monster) {
         List<ConsoleChoice> choices = new ArrayList<>();
-        // Assumes monsters have 4 special attack slots
+        // Assumes monsters have 4 attack slots
         for (int i = 1; i <= 4; i++) {
             choices.add(new ConsoleChoice(i, i + "." + monster.getSpecialAttack(i)));
         }

@@ -6,13 +6,8 @@ import java.util.Map;
 import java.util.UUID;
 
 public abstract class BackendLink {
-    protected final UUID id;
+    protected BackendLink() {}
 
-    protected BackendLink() {
-        this.id = getId();
-    }
-
-    abstract UUID getId();
     public abstract void sendPseudo(String pseudo);
     public abstract Team getTeam();
     public abstract Map<Integer, String> getMonsters();

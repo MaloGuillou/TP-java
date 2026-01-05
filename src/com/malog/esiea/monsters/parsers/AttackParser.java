@@ -37,14 +37,13 @@ public class AttackParser {
     }
 
     private static Attack parseAttack(List<String> lines) throws IOException {
-        List<String> search_fields = List.of("name", "type", "power", "nbuse", "fail");
-
-        ArrayList<String> unknown = new ArrayList<>();
+        List<String> search_fields = List.of("id", "name", "type", "power", "nbuse", "fail");
 
         Map<String, String> full_found = StringHelper.searchInStrings(lines, search_fields);
 
         if(
                 full_found.isEmpty()
+                        || !full_found.containsKey("id")
                         || !full_found.containsKey("name")
                         || !full_found.containsKey("type")
                         || !full_found.containsKey("power")
@@ -53,6 +52,7 @@ public class AttackParser {
         ){
             throw new IOException("Missing required parameters in attack");
         }else{
+            int id = Integer.parseInt(full_found.get("id"));
             String name =  full_found.get("name");
             int nb_use_max = Integer.parseInt(full_found.get("nbuse"));
             int attack_power = Integer.parseInt(full_found.get("power"));
@@ -80,6 +80,7 @@ public class AttackParser {
             }
 
             return new Attack(
+                    id,
                     name,
                     type,
                     nb_use_max,
