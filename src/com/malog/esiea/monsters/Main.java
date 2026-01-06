@@ -1,6 +1,5 @@
 package com.malog.esiea.monsters;
 
-import com.malog.esiea.monsters.ClientApp;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 import com.malog.esiea.monsters.parsers.AttackParser;
@@ -16,7 +15,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         File monsters_file = new File("resources/monsters.txt");
         File attacks_file = new File("resources/attacks.txt");
 
