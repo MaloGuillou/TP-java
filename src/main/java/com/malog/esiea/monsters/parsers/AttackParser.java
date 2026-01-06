@@ -7,10 +7,11 @@ import com.malog.esiea.monsters.monsters.types.Type;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public class AttackParser {
-    public static List<Attack> parseFile(File file) throws IOException {
+    public static List<Attack> parse(InputStream file) throws IOException {
 
         List<Attack> attacks = new ArrayList<>();
         Scanner scanner = new Scanner(file);

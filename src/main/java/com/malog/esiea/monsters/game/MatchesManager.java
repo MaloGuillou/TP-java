@@ -37,14 +37,12 @@ public class MatchesManager {
     public List<Event> setPlayerAction(UUID matchId, Player player, UserAction action){
         Match match = matches.get(matchId);
         match.set_player_action(action, player);
-        try {
-            while(!match.has_round_played()){
-                    wait(10);
-            }
-        }catch (InterruptedException e){
+        try{
+            return match.waitForRoundEvents();
+        } catch (InterruptedException e) {
             e.printStackTrace();
+            return null;
         }
-        return match.getLast_round_events();
     }
 
     public void setAiAction(UUID matchId, Player player, UserAction action){
@@ -54,7 +52,6 @@ public class MatchesManager {
 
     public boolean isMatchFinished(UUID match_id){
         Match match = matches.get(match_id);
-        System.out.println("Is match finito? " + match.isMatchFinished());
         return match.isMatchFinished();
     }
 }

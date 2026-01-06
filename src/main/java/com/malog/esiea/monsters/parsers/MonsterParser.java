@@ -8,11 +8,12 @@ import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public class MonsterParser {
 
-    public static List<MonsterBuilder> parseFile(File file) throws IOException {
+    public static List<MonsterBuilder> parse(InputStream file) throws IOException {
 
         List<MonsterBuilder> monsters = new ArrayList<>();
         Scanner scanner = new Scanner(file);

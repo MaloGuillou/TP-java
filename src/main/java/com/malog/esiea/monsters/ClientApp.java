@@ -108,7 +108,7 @@ public class ClientApp {
             if(!matchesManager.isMatchFinished(match_id) && AI.get_active_monster().getHP() <= 0) {
                 for(int i = 0; i < AI.get_team().get_team_size(); i++ ) {
                     if(AI.get_team().getMonster(i) != null && AI.get_team().getMonster(i).getHP() > 0) {
-                        AI.change_active_monster(i);
+                        events.add(AI.change_active_monster(i));
                     }
                 }
             }

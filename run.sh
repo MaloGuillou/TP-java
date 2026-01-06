@@ -1,10 +1,15 @@
 #!/bin/bash
 
-mkdir -p out
+rm -rf out
+mkdir out
 
-find src -name "*.java" > sources.txt
+find src/main/java -name "*.java" > sources.txt
 javac -d out @sources.txt
 
-java -cp out:resources com.malog.esiea.monsters.Main
+cp -r src/main/resources/* out/
+
+if [ $? -eq 0 ]; then
+    java -cp out com.malog.esiea.monsters.Main
+fi
 
 rm sources.txt

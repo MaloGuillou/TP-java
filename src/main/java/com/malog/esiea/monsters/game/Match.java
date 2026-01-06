@@ -32,7 +32,7 @@ public class Match {
         player_2_action = null;
     }
 
-    public void set_player_action(UserAction action, Player player){
+    public synchronized void set_player_action(UserAction action, Player player){
         if(player_1 == player){
             player_1_action = action;
         } else if (player_2 == player) {
@@ -42,7 +42,15 @@ public class Match {
         }
         if(is_ready_to_play_round()){
             play_round();
+            this.notifyAll();
         }
+    }
+
+    public synchronized List<Event> waitForRoundEvents() throws InterruptedException {
+        while (!has_round_played()) {
+            this.wait();
+        }
+        return getLast_round_events();
     }
 
     public boolean isMatchFinished(){
@@ -90,7 +98,7 @@ public class Match {
 
         //Update states start
         Monster monster_1 = player_1.get_team().getMonster(player_1.get_active_monster_index());
-        Monster monster_2 = player_1.get_team().getMonster(player_1.get_active_monster_index());
+        Monster monster_2 = player_2.get_team().getMonster(player_2.get_active_monster_index());
         monster_1.start_of_round(monster_2, terrain);
         monster_2.start_of_round(monster_1, terrain);
 
@@ -110,7 +118,7 @@ public class Match {
 
         //Update states end
         monster_1 = player_1.get_team().getMonster(player_1.get_active_monster_index());
-        monster_2 = player_1.get_team().getMonster(player_1.get_active_monster_index());
+        monster_2 = player_2.get_team().getMonster(player_2.get_active_monster_index());
         monster_1.end_of_round(monster_2, terrain);
         monster_2.end_of_round(monster_1, terrain);
     }

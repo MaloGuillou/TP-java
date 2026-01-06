@@ -7,24 +7,23 @@ import com.malog.esiea.monsters.parsers.MonsterParser;
 import com.malog.esiea.monsters.view.backend_link.ClientBackend;
 import com.malog.esiea.monsters.view.console.TerminalUserInterface;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        File monsters_file = new File("resources/monsters.txt");
-        File attacks_file = new File("resources/attacks.txt");
+        InputStream monsterStream = Main.class.getResourceAsStream("/monsters.txt");
+        InputStream attackStream = Main.class.getResourceAsStream("/attacks.txt");
 
         Map<Integer, MonsterBuilder> monsters;
         Map<Integer, Attack> attacks;
 
         try {
-            monsters = MonsterParser.parseFile(monsters_file).stream().collect(Collectors.toMap(MonsterBuilder::getId, Function.identity()));
-            attacks = AttackParser.parseFile(attacks_file).stream().collect(Collectors.toMap(Attack::getId, Function.identity()));
+            monsters = MonsterParser.parse(monsterStream).stream().collect(Collectors.toMap(MonsterBuilder::getId, Function.identity()));
+            attacks = AttackParser.parse(attackStream).stream().collect(Collectors.toMap(Attack::getId, Function.identity()));
         } catch (IOException e) {
             System.out.println("Error reading file");
             System.out.println(e.getMessage());
