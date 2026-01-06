@@ -11,6 +11,7 @@ import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Monster {
     private final String name;
@@ -24,10 +25,8 @@ public class Monster {
     private int hp;
     private State state;
 
-    private Attack attack_1;
-    private Attack attack_2;
-    private Attack attack_3;
-    private Attack attack_4;
+    private Attack[] attacks;
+    private final int NB_ATTACKS = 4;
 
     private ArrayList<Class<? extends State>> previous_states;
 
@@ -48,10 +47,7 @@ public class Monster {
 
         this.hp = hp_max;
 
-        this.attack_1 = null;
-        this.attack_2 = null;
-        this.attack_3 = null;
-        this.attack_4 = null;
+        this.attacks = new Attack[NB_ATTACKS];
 
         this.previous_states = new ArrayList<>();
     }
@@ -89,13 +85,13 @@ public class Monster {
 
     public ArrayList<Event> use_attack(Monster opponent, Terrain terrain, int attack_number){
         ArrayList<Event> events = new ArrayList<>();
-        Attack attack = switch (attack_number) {
-            case 1 -> attack_1;
-            case 2 -> attack_2;
-            case 3 -> attack_3;
-            case 4 -> attack_4;
-            default -> throw new AssertionError();
-        };
+
+        if(!is_pos_valid(attack_number)){
+            throw new NullPointerException();
+        }
+        Attack attack = attacks[attack_number];
+
+        //TODO attack miss cause of paralysis
         if(attack.has_attack_miss()){
             events.add(new AttackMissedEvent(
                     opponent,
@@ -131,8 +127,17 @@ public class Monster {
         return this.type.getType();
     }
 
-    public Event update_state(Monster opponent, Terrain terrain){
-        return this.state.update_state(this, opponent, terrain);
+    public List<Event> start_of_round(Monster opponent, Terrain terrain){
+        ArrayList<Event> events = new ArrayList<>();
+        if(this.state != null){
+            events.add(this.state.update_state(this, opponent, terrain));
+        }
+        events.addAll(this.type.start_of_round_trigger(this,opponent,terrain));
+        return events;
+    }
+
+    public List<Event> end_of_round(Monster opponent, Terrain terrain){
+        return new ArrayList<>(this.type.end_of_round_trigger(this, opponent, terrain));
     }
 
     public boolean is_faster(Monster opponent){
@@ -145,21 +150,13 @@ public class Monster {
     }
 
     public void change_attack(Attack new_attack, int old_attack_pos) {
-        switch(old_attack_pos){
-            case 1:
-                this.attack_1 = new_attack;
-                break;
-            case 2:
-                this.attack_2 = new_attack;
-                break;
-            case 3:
-                this.attack_3 = new_attack;
-                break;
-            case 4:
-                this.attack_4 = new_attack;
-                break;
-            default:
-                break;
+        if(new_attack.getType() != this.type.getType()  && new_attack.getType() != Type.NORMAL){
+            return;
+        }
+        if(is_pos_valid(old_attack_pos)) {
+            attacks[old_attack_pos] = new_attack;
+        }else {
+            throw new AssertionError();
         }
     }
 
@@ -174,17 +171,30 @@ public class Monster {
         return this.hp_max;
     }
 
+    public int getHP(){
+        return this.hp;
+    }
+
     public String getName(){
         return this.name;
     }
 
     public Attack getSpecialAttack(int pos){
-        return switch (pos) {
-            case 1 -> attack_1;
-            case 2 -> attack_2;
-            case 3 -> attack_3;
-            case 4 -> attack_4;
-            default -> throw new AssertionError();
-        };
+        if(is_pos_valid(pos)){
+            return attacks[pos];
+        }
+        throw new AssertionError();
+    }
+
+    public Attack[] getAttacks(){
+        return this.attacks;
+    }
+
+    public int get_number_of_attacks(){
+        return 4;
+    }
+
+    private boolean is_pos_valid(int pos){
+        return pos >= 0 && pos < NB_ATTACKS;
     }
 }

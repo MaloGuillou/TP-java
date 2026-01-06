@@ -1,12 +1,21 @@
 package com.malog.esiea.monsters.view.console;
 
+import com.malog.esiea.monsters.game.Player;
+import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.user_actions.AttackAction;
+import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
+import com.malog.esiea.monsters.monsters.Monster;
+import com.malog.esiea.monsters.monsters.attacks.Attack;
+import com.malog.esiea.monsters.terrains.Terrain;
 import com.malog.esiea.monsters.view.backend_link.BackendLink;
 import com.malog.esiea.monsters.view.UI;
 import com.malog.esiea.monsters.view.UIState;
+import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class TerminalUserInterface extends UI {
 
@@ -54,7 +63,7 @@ public class TerminalUserInterface extends UI {
                 this.currentState = UIState.PLAYER_MENU;
                 break;
             case 3:
-                this.currentState = UIState.MATCH_CHOICE_MENU;
+                this.currentState = UIState.MATCH_TYPE_CHOICE_MENU;
                 break;
             case 4:
                 this.currentState = UIState.SETTINGS;
@@ -164,11 +173,196 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchSelectionMenu() {
+        System.out.println("---Match Selection Menu---");
+        System.out.println("What do you want to do?");
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(1, "Matchmaking"));
+        choices.add(new ConsoleChoice(2, "Against AI"));
 
+        switch (ConsoleHelper.selectAction(scanner, choices).getOptionNumber()) {
+            case -1:
+                this.currentState = UIState.MAIN_MENU;
+                break;
+            case 1:
+                if(backendLink.startMatchMaking()){
+                    this.currentState = UIState.MATCHMAKING_MENU;
+                }else{
+                    System.out.println("!!!Matchmaking failed, check internet connection!!!");
+                }
+                break;
+            case 2:
+                backendLink.startAIMatch();
+                this.currentState = UIState.MATCH_MENU;
+                break;
+        }
+    }
+
+    //TODO matchmaking
+    @Override
+    protected void renderMatchMakingMenu() {
+        System.out.println("---Match Making Menu---");
+
+        int i = 0;
+        while (!backendLink.isOpponentFound()) {
+            i = ++i %4;
+            System.out.print("Searching for opponents");
+            for (int j =0; j < i; j++){
+                System.out.print(".");
+            }
+            System.out.println();
+            System.out.println("Press Esc to cancel");
+            try {
+                wait(500);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     protected void renderMatchMenu() {
+        display_match_menu_header();
 
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(1, "Attack"));
+        choices.add(new ConsoleChoice(2, "Change monster"));
+        choices.add(new ConsoleChoice(3, "Use object"));
+
+        switch (ConsoleHelper.selectAction(scanner, choices).getOptionNumber()) {
+            case 1:
+                this.currentState = UIState.MATCH_ATTACK_CHOICE_MENU;
+                break;
+            case 2:
+                this.currentState = UIState.MATCH_CHANGE_MONSTER_MENU;
+                break;
+            case 3:
+                this.currentState = UIState.MATCH_ITEM_CHOICE_MENU;
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void display_match_menu_header() {
+        System.out.println("---Match Menu---");
+        MatchState state = backendLink.getMatchState();
+        Player player_1 = state.getPlayer_1();
+        this.team = player_1.get_team();
+        this.current_monster_team_index = player_1.get_active_monster_index();
+        Player player_2 = state.getPlayer_2();
+        Terrain terrain = state.getTerrain();
+
+        display_player_state(player_1);
+        System.out.println("\n---\n");
+        display_player_state(player_2);
+        System.out.println("\n---\n");
+        display_terrain_state(terrain);
+        System.out.println("\n---\n");
+    }
+
+    private void display_player_state(Player player) {
+        System.out.println(player.toString());
+        Monster active_monster_player = player.get_active_monster();
+        System.out.println(active_monster_player);
+        System.out.println(active_monster_player.getHP());
+        System.out.println(active_monster_player.get_current_state() == null ? "" : active_monster_player.get_current_state().toString());
+    }
+
+    private void display_terrain_state(Terrain terrain) {
+        if(terrain.getState() != null){
+            System.out.println("Terrain is under state : " + terrain.getState().toString());
+        }
+    }
+
+    @Override
+    protected void renderMatchAttackChoiceMenu() {
+        display_match_menu_header();
+
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(5, "Attack bare hands"));
+        Attack[] attacks = team.getMonster(current_monster_team_index).getAttacks();
+        for(int i = 0; i < attacks.length; i++){
+            String attack_details = attacks[i].toString() + " " + attacks[i].getType() + " " + attacks[i].getNb_use_remaining() + "/" + attacks[i].getNb_use_max();
+            choices.add(new ConsoleChoice(i, attack_details));
+        }
+        int choice = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+        switch (choice) {
+            case -1:
+                this.currentState = UIState.MATCH_MENU;
+                break;
+            case 0,1,2,3:
+                System.out.println("---Waiting for opponent---");
+                events = backendLink.sendUserAction(new AttackAction(choice));
+                this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
+                break;
+            case 5:
+                System.out.println("---Waiting for opponent---");
+                events = backendLink.sendUserAction(new AttackAction());
+                this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
+                break;
+
+        }
+    }
+
+    @Override
+    protected void renderMatchItemChoiceMenu() {
+        display_match_menu_header();
+        //TODO
+        this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
+    }
+
+    @Override
+    protected void renderMatchChangeMonsterMenu() {
+        display_match_menu_header();
+
+        int choice = ConsoleHelper.getAliveMonsterTeamIdWithGoBackFromUser(scanner, "Select the monster you want", team);
+        if(choice == -1){
+            this.currentState = UIState.MATCH_MENU;
+            return;
+        }
+
+        this.current_monster_team_index = choice;
+        backendLink.sendUserAction(new ChangeMonsterAction(choice));
+        this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
+    }
+
+    @Override
+    protected void renderMatchEventDisplayMenu() {
+        for (Event e : events) {
+            System.out.println(e.toString());
+        }
+        //check if match finito
+        if (backendLink.isMatchFinished()){
+            this.currentState = UIState.MAIN_MENU;
+            backendLink.endMatch();
+            return;
+        }
+
+        MatchState state = backendLink.getMatchState();
+        Player player_1 = state.getPlayer_1();
+        this.team = player_1.get_team();
+        this.current_monster_team_index = player_1.get_active_monster_index();
+
+        //check if current monster is ko and should be changed
+        if(team.getMonster(current_monster_team_index).getHP() <= 0){
+            this.currentState = UIState.MATCH_CHANGE_MONSTER_FORCED_MENU;
+            return;
+        }
+
+        this.currentState = UIState.MATCH_MENU;
+    }
+
+    @Override
+    protected void renderMatchChangeMonsterForcedMenu() {
+        System.out.println("---Change Monster Menu---");
+
+        int choice = ConsoleHelper.getAliveMonsterTeamIdFromUser(scanner, "Your current monster is ko, select another one: ", team);
+        this.current_monster_team_index = choice;
+        this.backendLink.sendUserAction(new ChangeMonsterAction(choice));
+
+        this.currentState = UIState.MATCH_MENU;
     }
 }

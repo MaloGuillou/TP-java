@@ -31,4 +31,9 @@ public class FloodedState extends TerrainState {
         int rnd = Randoms.get_random_int_in_range(1, 100);
         return rnd < this.falling_probability;
     }
+
+    @Override
+    public String toString(){
+        return "Flooded";
+    }
 }

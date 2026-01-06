@@ -1,6 +1,8 @@
 package com.malog.esiea.monsters.monsters.types.stats;
 
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.event.MonsterHealedEvent;
+import com.malog.esiea.monsters.game.event.StateEndedEvent;
 import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.types.Type;
@@ -23,12 +25,14 @@ public class GrassStats extends NatureStats{
 
     @Override
     public ArrayList<Event> special_trigger(Monster self, Monster opponent, Terrain terrain) {
+        ArrayList<Event> events = new ArrayList<>();
         if(self.get_current_state() != null){
             if(this.will_it_heal()){
+                events.add(new StateEndedEvent(self.get_current_state(), self));
                 self.remove_state();
             }
         }
-        return null;
+        return events;
     }
 
     @Override

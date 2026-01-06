@@ -24,4 +24,9 @@ public class AttackLandedEvent extends Event {
     public int getDamage(){
         return damage;
     }
+
+    @Override
+    public String toString() {
+        return monster_that_took_damage.toString() + " received " + damage + " damage points from " + (attack_that_landed == null ? "a bare hand attack" : attack_that_landed.toString()) + (critical !=null ? critical ? " it's super effective" : " it's not very effective" : "");
+    }
 }

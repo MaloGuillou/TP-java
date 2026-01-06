@@ -11,4 +11,9 @@ public class NewStateAppliedEvent extends Event {
         this.state_that_started = state_that_started;
         this.monster = monster;
     }
+
+    @Override
+    public String toString() {
+        return monster.toString() + " is now suffering from " + state_that_started.toString();
+    }
 }

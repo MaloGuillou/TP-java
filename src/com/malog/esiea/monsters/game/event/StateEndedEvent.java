@@ -11,4 +11,9 @@ public class StateEndedEvent extends Event {
         this.state_that_ended = state_that_ended;
         this.monster = monster;
     }
+
+    @Override
+    public String toString() {
+        return monster.toString() + " no more suffer from " + state_that_ended.toString();
+    }
 }

@@ -16,4 +16,9 @@ public class BurningState extends MonsterState{
         }
         return null;
     }
+
+    @Override
+    public String toString(){
+        return "Burning";
+    }
 }

@@ -1,8 +1,11 @@
 package com.malog.esiea.monsters.view;
 
 import com.malog.esiea.monsters.game.Team;
+import com.malog.esiea.monsters.game.event.Event;
 import com.malog.esiea.monsters.view.backend_link.BackendLink;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public abstract class UI implements Runnable {
@@ -15,6 +18,8 @@ public abstract class UI implements Runnable {
     protected final Map<Integer, String> monsters;
     protected final Map<Integer, String> attacks;
 
+    protected List<Event> events;
+
     public UI(BackendLink backendLink) {
         this.backendLink = backendLink;
 
@@ -24,6 +29,8 @@ public abstract class UI implements Runnable {
         current_monster_team_index = 1;
         this.monsters = backendLink.getMonsters();
         this.attacks = backendLink.getAttacks();
+
+        this.events = new ArrayList<>();
     }
 
     @Override
@@ -33,7 +40,7 @@ public abstract class UI implements Runnable {
         }
     }
 
-    private void render(){
+    private void render() {
         switch (currentState){
             case INIT_MENU -> renderInitMenu();
             case MAIN_MENU -> renderMainMenu();
@@ -41,17 +48,33 @@ public abstract class UI implements Runnable {
             case PLAYER_MENU -> renderPlayerMenu();
             case TEAM_MENU -> renderTeamMenu();
             case MONSTER_MENU -> renderMonsterMenu();
-            case MATCH_CHOICE_MENU -> renderMatchSelectionMenu();
+            case MATCH_TYPE_CHOICE_MENU -> renderMatchSelectionMenu();
+            case MATCHMAKING_MENU ->  renderMatchMakingMenu();
             case MATCH_MENU -> renderMatchMenu();
+            case MATCH_ATTACK_CHOICE_MENU -> renderMatchAttackChoiceMenu();
+            case MATCH_ITEM_CHOICE_MENU -> renderMatchItemChoiceMenu();
+            case MATCH_CHANGE_MONSTER_MENU -> renderMatchChangeMonsterMenu();
+            case MATCH_EVENT_DISPLAY_MENU -> renderMatchEventDisplayMenu();
+            case MATCH_CHANGE_MONSTER_FORCED_MENU -> renderMatchChangeMonsterForcedMenu();
         }
     }
 
     protected abstract void renderInitMenu();
     protected abstract void renderMainMenu();
     protected abstract void renderSettingsMenu();
+
     protected abstract void renderPlayerMenu();
     protected abstract void renderTeamMenu();
     protected abstract void renderMonsterMenu();
+
     protected abstract void renderMatchSelectionMenu();
+    protected abstract void renderMatchMakingMenu();
+
     protected abstract void renderMatchMenu();
+    protected abstract void renderMatchAttackChoiceMenu();
+    protected abstract void renderMatchItemChoiceMenu();
+    protected abstract void renderMatchChangeMonsterMenu();
+    protected abstract void renderMatchEventDisplayMenu();
+    protected abstract void renderMatchChangeMonsterForcedMenu();
+
 }

@@ -3,10 +3,7 @@ package com.malog.esiea.monsters.view.console;
 import com.malog.esiea.monsters.game.Team;
 import com.malog.esiea.monsters.monsters.Monster;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Utility class to manage user interactions via the standard console.
@@ -97,11 +94,38 @@ public class ConsoleHelper {
      */
     public static int getMonsterTeamIdFromUser(Scanner scanner, String message, Team team) {
         System.out.println(message);
+
         List<ConsoleChoice> choices = new ArrayList<>();
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 0; i < team.get_team_size(); i++) {
             choices.add(new ConsoleChoice(i, team.getMonster(i) + ""));
         }
         return selectAction(scanner, choices).getOptionNumber();
+    }
+
+
+    public static int getAliveMonsterTeamIdFromUser(Scanner scanner, String message, Team team) {
+        System.out.println(message);
+
+        List<ConsoleChoice> choices = new ArrayList<>();
+        for(int i = 0; i < team.get_team_size(); i++) {
+            if(team.getMonster(i).getHP() > 0){
+                choices.add(new ConsoleChoice(i, team.getMonster(i).getName()));
+            }
+        }
+        return ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+    }
+
+    public static int getAliveMonsterTeamIdWithGoBackFromUser(Scanner scanner, String message, Team team) {
+        System.out.println(message);
+
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        for(int i = 0; i < team.get_team_size(); i++) {
+            if(team.getMonster(i).getHP() > 0){
+                choices.add(new ConsoleChoice(i, team.getMonster(i).getName()));
+            }
+        }
+        return ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
     }
 
     /**
@@ -129,8 +153,7 @@ public class ConsoleHelper {
      */
     public static int getAttackIdFromUser(Scanner scanner, String message, Monster monster) {
         List<ConsoleChoice> choices = new ArrayList<>();
-        // Assumes monsters have 4 attack slots
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 0; i < monster.get_number_of_attacks(); i++) {
             choices.add(new ConsoleChoice(i, i + "." + monster.getSpecialAttack(i)));
         }
         System.out.println(message);

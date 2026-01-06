@@ -15,7 +15,7 @@ public class TypeParser {
             case ELECTRIC -> {
                 HashMap<String, String> found = (HashMap<String, String>) StringHelper.searchInStrings(lines, List.of("paralysis"));
                 if(!found.containsKey("paralysis")){
-                    yield null;
+                    throw new IllegalArgumentException("Missing paralysis");
                 }
                 int paralysis_probability = (int) (Float.parseFloat(found.get("paralysis")) * 100);
                 yield new ElectricStats(type, paralysis_probability);
@@ -23,7 +23,7 @@ public class TypeParser {
             case FIRE -> {
                 HashMap<String, String> found = (HashMap<String, String>) StringHelper.searchInStrings(lines, List.of("burn"));
                 if(!found.containsKey("burn")){
-                    yield null;
+                    throw new IllegalArgumentException("Missing burn");
                 }
                 int fire_probability = (int) (Float.parseFloat(found.get("burn")) * 100);
                 yield new FireStats(type, fire_probability);
@@ -32,7 +32,7 @@ public class TypeParser {
                 case Grass -> {
                     HashMap<String, String> found = (HashMap<String, String>) StringHelper.searchInStrings(lines, List.of("heal"));
                     if(!found.containsKey("heal")){
-                        yield null;
+                        throw new IllegalArgumentException("Missing heal");
                     }
                     int heal_probability = (int) (Float.parseFloat(found.get("heal")) * 100);
                     yield new GrassStats(type, heal_probability);
@@ -40,15 +40,15 @@ public class TypeParser {
                 case Insect -> new InsectStats(type);
             };
             case WATER -> {
-                HashMap<String, String> found = (HashMap<String, String>) StringHelper.searchInStrings(lines, List.of("heal", "fall"));
-                if(!found.containsKey("flood") || !found.containsKey("falling")){
-                    yield null;
+                HashMap<String, String> found = (HashMap<String, String>) StringHelper.searchInStrings(lines, List.of("flood", "fall"));
+                if(!found.containsKey("flood") || !found.containsKey("fall")){
+                    throw new IllegalArgumentException("Missing flood and/or fall");
                 }
                 int flooding_probability = (int) (Float.parseFloat(found.get("flood")) * 100);
                 int falling_probability = (int) (Float.parseFloat(found.get("fall")) * 100);
                 yield new WaterStats(type, flooding_probability, falling_probability);
             }
-            case NORMAL -> null;
+            case NORMAL -> new NormalStats();
         };
     }
 }

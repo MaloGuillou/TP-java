@@ -17,4 +17,9 @@ public class PoisonState extends MonsterState{
 
         return null;
     }
+
+    @Override
+    public String toString(){
+        return "Poison";
+    }
 }

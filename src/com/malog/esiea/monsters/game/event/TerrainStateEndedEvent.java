@@ -11,4 +11,9 @@ public class TerrainStateEndedEvent extends Event {
         this.state_that_ended = state_that_ended;
         this.terrain = terrain;
     }
+
+    @Override
+    public String toString() {
+        return "The terrain is no more in state " + state_that_ended.toString();
+    }
 }

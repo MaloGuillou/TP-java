@@ -25,4 +25,9 @@ public class UndergroundState extends MonsterState {
         time_spent++;
         return null;
     }
+
+    @Override
+    public String toString(){
+        return "Underground";
+    }
 }

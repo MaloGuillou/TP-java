@@ -1,17 +1,15 @@
 package com.malog.esiea.monsters.monsters.types.stats;
 
 import com.malog.esiea.monsters.game.event.Event;
-import com.malog.esiea.monsters.game.event.MonsterHealedEvent;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.types.Type;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
 
-public class NatureStats extends TypeStats{
-
-    public NatureStats(Type type) {
-        super(type);
+public class NormalStats extends TypeStats{
+    public NormalStats() {
+        super(Type.NORMAL);
     }
 
     @Override
@@ -21,12 +19,7 @@ public class NatureStats extends TypeStats{
 
     @Override
     public ArrayList<Event> start_of_round_trigger(Monster self, Monster opponent, Terrain terrain) {
-        int heal_amount = self.getMaxHP()/20 == 0 ? 1 : self.getMaxHP()/20;
-        self.heal(heal_amount);
-
-        ArrayList<Event> events = new ArrayList<>();
-        events.add(new MonsterHealedEvent(self, heal_amount));
-        return events;
+        return new ArrayList<>();
     }
 
     @Override

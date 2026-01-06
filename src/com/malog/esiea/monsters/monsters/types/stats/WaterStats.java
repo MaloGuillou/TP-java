@@ -38,12 +38,12 @@ public class WaterStats extends TypeStats{
 
     @Override
     public ArrayList<Event> start_of_round_trigger(Monster self, Monster opponent, Terrain terrain) {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
     public ArrayList<Event> end_of_round_trigger(Monster self, Monster opponent, Terrain terrain) {
-        return null;
+        return new ArrayList<>();
     }
 
     private boolean will_it_flood(){

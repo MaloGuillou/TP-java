@@ -3,19 +3,24 @@ package com.malog.esiea.monsters;
 import com.malog.esiea.monsters.game.MatchesManager;
 import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.game.Team;
+import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.user_actions.AttackAction;
+import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
+import com.malog.esiea.monsters.game.user_actions.UserAction;
+import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
+import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.stream.Collectors.toMap;
 
 public class ClientApp {
 
     private final Player player;
+    private Player AI;
     private final Map<Integer, MonsterBuilder> monsters;
     private final Map<Integer, Attack> attacks;
     private final MatchesManager matchesManager;
@@ -26,6 +31,7 @@ public class ClientApp {
         this.attacks = attacks;
         this.matchesManager = new MatchesManager();
         this.player = new Player("");
+        this.player.randomTeam(monsters, attacks);
     }
 
     //Global
@@ -64,5 +70,79 @@ public class ClientApp {
     public Team moveMonster(int first_monster_team_index, int second_monster_team_index) {
         this.player.get_team().switch_monsters(first_monster_team_index, second_monster_team_index);
         return this.player.get_team();
+    }
+
+
+    //Match related
+    public UUID startAIMatch() {
+        AI = new Player("AI");
+        AI.randomTeam(monsters, attacks);
+        return matchesManager.new_match(player, AI);
+    }
+
+    public boolean startMatchMaking() {
+        return false; // TODO;
+    }
+
+    public void endMatch(UUID matchId) {
+        if(this.AI != null) {
+            this.AI = null;
+        }
+        matchesManager.finishMatch(matchId);
+    }
+
+    public boolean isMatchFinished(UUID match_id) {
+        return matchesManager.isMatchFinished(match_id);
+    }
+
+    public MatchState getMatchState(UUID match_id) {
+        return matchesManager.getMatchState(match_id);
+    }
+
+    public List<Event> handleUserAction(UUID match_id, UserAction action) {
+        if(AI != null) {
+            matchesManager.setAiAction(match_id, AI, AIChooseAction());
+        }
+        List<Event> events =  matchesManager.setPlayerAction(match_id, player, action);
+        if(AI != null) {
+            if(!matchesManager.isMatchFinished(match_id) && AI.get_active_monster().getHP() <= 0) {
+                for(int i = 0; i < AI.get_team().get_team_size(); i++ ) {
+                    if(AI.get_team().getMonster(i) != null && AI.get_team().getMonster(i).getHP() > 0) {
+                        AI.change_active_monster(i);
+                    }
+                }
+            }
+        }
+        return events;
+    }
+
+    private UserAction AIChooseAction() {
+        UserAction action = null;
+        while(action == null){
+            int choice = Randoms.get_random_int_in_range(0, 6);
+            switch(choice) {
+                //Special attack
+                case 0,1,2,3:
+                    action = new AttackAction(choice);
+                    break;
+                //Bare hands
+                case 5:
+                    action = new AttackAction();
+                    break;
+                //Change active
+                case 6:
+                    List<Integer> possible_monsters = new ArrayList<>();
+                    for(int i = 0; i < AI.get_team().get_team_size(); i++){
+                        if(AI.get_team().getMonster(i) != null && AI.get_team().getMonster(i).getHP() > 0 && i != AI.get_active_monster_index()){
+                            possible_monsters.add(i);
+                        }
+                    }
+                    if(!possible_monsters.isEmpty()){
+                        int new_active = Randoms.get_random_int_in_values(possible_monsters);
+                        action = new ChangeMonsterAction(new_active);
+                    }
+            }
+        }
+        return action;
     }
 }

@@ -26,7 +26,7 @@ public class AttackHelper {
                     defender,
                     null,
                     damage,
-                    true
+                    false
             );
         }else{
             attackLandedEvent = new AttackLandedEvent(
@@ -50,7 +50,7 @@ public class AttackHelper {
             damage *= Constants.strong_type_multiplier;
             attackLandedEvent = new AttackLandedEvent(
                     defender,
-                    null,
+                    attack,
                     damage,
                     true
             );
@@ -58,14 +58,14 @@ public class AttackHelper {
             damage /= Constants.weak_type_divider;
             attackLandedEvent = new AttackLandedEvent(
                     defender,
-                    null,
+                    attack,
                     damage,
-                    true
+                    false
             );
         }else{
             attackLandedEvent = new AttackLandedEvent(
                     defender,
-                    null,
+                    attack,
                     damage,
                     null
             );

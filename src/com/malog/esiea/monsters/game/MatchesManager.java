@@ -2,8 +2,7 @@ package com.malog.esiea.monsters.game;
 
 import com.malog.esiea.monsters.game.event.Event;
 import com.malog.esiea.monsters.game.user_actions.UserAction;
-import com.malog.esiea.monsters.monsters.MonsterBuilder;
-import com.malog.esiea.monsters.monsters.attacks.Attack;
+import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.UUID;
 
 public class MatchesManager {
 
-    private HashMap<UUID, Match> matches;
+    private final HashMap<UUID, Match> matches;
 
     public MatchesManager(
     ){
@@ -25,7 +24,37 @@ public class MatchesManager {
         return match_id;
     }
 
-    public List<Event> play_round(UUID match_id, UserAction player_1_action, UserAction player_2_action){
-        return this.matches.get(match_id).play_round(player_1_action, player_2_action);
+    public void finishMatch(UUID matchId){
+        System.out.println("Match finished");
+        this.matches.remove(matchId);
+    }
+
+    public MatchState getMatchState(UUID matchId) {
+        Match match = matches.get(matchId);
+        return match.toMatchState();
+    }
+
+    public List<Event> setPlayerAction(UUID matchId, Player player, UserAction action){
+        Match match = matches.get(matchId);
+        match.set_player_action(action, player);
+        try {
+            while(!match.has_round_played()){
+                    wait(10);
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        return match.getLast_round_events();
+    }
+
+    public void setAiAction(UUID matchId, Player player, UserAction action){
+        Match match = matches.get(matchId);
+        match.set_player_action(action, player);
+    }
+
+    public boolean isMatchFinished(UUID match_id){
+        Match match = matches.get(match_id);
+        System.out.println("Is match finito? " + match.isMatchFinished());
+        return match.isMatchFinished();
     }
 }

@@ -23,4 +23,9 @@ public class ParalysisState extends MonsterState {
         time_spent ++;
         return null;
     }
+
+    @Override
+    public String toString(){
+        return "Paralysis";
+    }
 }

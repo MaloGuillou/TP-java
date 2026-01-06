@@ -11,4 +11,9 @@ public class TerrainStateAppliedEvent extends Event {
         this.state_that_started = state_that_started;
         this.terrain = terrain;
     }
+
+    @Override
+    public String toString() {
+        return "The terrain is now in state " + state_that_started.toString();
+    }
 }
