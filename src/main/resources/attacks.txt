@@ -6,6 +6,7 @@ Power 40
 NbUse 10
 Fail 0.07
 EndAttack
+
 Attack
 Id 2
 Name Charge
@@ -13,4 +14,40 @@ Type Normal
 Power 35
 NbUse 15
 Fail 0.03
+EndAttack
+
+Attack
+Id 3
+Name Flamme
+Type Fire
+Power 45
+NbUse 15
+Fail 0.05
+EndAttack
+
+Attack
+Id 4
+Name Seisme
+Type Earth
+Power 60
+NbUse 5
+Fail 0.15
+EndAttack
+
+Attack
+Id 5
+Name Tranch_Herbe
+Type Nature
+Power 45
+NbUse 20
+Fail 0.05
+EndAttack
+
+Attack
+Id 6
+Name Hydro_Canon
+Type Water
+Power 80
+NbUse 5
+Fail 0.20
 EndAttack

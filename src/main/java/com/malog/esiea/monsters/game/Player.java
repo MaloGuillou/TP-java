@@ -2,7 +2,9 @@ package com.malog.esiea.monsters.game;
 
 import com.malog.esiea.monsters.game.event.ActiveMonsterChangedEvent;
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.helpers.Constants;
 import com.malog.esiea.monsters.helpers.Randoms;
+import com.malog.esiea.monsters.items.Item;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
@@ -12,28 +14,48 @@ import java.util.Map;
 import java.util.UUID;
 
 public class Player {
-    private UUID id;
+    private final UUID id;
     private int active_monster; // 1-6
     private String pseudo;
-    private Team team;
+    private final Team team;
+    private final Item[] backpack;
+    private final int BACKPACK_SIZE = Constants.backpack_size;
 
     public Player(String pseudo){
         this.id = UUID.randomUUID();
         this.pseudo = pseudo;
         this.active_monster = 0;
         this.team = new Team();
+        this.backpack = new Item[BACKPACK_SIZE];
     }
 
     public void setPseudo(String pseudo){
         this.pseudo = pseudo;
     }
 
-    public void set_team(Team team){
-        this.team = team;
-    }
-
     public Team get_team(){
         return this.team;
+    }
+
+    public Item[] getBackpack(){
+        return this.backpack;
+    }
+
+    public void removeFromBackpack(int id){
+        if(id >= 0 && id < BACKPACK_SIZE){
+            this.backpack[id] = null;
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    public void setBackpackItem(int id, Item item){
+        if(id >= 0 && id < BACKPACK_SIZE){
+            this.backpack[id] = item;
+        }else{
+            throw new NullPointerException();
+        }
+
     }
 
     public Event change_active_monster(int new_active){

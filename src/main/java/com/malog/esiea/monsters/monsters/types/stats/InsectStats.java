@@ -15,8 +15,8 @@ public class InsectStats extends NatureStats{
     private int time_since_last_poison;
 
 
-    public InsectStats(Type type) {
-        super(type);
+    public InsectStats() {
+        super(Type.NATURE); //TODO maybe change this
         time_since_last_poison = 1;
     }
 

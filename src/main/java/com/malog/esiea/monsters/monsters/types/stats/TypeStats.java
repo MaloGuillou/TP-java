@@ -8,7 +8,7 @@ import com.malog.esiea.monsters.terrains.Terrain;
 import java.util.ArrayList;
 
 public abstract class TypeStats {
-    private Type type;
+    private final Type type;
 
     public TypeStats(Type type) {
         this.type = type;

@@ -2,10 +2,8 @@ package com.malog.esiea.monsters.parsers;
 
 import com.malog.esiea.monsters.helpers.StringHelper;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
-import com.malog.esiea.monsters.monsters.types.SubType;
 import com.malog.esiea.monsters.monsters.types.Type;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -60,24 +58,12 @@ public class AttackParser {
             int miss_probability = (int) (Double.parseDouble(full_found.get("fail")) * 100);
 
             Type type = null;
-            switch (Type.valueOf(full_found.get("type").toUpperCase())) {
-                case EARTH -> type = Type.EARTH;
-                case ELECTRIC -> type = Type.ELECTRIC;
-                case FIRE -> type = Type.FIRE;
-                case NATURE -> type = Type.NATURE;
-                case WATER -> type = Type.WATER;
-                case NORMAL -> type = Type.NORMAL;
-                default -> {
-                    switch(SubType.valueOf(full_found.get("type"))) {
-                        case Grass, Insect -> {
-                            type = Type.NATURE;
-                        }
-                    }
-                }
-            }
+            String typeRaw = full_found.get("type");
 
-            if (type == null) {
-                throw new IOException("Missing required parameters in attack");
+            try {
+                type = Type.valueOf(typeRaw.toUpperCase());
+            } catch (IllegalArgumentException e2) {
+                throw new IOException("Unknown Type: " + typeRaw);
             }
 
             return new Attack(

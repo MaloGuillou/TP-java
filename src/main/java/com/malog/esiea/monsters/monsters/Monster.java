@@ -1,13 +1,17 @@
 package com.malog.esiea.monsters.monsters;
 
+import com.malog.esiea.monsters.game.event.AttackDodgeEvent;
 import com.malog.esiea.monsters.game.event.AttackLandedEvent;
-import com.malog.esiea.monsters.game.event.AttackMissedEvent;
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.event.ParalysisCauseFailedAttackEvent;
 import com.malog.esiea.monsters.helpers.AttackHelper;
+import com.malog.esiea.monsters.helpers.Constants;
 import com.malog.esiea.monsters.states.State;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 import com.malog.esiea.monsters.monsters.types.Type;
 import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
+import com.malog.esiea.monsters.states.monster.ParalysisState;
+import com.malog.esiea.monsters.states.monster.UndergroundState;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
@@ -26,7 +30,7 @@ public class Monster {
     private State state;
 
     private Attack[] attacks;
-    private final int NB_ATTACKS = 4;
+    private final int NB_ATTACKS = Constants.nb_attacks_per_monster;
 
     private ArrayList<Class<? extends State>> previous_states;
 
@@ -78,6 +82,12 @@ public class Monster {
     }
 
     public Event attack_bare_hands(Monster opponent){
+
+        if(this.state instanceof ParalysisState){
+            if(((ParalysisState) this.state).will_it_fails()){
+                return new ParalysisCauseFailedAttackEvent(this);
+            }
+        }
         AttackLandedEvent attackLandedEvent = AttackHelper.get_bare_hands_damage(this, opponent);
         opponent.apply_damage(attackLandedEvent.getDamage());
         return attackLandedEvent;
@@ -91,11 +101,15 @@ public class Monster {
         }
         Attack attack = attacks[attack_number];
 
-        //TODO attack miss cause of paralysis
+        if(this.state instanceof ParalysisState){
+            if(((ParalysisState) this.state).will_it_fails()){
+                events.add(new ParalysisCauseFailedAttackEvent(this));
+                return events;
+            }
+        }
         if(attack.has_attack_miss()){
-            events.add(new AttackMissedEvent(
-                    opponent,
-                    attack
+            events.add(new AttackDodgeEvent(
+                    opponent
             ));
             return events;
         }
@@ -120,7 +134,14 @@ public class Monster {
     }
 
     public int getDefense(){
+        if(this.state instanceof UndergroundState){
+            return this.defense * 2;
+        }
         return this.defense;
+    }
+
+    public int getSpeed(){
+        return this.speed;
     }
 
     public Type getType(){
@@ -160,11 +181,18 @@ public class Monster {
         }
     }
 
-    public void heal(int heal){
+    /**
+     * Heal the monster of the given amount
+     * @param heal amount to heal
+     * @return the real heal value
+     */
+    public int heal(int heal){
+        int previous_hp = this.hp;
         this.hp += heal;
         if(this.hp >  this.hp_max){
             this.hp = this.hp_max;
         }
+        return this.hp - previous_hp;
     }
 
     public int getMaxHP(){

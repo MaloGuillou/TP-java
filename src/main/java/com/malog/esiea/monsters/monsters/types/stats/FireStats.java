@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class FireStats extends TypeStats{
     private final int fire_probability;
-    public FireStats(Type type, int fire_probability) {
-        super(type);
+    public FireStats(int fire_probability) {
+        super(Type.FIRE);
         this.fire_probability = fire_probability;
     }
 

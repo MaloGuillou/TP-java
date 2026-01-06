@@ -16,8 +16,8 @@ public class WaterStats extends TypeStats{
     private final int falling_probability;
 
 
-    public WaterStats(Type type, int flooding_probability, int falling_probability) {
-        super(type);
+    public WaterStats(int flooding_probability, int falling_probability) {
+        super(Type.WATER);
         this.flooding_probability = flooding_probability;
         this.falling_probability = falling_probability;
     }

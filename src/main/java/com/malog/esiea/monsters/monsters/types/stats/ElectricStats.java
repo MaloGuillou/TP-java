@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class ElectricStats extends TypeStats{
     private final int paralysis_probability;
 
-    public ElectricStats(Type type, int paralysis_probability) {
-        super(type);
+    public ElectricStats(int paralysis_probability) {
+        super(Type.ELECTRIC);
         this.paralysis_probability = paralysis_probability;
     }
 

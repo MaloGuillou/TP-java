@@ -24,6 +24,10 @@ public class ParalysisState extends MonsterState {
         return null;
     }
 
+    public boolean will_it_fails(){
+        return Randoms.get_random_int_in_range(0,3) > 0;
+    }
+
     @Override
     public String toString(){
         return "Paralysis";

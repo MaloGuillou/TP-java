@@ -2,11 +2,9 @@ package com.malog.esiea.monsters.parsers;
 
 import com.malog.esiea.monsters.helpers.StringHelper;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
-import com.malog.esiea.monsters.monsters.types.SubType;
 import com.malog.esiea.monsters.monsters.types.Type;
 import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -87,42 +85,14 @@ public class MonsterParser {
             int defense_min = Integer.parseInt(full_found.get("defense_min"));
 
             Type type = null;
-            SubType subType = null;
-            switch (Type.valueOf(full_found.get("type").toUpperCase())) {
-                case EARTH -> {
-                    type = Type.EARTH;
-                }
-                case ELECTRIC -> {
-                    type = Type.ELECTRIC;
-                }
-                case FIRE -> {
-                    type = Type.FIRE;
-                }
-                case NATURE -> {
-                    type = Type.NATURE;
-                }
-                case WATER -> {
-                    type = Type.WATER;
-                }
-                default -> {
-                    switch(SubType.valueOf(full_found.get("type"))) {
-                        case Grass -> {
-                            type = Type.NATURE;
-                            subType = SubType.Grass;
-                        }
-                        case Insect -> {
-                            type = Type.NATURE;
-                            subType = SubType.Insect;
-                        }
-                    }
-                }
+            String typeRaw = full_found.get("type");
+            try {
+                type = Type.valueOf(typeRaw.toUpperCase());
+            } catch (IllegalArgumentException e2) {
+                throw new IOException("Unknown Type: " + typeRaw);
             }
 
-            if (type == null && subType == null) {
-                throw new IOException("Type or SubType not found");
-            }
-
-            TypeStats type_stats = TypeParser.parseType(unknown, type, subType);
+            TypeStats type_stats = TypeParser.parseType(unknown, type);
 
             return new MonsterBuilder(
                     id,

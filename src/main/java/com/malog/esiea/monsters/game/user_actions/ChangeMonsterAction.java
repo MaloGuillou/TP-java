@@ -15,9 +15,9 @@ public class ChangeMonsterAction extends UserAction{
     }
 
     @Override
-    public List<Event> execute(Player player_1, Player player_2, Terrain terrain) {
+    public List<Event> execute(Player attacker, Player defender, Terrain terrain) {
         ArrayList<Event> events = new ArrayList<>();
-        events.add(player_1.change_active_monster(id));
+        events.add(attacker.change_active_monster(id));
         return events;
     }
 }

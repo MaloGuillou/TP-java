@@ -33,8 +33,12 @@ public class Attack {
         return this.id;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public boolean is_same_type_as(Type type){
-        return this.type.equals(type);
+        return this.type.getEffectiveType() == type.getEffectiveType();
     }
 
     public void use_attack(){

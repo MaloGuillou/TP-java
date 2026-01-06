@@ -20,3 +20,45 @@ Defense 85 116
 Flood 0.25
 Fall 0.35
 EndMonster
+
+Monster
+Number 3
+Name Magmaros
+Type Fire
+HP 130 165
+Attack 95 120
+Speed 85 110
+Defense 70 95
+Burn 0.3
+EndMonster
+
+Monster
+Number 4
+Name Terratitan
+Type Earth
+HP 160 200
+Attack 110 140
+Speed 40 65
+Defense 120 150
+EndMonster
+
+Monster
+Number 5
+Name Florasaur
+Type Grass
+HP 140 175
+Attack 80 105
+Speed 70 95
+Defense 90 115
+Heal 0.2
+EndMonster
+
+Monster
+Number 6
+Name Scolopid
+Type Insect
+HP 100 130
+Attack 115 145
+Speed 125 155
+Defense 60 85
+EndMonster

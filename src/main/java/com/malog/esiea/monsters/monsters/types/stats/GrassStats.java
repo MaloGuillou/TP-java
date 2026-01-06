@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class GrassStats extends NatureStats{
     private final int heal_probability;
 
-    public GrassStats(Type type, int heal_probability) {
-        super(type);
+    public GrassStats(int heal_probability) {
+        super(Type.GRASS);
         this.heal_probability = heal_probability;
     }
 

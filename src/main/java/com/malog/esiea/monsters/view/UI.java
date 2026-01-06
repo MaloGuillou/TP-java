@@ -2,6 +2,7 @@ package com.malog.esiea.monsters.view;
 
 import com.malog.esiea.monsters.game.Team;
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.items.Item;
 import com.malog.esiea.monsters.view.backend_link.BackendLink;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public abstract class UI implements Runnable {
     protected BackendLink backendLink;
 
     protected Team team;
+    protected Item[] backpack;
     protected int current_monster_team_index;
     protected final Map<Integer, String> monsters;
     protected final Map<Integer, String> attacks;
@@ -47,6 +49,7 @@ public abstract class UI implements Runnable {
             case SETTINGS -> renderSettingsMenu();
             case PLAYER_MENU -> renderPlayerMenu();
             case TEAM_MENU -> renderTeamMenu();
+            case BACKPACK_MENU -> renderBackpackMenu();
             case MONSTER_MENU -> renderMonsterMenu();
             case MATCH_TYPE_CHOICE_MENU -> renderMatchSelectionMenu();
             case MATCHMAKING_MENU ->  renderMatchMakingMenu();
@@ -59,6 +62,7 @@ public abstract class UI implements Runnable {
         }
     }
 
+
     protected abstract void renderInitMenu();
     protected abstract void renderMainMenu();
     protected abstract void renderSettingsMenu();
@@ -66,6 +70,7 @@ public abstract class UI implements Runnable {
     protected abstract void renderPlayerMenu();
     protected abstract void renderTeamMenu();
     protected abstract void renderMonsterMenu();
+    protected abstract void renderBackpackMenu();
 
     protected abstract void renderMatchSelectionMenu();
     protected abstract void renderMatchMakingMenu();

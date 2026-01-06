@@ -12,8 +12,8 @@ import com.malog.esiea.monsters.terrains.Terrain;
 import java.util.ArrayList;
 
 public class EarthStats extends TypeStats{
-    public EarthStats(Type type) {
-        super(type);
+    public EarthStats() {
+        super(Type.EARTH);
     }
 
     @Override

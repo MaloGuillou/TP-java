@@ -7,5 +7,5 @@ import com.malog.esiea.monsters.terrains.Terrain;
 import java.util.List;
 
 public abstract class UserAction {
-    public abstract List<Event> execute(Player player_1, Player player_2, Terrain terrain);
+    public abstract List<Event> execute(Player attacker, Player defender, Terrain terrain);
 }

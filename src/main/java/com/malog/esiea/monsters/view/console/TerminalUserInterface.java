@@ -4,6 +4,7 @@ import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.game.event.Event;
 import com.malog.esiea.monsters.game.user_actions.AttackAction;
 import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
+import com.malog.esiea.monsters.items.Item;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 import com.malog.esiea.monsters.terrains.Terrain;
@@ -52,20 +53,24 @@ public class TerminalUserInterface extends UI {
         System.out.println("---Main Menu---");
         List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(1, "Edit team"));
-        choices.add(new ConsoleChoice(2, "Edit player"));
-        choices.add(new ConsoleChoice(3,"Play Match"));
-        choices.add(new ConsoleChoice(4,"Settings"));
+        choices.add(new ConsoleChoice(2, "Edit backpack"));
+        choices.add(new ConsoleChoice(3, "Edit player"));
+        choices.add(new ConsoleChoice(4,"Play Match"));
+        choices.add(new ConsoleChoice(5,"Settings"));
         switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case 1:
                 this.currentState = UIState.TEAM_MENU;
                 break;
             case 2:
-                this.currentState = UIState.PLAYER_MENU;
+                this.currentState = UIState.BACKPACK_MENU;
                 break;
             case 3:
-                this.currentState = UIState.MATCH_TYPE_CHOICE_MENU;
+                this.currentState = UIState.PLAYER_MENU;
                 break;
             case 4:
+                this.currentState = UIState.MATCH_TYPE_CHOICE_MENU;
+                break;
+            case 5:
                 this.currentState = UIState.SETTINGS;
                 break;
         }
@@ -97,9 +102,7 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderTeamMenu() {
-        System.out.println("---Team Menu---");
-        System.out.println("Current team:");
-        System.out.println(team);
+        displayTeamMenuHeader();
         System.out.println("What do you want to do?");
         List<ConsoleChoice>  choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
@@ -120,6 +123,16 @@ public class TerminalUserInterface extends UI {
                 renderMoveMonster();
                 break;
         }
+    }
+
+    private void displayTeamMenuHeader(){
+        System.out.println("---Team Menu---");
+        System.out.println("----------");
+        System.out.println("Current team:");
+        for (int i = 0; i < team.get_team_size(); i++){
+            System.out.println("[#" + i + "] "  + (team.getMonster(i) != null ? team.getMonster(i).getName(): "..."));
+        }
+        System.out.println("----------");
     }
 
     private void renderModifyMonster(){
@@ -147,8 +160,7 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMonsterMenu() {
-        System.out.println("---Monster Menu---");
-        System.out.println(this.team.getMonster(this.current_monster_team_index));
+        displayMonsterMenuHeader(this.team.getMonster(this.current_monster_team_index));
         System.out.println("What do you want to do?");
         List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
@@ -163,12 +175,67 @@ public class TerminalUserInterface extends UI {
         }
     }
 
-    private void renderModifyAttacks() {
+    private void displayMonsterMenuHeader(Monster monster){
         System.out.println("---Monster Menu---");
-        System.out.println(this.team.getMonster(this.current_monster_team_index));
+        System.out.println("Name: " + monster.getName());
+        System.out.println("Type: " + monster.getType().name());
+        System.out.println("----------");
+        System.out.println("Current attacks: ");
+        Attack[] attacks = monster.getAttacks();
+        for (int i = 0; i < attacks.length; i++){
+            System.out.println("[#" + i + "] " + attacks[i].getName() + " (" + attacks[i].getType().name() + ") - " + attacks[i].getNb_use_max() + " PP");
+        }
+        System.out.println("----------");
+        System.out.println("Stats: ");
+        System.out.println("HP: " + monster.getMaxHP());
+        System.out.println("attack: " + monster.getAttack());
+        System.out.println("defense: " + monster.getDefense());
+        System.out.println("speed: " + monster.getSpeed());
+        System.out.println("----------");
+    }
+
+    private void renderModifyAttacks() {
+        displayMonsterMenuHeader(this.team.getMonster(this.current_monster_team_index));
         int attackPos = ConsoleHelper.getAttackIdFromUser(scanner, "Which attacks do you want to replace?", this.team.getMonster(this.current_monster_team_index));
         int newAttackId = ConsoleHelper.getItemMapIdFromUser(scanner, "Which attack do you want instead?", attacks);
         team = backendLink.modifyMonsterAttacks(current_monster_team_index, attackPos, newAttackId);
+    }
+
+    @Override
+    protected void renderBackpackMenu() {
+        System.out.println("---Backpack Menu---");
+        System.out.println("----------");
+        System.out.println("Current items: ");
+        for (int i = 0; i < backpack.length; i++){
+            System.out.println("[#" + i + "] " + backpack[i].toString());
+        }
+        System.out.println("----------");
+        System.out.println("What do you want to do?");
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(1, "Change an item"));
+        switch (ConsoleHelper.selectAction(scanner, choices).getOptionNumber()) {
+            case -1:
+                this.currentState = UIState.MAIN_MENU;
+                break;
+            case 1:
+
+        }
+    }
+
+    private void renderChangeBackpackMenu(){
+        System.out.println("Which one do you want to change? ");
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        for (int i = 0; i < backpack.length; i++){
+            choices.add(new ConsoleChoice(i, backpack[i] == null ? "..." : backpack[i].toString()));
+        }
+        int choice = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+        if(choice == -1){
+            return;
+        }
+        System.out.println("Which one do you want instead? ");
+        //TODO how to?
     }
 
     @Override

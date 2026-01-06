@@ -1,7 +1,6 @@
 package com.malog.esiea.monsters.helpers;
 
 import com.malog.esiea.monsters.game.event.AttackLandedEvent;
-import com.malog.esiea.monsters.monsters.Constants;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 
@@ -46,7 +45,7 @@ public class AttackHelper {
         int damage = (((Constants.typed_attack_attack_multiplier * striker.getAttack() * attack.getAttack_power()) / (Constants.typed_attack_defense_multiplier * defender.getDefense())) + 2) * coef / 100;
 
         AttackLandedEvent attackLandedEvent;
-        if(striker.getType().is_strong_against(defender.getType())){
+        if(attack.getType().is_strong_against(defender.getType())){
             damage *= Constants.strong_type_multiplier;
             attackLandedEvent = new AttackLandedEvent(
                     defender,
@@ -54,7 +53,7 @@ public class AttackHelper {
                     damage,
                     true
             );
-        }else if (striker.getType().is_weak_against(defender.getType())){
+        }else if (attack.getType().is_weak_against(defender.getType())){
             damage /= Constants.weak_type_divider;
             attackLandedEvent = new AttackLandedEvent(
                     defender,
