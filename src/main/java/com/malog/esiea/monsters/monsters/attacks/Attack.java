@@ -3,7 +3,7 @@ package com.malog.esiea.monsters.monsters.attacks;
 import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.monsters.types.Type;
 
-public class Attack {
+public class Attack implements Cloneable{
     private final int id;
     private final String name;
     private final Type type;
@@ -82,5 +82,14 @@ public class Attack {
     @Override
     public String toString(){
         return this.name;
+    }
+
+    @Override
+    public Attack clone() {
+        try {
+            return (Attack) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

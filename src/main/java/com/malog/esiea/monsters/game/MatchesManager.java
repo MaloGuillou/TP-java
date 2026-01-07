@@ -1,6 +1,7 @@
 package com.malog.esiea.monsters.game;
 
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
 import com.malog.esiea.monsters.game.user_actions.UserAction;
 import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 
@@ -25,7 +26,6 @@ public class MatchesManager {
     }
 
     public void finishMatch(UUID matchId){
-        System.out.println("Match finished");
         this.matches.remove(matchId);
     }
 
@@ -53,5 +53,21 @@ public class MatchesManager {
     public boolean isMatchFinished(UUID match_id){
         Match match = matches.get(match_id);
         return match.isMatchFinished();
+    }
+
+    public UUID getWinner(UUID currentMatch) {
+        return matches.get(currentMatch).winner();
+    }
+
+    public void changeActiveMonsterAfterKO(UUID matchId, ChangeMonsterAction action, Player player){
+        matches.get(matchId).changeActiveMonsterAfterKO(action, player);
+    }
+
+    public void waitForAllKOReplacement(UUID matchId) {
+        try{
+            matches.get(matchId).waitForAllKOReplacement();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

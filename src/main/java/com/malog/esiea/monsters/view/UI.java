@@ -27,6 +27,8 @@ public abstract class UI implements Runnable {
 
         this.currentState = UIState.INIT_MENU;
 
+        this.backpack = backendLink.getBackpack();
+
         this.team = backendLink.getTeam();
         current_monster_team_index = 1;
         this.monsters = backendLink.getMonsters();
@@ -59,6 +61,7 @@ public abstract class UI implements Runnable {
             case MATCH_CHANGE_MONSTER_MENU -> renderMatchChangeMonsterMenu();
             case MATCH_EVENT_DISPLAY_MENU -> renderMatchEventDisplayMenu();
             case MATCH_CHANGE_MONSTER_FORCED_MENU -> renderMatchChangeMonsterForcedMenu();
+            case MATCH_RESULT_MENU -> renderMatchResultMenu();
         }
     }
 
@@ -81,5 +84,6 @@ public abstract class UI implements Runnable {
     protected abstract void renderMatchChangeMonsterMenu();
     protected abstract void renderMatchEventDisplayMenu();
     protected abstract void renderMatchChangeMonsterForcedMenu();
+    protected abstract void renderMatchResultMenu();
 
 }

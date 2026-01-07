@@ -8,6 +8,7 @@ import com.malog.esiea.monsters.game.user_actions.AttackAction;
 import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
 import com.malog.esiea.monsters.game.user_actions.UserAction;
 import com.malog.esiea.monsters.helpers.Randoms;
+import com.malog.esiea.monsters.items.Item;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
@@ -32,6 +33,10 @@ public class ClientApp {
         this.matchesManager = new MatchesManager();
         this.player = new Player("");
         this.player.randomTeam(monsters, attacks);
+    }
+
+    public UUID getId(){
+        return this.player.getId();
     }
 
     //Global
@@ -108,7 +113,8 @@ public class ClientApp {
             if(!matchesManager.isMatchFinished(match_id) && AI.get_active_monster().getHP() <= 0) {
                 for(int i = 0; i < AI.get_team().get_team_size(); i++ ) {
                     if(AI.get_team().getMonster(i) != null && AI.get_team().getMonster(i).getHP() > 0) {
-                        events.add(AI.change_active_monster(i));
+                        this.changeAIActiveMonsterAfterKO(match_id, new ChangeMonsterAction(i));
+                        return events;
                     }
                 }
             }
@@ -144,5 +150,32 @@ public class ClientApp {
             }
         }
         return action;
+    }
+
+    public Item[] getBackpack() {
+        return this.player.getBackpack();
+    }
+
+    public Item[] updateBackpack(Item[] backpack) {
+        for(int i = 0; i < backpack.length; i++){
+            player.setBackpackItem(i, backpack[i]);
+        }
+        return player.getBackpack();
+    }
+
+    public UUID getWinner(UUID matchId) {
+        return matchesManager.getWinner(matchId);
+    }
+
+    public void changeActiveMonsterAfterKO(UUID matchId, ChangeMonsterAction action){
+        matchesManager.changeActiveMonsterAfterKO(matchId, action, player);
+    }
+
+    public void changeAIActiveMonsterAfterKO(UUID matchId, ChangeMonsterAction action){
+        matchesManager.changeActiveMonsterAfterKO(matchId, action, AI);
+    }
+
+    public void waitForAllKOReplacement(UUID matchId) {
+        matchesManager.waitForAllKOReplacement(matchId);
     }
 }

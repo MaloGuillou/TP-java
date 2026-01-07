@@ -24,7 +24,7 @@ public class AttackAction extends UserAction {
     public List<Event> execute(Player attacker, Player defender, Terrain terrain) {
         ArrayList<Event> events = new ArrayList<>();
         if(barehanded){
-            events.add(attacker.get_active_monster().attack_bare_hands(defender.get_active_monster()));
+            events.addAll(attacker.get_active_monster().attack_bare_hands(defender.get_active_monster(), terrain));
         }else{
             events.addAll(attacker.get_active_monster().use_attack(defender.get_active_monster(), terrain, this.attack_id));
         }

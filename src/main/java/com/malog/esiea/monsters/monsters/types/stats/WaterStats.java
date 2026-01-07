@@ -7,6 +7,7 @@ import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.states.State;
 import com.malog.esiea.monsters.states.terrain.FloodedState;
 import com.malog.esiea.monsters.monsters.types.Type;
+import com.malog.esiea.monsters.states.terrain.TerrainState;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
@@ -26,10 +27,10 @@ public class WaterStats extends TypeStats{
     public ArrayList<Event> special_trigger(Monster self, Monster opponent, Terrain terrain) {
         ArrayList<Event> events = new ArrayList<>();
 
-        if(opponent.get_current_state() == null){
+        if(terrain.getState() == null){
             if(this.will_it_flood()){
-                State new_state = new FloodedState(this.falling_probability);
-                opponent.apply_state(new_state);
+                TerrainState new_state = new FloodedState(this.falling_probability, self);
+                terrain.setState(new_state);
                 events.add(new TerrainStateAppliedEvent(new_state, terrain));
             }
         }

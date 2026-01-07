@@ -1,17 +1,17 @@
 package com.malog.esiea.monsters.monsters;
 
-import com.malog.esiea.monsters.game.event.AttackDodgeEvent;
-import com.malog.esiea.monsters.game.event.AttackLandedEvent;
-import com.malog.esiea.monsters.game.event.Event;
-import com.malog.esiea.monsters.game.event.ParalysisCauseFailedAttackEvent;
+import com.malog.esiea.monsters.game.event.*;
 import com.malog.esiea.monsters.helpers.AttackHelper;
 import com.malog.esiea.monsters.helpers.Constants;
+import com.malog.esiea.monsters.monsters.types.stats.WaterStats;
 import com.malog.esiea.monsters.states.State;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 import com.malog.esiea.monsters.monsters.types.Type;
 import com.malog.esiea.monsters.monsters.types.stats.TypeStats;
+import com.malog.esiea.monsters.states.monster.MonsterState;
 import com.malog.esiea.monsters.states.monster.ParalysisState;
 import com.malog.esiea.monsters.states.monster.UndergroundState;
+import com.malog.esiea.monsters.states.terrain.FloodedState;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
@@ -31,6 +31,8 @@ public class Monster {
 
     private Attack[] attacks;
     private final int NB_ATTACKS = Constants.nb_attacks_per_monster;
+
+    private boolean fell;
 
     private ArrayList<Class<? extends State>> previous_states;
 
@@ -54,13 +56,15 @@ public class Monster {
         this.attacks = new Attack[NB_ATTACKS];
 
         this.previous_states = new ArrayList<>();
+
+        this.fell = false;
     }
 
     public void apply_damage(int damage){
         this.hp -= damage;
     }
 
-    public void apply_state(State state){
+    public void apply_state(MonsterState state){
         this.state = state;
         this.previous_states.add(state.getClass());
     }
@@ -72,6 +76,12 @@ public class Monster {
     public boolean previously_had_state(Class<? extends State> state){
         return this.previous_states.contains(state);
     }
+    public boolean previously_paralyzed(){
+        return previously_had_state(ParalysisState.class);
+    }
+    public boolean previously_fell(){
+        return this.fell;
+    }
 
     public void remove_state(){
         this.state = null;
@@ -81,16 +91,31 @@ public class Monster {
         return this.hp <= 0;
     }
 
-    public Event attack_bare_hands(Monster opponent){
+    public List<Event> attack_bare_hands(Monster opponent, Terrain terrain){
+        List<Event> events = new ArrayList<>();
 
         if(this.state instanceof ParalysisState){
             if(((ParalysisState) this.state).will_it_fails()){
-                return new ParalysisCauseFailedAttackEvent(this);
+                events.add(new ParalysisCauseFailedAttackEvent(this));
+                return events;
+            }
+        }
+
+        events.add(new MonsterUseAttackEvent(this));
+
+        if(terrain.getState() instanceof FloodedState floodedState && !(this.type instanceof WaterStats)){
+            if(floodedState.will_it_fall()){
+                fell = true;
+                int self_damage = AttackHelper.get_bare_hands_damage(this, this).getDamage() / 4;
+                this.apply_damage(self_damage);
+                events.add(new FellEvent(this, self_damage));
+                return events;
             }
         }
         AttackLandedEvent attackLandedEvent = AttackHelper.get_bare_hands_damage(this, opponent);
         opponent.apply_damage(attackLandedEvent.getDamage());
-        return attackLandedEvent;
+        events.add(attackLandedEvent);
+        return events;
     }
 
     public ArrayList<Event> use_attack(Monster opponent, Terrain terrain, int attack_number){
@@ -107,13 +132,24 @@ public class Monster {
                 return events;
             }
         }
+        //From this, no matter what happen the attack is used.
+        events.add(new MonsterUseAttackEvent(this, attack));
+        attack.use_attack();
+        if(terrain.getState() instanceof FloodedState floodedState && !(this.type instanceof WaterStats)){
+            if(floodedState.will_it_fall()){
+                fell = true;
+                int self_damage = AttackHelper.get_attack_damage(this, attack, this).getDamage() / 4;
+                this.apply_damage(self_damage);
+                events.add(new FellEvent(this, self_damage));
+                return events;
+            }
+        }
         if(attack.has_attack_miss()){
             events.add(new AttackDodgeEvent(
                     opponent
             ));
             return events;
         }
-        attack.use_attack();
         AttackLandedEvent attackLandedEvent = AttackHelper.get_attack_damage(
                 this,
                 attack,
@@ -151,7 +187,10 @@ public class Monster {
     public List<Event> start_of_round(Monster opponent, Terrain terrain){
         ArrayList<Event> events = new ArrayList<>();
         if(this.state != null){
-            events.add(this.state.update_state(this, opponent, terrain));
+            Event event = this.state.update_state(this, opponent, terrain);
+            if(event != null){
+                events.add(event);
+            }
         }
         events.addAll(this.type.start_of_round_trigger(this,opponent,terrain));
         return events;
@@ -175,7 +214,7 @@ public class Monster {
             return;
         }
         if(is_pos_valid(old_attack_pos)) {
-            attacks[old_attack_pos] = new_attack;
+            attacks[old_attack_pos] = new_attack.clone();
         }else {
             throw new AssertionError();
         }

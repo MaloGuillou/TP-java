@@ -7,6 +7,7 @@ import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.states.State;
 import com.malog.esiea.monsters.states.monster.BurningState;
 import com.malog.esiea.monsters.monsters.types.Type;
+import com.malog.esiea.monsters.states.monster.MonsterState;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class FireStats extends TypeStats{
 
         if(opponent.get_current_state() == null){
             if(this.will_it_burn()){
-                State new_state = new BurningState();
+                MonsterState new_state = new BurningState();
                 opponent.apply_state(new_state);
                 events.add(new NewStateAppliedEvent(new_state, opponent));
             }

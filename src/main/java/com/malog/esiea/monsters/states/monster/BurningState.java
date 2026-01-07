@@ -1,5 +1,6 @@
 package com.malog.esiea.monsters.states.monster;
 
+import com.malog.esiea.monsters.game.event.BurnDamageEvent;
 import com.malog.esiea.monsters.game.event.Event;
 import com.malog.esiea.monsters.game.event.StateEndedEvent;
 import com.malog.esiea.monsters.monsters.Monster;
@@ -14,7 +15,10 @@ public class BurningState extends MonsterState{
             self.remove_state();
             return new StateEndedEvent(this, self);
         }
-        return null;
+
+        int damage = self.getAttack()/10;
+        self.apply_damage(damage);
+        return new BurnDamageEvent(self, damage);
     }
 
     @Override

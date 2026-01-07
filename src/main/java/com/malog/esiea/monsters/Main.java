@@ -31,9 +31,11 @@ public class Main {
         }
 
         ClientApp clientApp = new ClientApp(monsters, attacks);
-        ClientBackend clientBackend = new ClientBackend(clientApp);
-        TerminalUserInterface ui = new TerminalUserInterface(clientBackend);
 
+        ClientBackend clientBackend = new ClientBackend(clientApp);
+        clientBackend.Init();
+
+        TerminalUserInterface ui = new TerminalUserInterface(clientBackend);
         ui.run();
     }
 }

@@ -21,6 +21,6 @@ public class UseItemAction extends UserAction{
         List<Event> events = new ArrayList<>();
         events.add(attacker.getBackpack()[backpack_item_id].use(attacker.get_team().getMonster(monster_target_id)));
         attacker.removeFromBackpack(backpack_item_id);
-        return List.of();
+        return events;
     }
 }

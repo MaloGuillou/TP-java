@@ -159,4 +159,16 @@ public class ConsoleHelper {
         System.out.println(message);
         return selectAction(scanner, choices).getOptionNumber();
     }
+
+    public static int getAliveMonsterTeamIdWithoutActiveWithGoBackFromUser(Scanner scanner, String message, Team team, int active) {
+        System.out.println(message);
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        for(int i = 0; i < team.get_team_size(); i++) {
+            if(team.getMonster(i).getHP() > 0 && i != active) {
+                choices.add(new ConsoleChoice(i, team.getMonster(i).getName()));
+            }
+        }
+        return ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+    }
 }

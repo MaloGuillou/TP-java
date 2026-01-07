@@ -5,6 +5,7 @@ import com.malog.esiea.monsters.game.event.Event;
 import com.malog.esiea.monsters.helpers.Constants;
 import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.items.Item;
+import com.malog.esiea.monsters.items.ItemType;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.MonsterBuilder;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
@@ -27,6 +28,16 @@ public class Player {
         this.active_monster = 0;
         this.team = new Team();
         this.backpack = new Item[BACKPACK_SIZE];
+        //Init backpack with a default one
+        this.backpack[0] = ItemType.POTION.build();
+        this.backpack[1] = ItemType.POTION.build();
+        this.backpack[2] = ItemType.POTION.build();
+        this.backpack[3] = ItemType.MEDICINE.build();
+        this.backpack[4] = ItemType.MEDICINE.build();
+    }
+
+    public UUID getId(){
+        return this.id;
     }
 
     public void setPseudo(String pseudo){

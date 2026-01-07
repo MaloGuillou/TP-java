@@ -1,8 +1,10 @@
 package com.malog.esiea.monsters.game;
 
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.event.MonsterKOEvent;
 import com.malog.esiea.monsters.game.user_actions.AttackAction;
 import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
+import com.malog.esiea.monsters.game.user_actions.UseItemAction;
 import com.malog.esiea.monsters.game.user_actions.UserAction;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.terrains.Terrain;
@@ -10,6 +12,7 @@ import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Match {
     private final Player player_1;
@@ -57,15 +60,15 @@ public class Match {
         return this.player_1.all_monsters_ko() || this.player_2.all_monsters_ko();
     }
 
-    public Player winner(){
+    public UUID winner(){
         if(this.player_1.all_monsters_ko()){
             if(this.player_2.all_monsters_ko()){
                 return null;
             }else{
-                return player_2;
+                return player_2.getId();
             }
         }else{
-            return player_1;
+            return player_1.getId();
         }
     }
 
@@ -94,13 +97,18 @@ public class Match {
         }
 
         //Use object
-        //TODO implement objects
+        if(player_1_action instanceof UseItemAction useItemAction){
+            last_round_events.addAll(useItemAction.execute(player_1, player_2, terrain));
+        }
+        if(player_2_action instanceof UseItemAction useItemAction){
+            last_round_events.addAll(useItemAction.execute(player_2, player_1, terrain));
+        }
 
         //Update states start
         Monster monster_1 = player_1.get_team().getMonster(player_1.get_active_monster_index());
         Monster monster_2 = player_2.get_team().getMonster(player_2.get_active_monster_index());
-        monster_1.start_of_round(monster_2, terrain);
-        monster_2.start_of_round(monster_1, terrain);
+        last_round_events.addAll(monster_1.start_of_round(monster_2, terrain));
+        last_round_events.addAll(monster_2.start_of_round(monster_1, terrain));
 
         //Attacks
         if(player_1_action instanceof AttackAction){
@@ -119,8 +127,16 @@ public class Match {
         //Update states end
         monster_1 = player_1.get_team().getMonster(player_1.get_active_monster_index());
         monster_2 = player_2.get_team().getMonster(player_2.get_active_monster_index());
-        monster_1.end_of_round(monster_2, terrain);
-        monster_2.end_of_round(monster_1, terrain);
+        if(!monster_1.is_ko()){
+            last_round_events.addAll(monster_1.end_of_round(monster_2, terrain));
+        }else{
+            last_round_events.add(new MonsterKOEvent(monster_1));
+        }
+        if(!monster_2.is_ko()){
+            last_round_events.addAll(monster_2.end_of_round(monster_1, terrain));
+        }else {
+            last_round_events.add(new MonsterKOEvent(monster_2));
+        }
     }
 
     private void one_sided_attack(Player attacker, Player defender, AttackAction attackAction){
@@ -136,16 +152,15 @@ public class Match {
     }
 
     private void attack(Player first, Player second, AttackAction first_action, AttackAction second_action){
-
-        last_round_events.addAll(first_action.execute(first, second, terrain));
+        one_sided_attack(first, second, first_action);
 
         if(!second.get_active_monster().is_ko()){
-            last_round_events.addAll(second_action.execute(second, first, terrain));
+            one_sided_attack(second, first, second_action);
         }
     }
 
     private void change_monster(Player player, ChangeMonsterAction action){
-        action.execute(player, null,  terrain);
+        last_round_events.addAll(action.execute(player, null,  terrain));
     }
 
     public MatchState toMatchState(){
@@ -154,5 +169,16 @@ public class Match {
 
     public List<Event> getLast_round_events(){
         return last_round_events;
+    }
+
+    public synchronized void changeActiveMonsterAfterKO(ChangeMonsterAction action, Player player){
+        action.execute(player, null,  terrain);
+        notifyAll();
+    }
+
+     public synchronized void waitForAllKOReplacement() throws InterruptedException {
+        while(player_1.get_active_monster().is_ko() || player_2.get_active_monster().is_ko()){
+            wait();
+        }
     }
 }

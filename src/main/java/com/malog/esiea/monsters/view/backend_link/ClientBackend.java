@@ -1,9 +1,12 @@
 package com.malog.esiea.monsters.view.backend_link;
 
 import com.malog.esiea.monsters.ClientApp;
+import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.game.Team;
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
 import com.malog.esiea.monsters.game.user_actions.UserAction;
+import com.malog.esiea.monsters.items.Item;
 import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 
 import java.util.List;
@@ -16,6 +19,11 @@ public class ClientBackend extends BackendLink{
 
     public ClientBackend(ClientApp backend) {
         this.backend = backend;
+    }
+
+    @Override
+    protected UUID getId() {
+        return backend.getId();
     }
 
     @Override
@@ -54,6 +62,16 @@ public class ClientBackend extends BackendLink{
     }
 
     @Override
+    public Item[] getBackpack() {
+        return backend.getBackpack();
+    }
+
+    @Override
+    public Item[] sendUpdateBackpack(Item[] backpack) {
+        return backend.updateBackpack(backpack);
+    }
+
+    @Override
     public void startAIMatch() {
         this.currentMatch = backend.startAIMatch();
     }
@@ -79,7 +97,22 @@ public class ClientBackend extends BackendLink{
     }
 
     @Override
+    public void changeActiveMonsterAfterKO(ChangeMonsterAction action){
+        backend.changeActiveMonsterAfterKO(currentMatch, action);
+    }
+
+    @Override
+    public void waitForAllKOReplacement() {
+        backend.waitForAllKOReplacement(currentMatch);
+    }
+
+    @Override
     public void sendEndMatch(UUID currentMatch) {
         backend.endMatch(currentMatch);
+    }
+
+    @Override
+    public boolean getWinner() {
+        return backend.getWinner(currentMatch).equals(self_ID);
     }
 }

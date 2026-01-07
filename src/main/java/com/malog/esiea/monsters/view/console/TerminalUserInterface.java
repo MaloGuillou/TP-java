@@ -2,9 +2,13 @@ package com.malog.esiea.monsters.view.console;
 
 import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.event.MonsterKOEvent;
 import com.malog.esiea.monsters.game.user_actions.AttackAction;
 import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
+import com.malog.esiea.monsters.game.user_actions.UseItemAction;
+import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.items.Item;
+import com.malog.esiea.monsters.items.ItemType;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
 import com.malog.esiea.monsters.terrains.Terrain;
@@ -207,7 +211,7 @@ public class TerminalUserInterface extends UI {
         System.out.println("----------");
         System.out.println("Current items: ");
         for (int i = 0; i < backpack.length; i++){
-            System.out.println("[#" + i + "] " + backpack[i].toString());
+            System.out.println("[#" + i + "] " + (backpack[i] == null ? "..." : backpack[i].toString()));
         }
         System.out.println("----------");
         System.out.println("What do you want to do?");
@@ -219,23 +223,38 @@ public class TerminalUserInterface extends UI {
                 this.currentState = UIState.MAIN_MENU;
                 break;
             case 1:
-
+                renderChangeBackpackMenu();
+                break;
         }
     }
 
     private void renderChangeBackpackMenu(){
         System.out.println("Which one do you want to change? ");
         List<ConsoleChoice> choices = new ArrayList<>();
-        choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(-1, "Cancel and go back"));
         for (int i = 0; i < backpack.length; i++){
             choices.add(new ConsoleChoice(i, backpack[i] == null ? "..." : backpack[i].toString()));
         }
-        int choice = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
-        if(choice == -1){
+        int backpack_slot = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+        if(backpack_slot == -1){
             return;
         }
+
         System.out.println("Which one do you want instead? ");
-        //TODO how to?
+        choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Cancel and go back"));
+
+        ItemType[] types = ItemType.values();
+        for (int i = 0; i < types.length; i++) {
+            choices.add(new ConsoleChoice(i, types[i].name()));
+        }
+        int selected_item = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+        if(selected_item == -1){
+            return;
+        }
+
+        this.backpack[backpack_slot] = types[selected_item].build();
+        this.backpack = this.backendLink.sendUpdateBackpack(backpack);
     }
 
     @Override
@@ -316,8 +335,12 @@ public class TerminalUserInterface extends UI {
         System.out.println("---Match Menu---");
         MatchState state = backendLink.getMatchState();
         Player player_1 = state.getPlayer_1();
+
+        //Update data
         this.team = player_1.get_team();
         this.current_monster_team_index = player_1.get_active_monster_index();
+        this.backpack = player_1.getBackpack();
+
         Player player_2 = state.getPlayer_2();
         Terrain terrain = state.getTerrain();
 
@@ -361,23 +384,52 @@ public class TerminalUserInterface extends UI {
                 this.currentState = UIState.MATCH_MENU;
                 break;
             case 0,1,2,3:
-                System.out.println("---Waiting for opponent---");
-                events = backendLink.sendUserAction(new AttackAction(choice));
-                this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
+                if(attacks[choice].getNb_use_remaining() <= 0){
+                    System.out.println("!!! Can't use this attack anymore !!!");
+                    return;
+                }else {
+                    System.out.println("---Waiting for opponent---");
+                    events = backendLink.sendUserAction(new AttackAction(choice));
+                    this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
+                }
                 break;
             case 5:
                 System.out.println("---Waiting for opponent---");
                 events = backendLink.sendUserAction(new AttackAction());
                 this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
                 break;
-
         }
     }
 
     @Override
     protected void renderMatchItemChoiceMenu() {
         display_match_menu_header();
-        //TODO
+
+        System.out.println("----------");
+        System.out.println("Which item would you like to use?");
+        List<ConsoleChoice> choices = new ArrayList<>();
+        choices.add(new ConsoleChoice(-1, "Go back"));
+        for (int i = 0; i < backpack.length; i++){
+            if(backpack[i] != null){
+                choices.add(new ConsoleChoice(i, backpack[i].toString()));
+            }
+        }
+        int backpack_slot =  ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
+        if(backpack_slot == -1){
+            this.currentState = UIState.MATCH_MENU;
+            return;
+        }
+
+
+        int monster_position = ConsoleHelper.getAliveMonsterTeamIdWithGoBackFromUser(scanner, "On which monster do you want to use it? ", team);
+        if(monster_position == -1){
+            this.currentState = UIState.MATCH_MENU;
+            return;
+        }
+
+        System.out.println("---Waiting for opponent---");
+        events = this.backendLink.sendUserAction(new UseItemAction(backpack_slot, monster_position));
+
         this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
     }
 
@@ -385,26 +437,31 @@ public class TerminalUserInterface extends UI {
     protected void renderMatchChangeMonsterMenu() {
         display_match_menu_header();
 
-        int choice = ConsoleHelper.getAliveMonsterTeamIdWithGoBackFromUser(scanner, "Select the monster you want", team);
+        int choice = ConsoleHelper.getAliveMonsterTeamIdWithoutActiveWithGoBackFromUser(scanner, "Select the monster you want", team, current_monster_team_index);
         if(choice == -1){
             this.currentState = UIState.MATCH_MENU;
             return;
         }
 
         this.current_monster_team_index = choice;
-        backendLink.sendUserAction(new ChangeMonsterAction(choice));
+        System.out.println("---Waiting for opponent---");
+        events = backendLink.sendUserAction(new ChangeMonsterAction(choice));
+
         this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
     }
 
     @Override
     protected void renderMatchEventDisplayMenu() {
+        boolean monster_ko = false;
         for (Event e : events) {
             System.out.println(e.toString());
+            if(e instanceof MonsterKOEvent){
+                monster_ko = true;
+            }
         }
         //check if match finito
         if (backendLink.isMatchFinished()){
-            this.currentState = UIState.MAIN_MENU;
-            backendLink.endMatch();
+            this.currentState = UIState.MATCH_RESULT_MENU;
             return;
         }
 
@@ -413,10 +470,18 @@ public class TerminalUserInterface extends UI {
         this.team = player_1.get_team();
         this.current_monster_team_index = player_1.get_active_monster_index();
 
-        //check if current monster is ko and should be changed
-        if(team.getMonster(current_monster_team_index).getHP() <= 0){
-            this.currentState = UIState.MATCH_CHANGE_MONSTER_FORCED_MENU;
-            return;
+        if(monster_ko){
+            //check if current monster is ko and should be changed
+            if(team.getMonster(current_monster_team_index).getHP() <= 0){
+                this.currentState = UIState.MATCH_CHANGE_MONSTER_FORCED_MENU;
+                return;
+            }
+            this.backendLink.waitForAllKOReplacement();
+
+            state = backendLink.getMatchState();
+            player_1 = state.getPlayer_1();
+            this.team = player_1.get_team();
+            this.current_monster_team_index = player_1.get_active_monster_index();
         }
 
         this.currentState = UIState.MATCH_MENU;
@@ -428,8 +493,23 @@ public class TerminalUserInterface extends UI {
 
         int choice = ConsoleHelper.getAliveMonsterTeamIdFromUser(scanner, "Your current monster is ko, select another one: ", team);
         this.current_monster_team_index = choice;
-        this.backendLink.sendUserAction(new ChangeMonsterAction(choice));
+        this.backendLink.changeActiveMonsterAfterKO(new ChangeMonsterAction(choice));
 
         this.currentState = UIState.MATCH_MENU;
+    }
+
+    @Override
+    protected void renderMatchResultMenu() {
+        System.out.println("---Match Result---");
+        if(backendLink.getWinner()){
+            System.out.println("You won!");
+        }else{
+            System.out.println("You lost!");
+        }
+        System.out.println("\n\n\n\npress enter to continue");
+        scanner.nextLine();
+
+        backendLink.endMatch();
+        this.currentState = UIState.MAIN_MENU;
     }
 }

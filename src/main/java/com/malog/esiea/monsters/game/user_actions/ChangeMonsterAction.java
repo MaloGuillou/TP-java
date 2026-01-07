@@ -17,6 +17,10 @@ public class ChangeMonsterAction extends UserAction{
     @Override
     public List<Event> execute(Player attacker, Player defender, Terrain terrain) {
         ArrayList<Event> events = new ArrayList<>();
+        Event event = terrain.monsterRemovedFromTerrain(attacker.get_active_monster());
+        if (event != null){
+            events.add(event);
+        }
         events.add(attacker.change_active_monster(id));
         return events;
     }

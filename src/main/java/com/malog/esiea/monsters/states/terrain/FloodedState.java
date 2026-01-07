@@ -10,9 +10,11 @@ public class FloodedState extends TerrainState {
     private final int falling_probability;
     private final int duration;
     private int time_spent;
+    private final Monster monster_that_started_it;
 
-    public FloodedState(int falling_probability){
+    public FloodedState(int falling_probability, Monster monster){
         this.falling_probability = falling_probability;
+        monster_that_started_it = monster;
         this.duration = Randoms.get_random_int_in_range(1, 3);
         this.time_spent = 1;
     }
@@ -30,6 +32,10 @@ public class FloodedState extends TerrainState {
     public boolean will_it_fall(){
         int rnd = Randoms.get_random_int_in_range(1, 100);
         return rnd < this.falling_probability;
+    }
+
+    public Monster getMonsterThatStartedIt(){
+        return this.monster_that_started_it;
     }
 
     @Override

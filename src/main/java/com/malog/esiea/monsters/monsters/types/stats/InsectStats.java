@@ -6,6 +6,7 @@ import com.malog.esiea.monsters.helpers.Randoms;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.states.State;
 import com.malog.esiea.monsters.monsters.types.Type;
+import com.malog.esiea.monsters.states.monster.MonsterState;
 import com.malog.esiea.monsters.states.monster.PoisonState;
 import com.malog.esiea.monsters.terrains.Terrain;
 
@@ -16,7 +17,7 @@ public class InsectStats extends NatureStats{
 
 
     public InsectStats() {
-        super(Type.NATURE); //TODO maybe change this
+        super(Type.INSECT);
         time_since_last_poison = 1;
     }
 
@@ -45,7 +46,7 @@ public class InsectStats extends NatureStats{
         ArrayList<Event> events = new ArrayList<>();
         if(opponent.get_current_state() == null){
             if(this.will_it_poison()){
-                State new_state = new PoisonState();
+                MonsterState new_state = new PoisonState();
                 opponent.apply_state(new_state);
                 events.add(new NewStateAppliedEvent(new_state, opponent));
             }
