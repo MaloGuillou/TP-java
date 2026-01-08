@@ -1,53 +1,2520 @@
 Attack
 Id 1
-Name Eclair
-Type Electric
-Power 40
-NbUse 10
-Fail 0.07
-EndAttack
-
-Attack
-Id 2
-Name Charge
+Name Pound
 Type Normal
-Power 35
-NbUse 15
-Fail 0.03
+Power 40.0
+NbUse 35
+Fail 0.0
 EndAttack
 
 Attack
 Id 3
-Name Flamme
-Type Fire
-Power 45
-NbUse 15
-Fail 0.05
+Name Double Slap
+Type Normal
+Power 15.0
+NbUse 10
+Fail 0.15
 EndAttack
 
 Attack
 Id 4
-Name Seisme
-Type Earth
-Power 60
-NbUse 5
+Name Comet Punch
+Type Normal
+Power 18.0
+NbUse 15
 Fail 0.15
 EndAttack
 
 Attack
 Id 5
-Name Tranch_Herbe
-Type Nature
-Power 45
+Name Mega Punch
+Type Normal
+Power 80.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 6
+Name Pay Day
+Type Normal
+Power 40.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 7
+Name Fire Punch
+Type Fire
+Power 75.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 9
+Name Thunder Punch
+Type Electric
+Power 75.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 10
+Name Scratch
+Type Normal
+Power 40.0
+NbUse 35
+Fail 0.0
+EndAttack
+
+Attack
+Id 11
+Name Vice Grip
+Type Normal
+Power 55.0
+NbUse 30
+Fail 0.0
+EndAttack
+
+Attack
+Id 12
+Name Guillotine
+Type Normal
+Power 40
+NbUse 5
+Fail 0.7
+EndAttack
+
+Attack
+Id 13
+Name Razor Wind
+Type Normal
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 15
+Name Cut
+Type Normal
+Power 50.0
+NbUse 30
+Fail 0.05
+EndAttack
+
+Attack
+Id 20
+Name Bind
+Type Normal
+Power 15.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 21
+Name Slam
+Type Normal
+Power 80.0
+NbUse 20
+Fail 0.25
+EndAttack
+
+Attack
+Id 22
+Name Vine Whip
+Type Grass
+Power 45.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 23
+Name Stomp
+Type Normal
+Power 65.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 25
+Name Mega Kick
+Type Normal
+Power 120.0
+NbUse 5
+Fail 0.25
+EndAttack
+
+Attack
+Id 29
+Name Headbutt
+Type Normal
+Power 70.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 30
+Name Horn Attack
+Type Normal
+Power 65.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 31
+Name Fury Attack
+Type Normal
+Power 15.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 32
+Name Horn Drill
+Type Normal
+Power 40
+NbUse 5
+Fail 0.7
+EndAttack
+
+Attack
+Id 33
+Name Tackle
+Type Normal
+Power 40.0
+NbUse 35
+Fail 0.0
+EndAttack
+
+Attack
+Id 34
+Name Body Slam
+Type Normal
+Power 85.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 35
+Name Wrap
+Type Normal
+Power 15.0
+NbUse 20
+Fail 0.1
+EndAttack
+
+Attack
+Id 36
+Name Take Down
+Type Normal
+Power 90.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 37
+Name Thrash
+Type Normal
+Power 120.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 38
+Name Double Edge
+Type Normal
+Power 120.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 41
+Name Twineedle
+Type Insect
+Power 25.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 42
+Name Pin Missile
+Type Insect
+Power 25.0
 NbUse 20
 Fail 0.05
 EndAttack
 
 Attack
-Id 6
-Name Hydro_Canon
-Type Water
-Power 80
-NbUse 5
-Fail 0.20
+Id 49
+Name Sonic Boom
+Type Normal
+Power 40
+NbUse 20
+Fail 0.1
 EndAttack
+
+Attack
+Id 52
+Name Ember
+Type Fire
+Power 40.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 53
+Name Flamethrower
+Type Fire
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 55
+Name Water Gun
+Type Water
+Power 40.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 56
+Name Hydro Pump
+Type Water
+Power 110.0
+NbUse 5
+Fail 0.2
+EndAttack
+
+Attack
+Id 57
+Name Surf
+Type Water
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 61
+Name Bubble Beam
+Type Water
+Power 65.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 63
+Name Hyper Beam
+Type Normal
+Power 150.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 70
+Name Strength
+Type Normal
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 71
+Name Absorb
+Type Grass
+Power 20.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 72
+Name Mega Drain
+Type Grass
+Power 40.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 75
+Name Razor Leaf
+Type Grass
+Power 55.0
+NbUse 25
+Fail 0.05
+EndAttack
+
+Attack
+Id 76
+Name Solar Beam
+Type Grass
+Power 120.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 80
+Name Petal Dance
+Type Grass
+Power 120.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 83
+Name Fire Spin
+Type Fire
+Power 35.0
+NbUse 15
+Fail 0.15
+EndAttack
+
+Attack
+Id 84
+Name Thunder Shock
+Type Electric
+Power 40.0
+NbUse 30
+Fail 0.0
+EndAttack
+
+Attack
+Id 85
+Name Thunderbolt
+Type Electric
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 87
+Name Thunder
+Type Electric
+Power 110.0
+NbUse 10
+Fail 0.3
+EndAttack
+
+Attack
+Id 89
+Name Earthquake
+Type Earth
+Power 100.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 90
+Name Fissure
+Type Earth
+Power 40
+NbUse 5
+Fail 0.7
+EndAttack
+
+Attack
+Id 91
+Name Dig
+Type Earth
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 98
+Name Quick Attack
+Type Normal
+Power 40.0
+NbUse 30
+Fail 0.0
+EndAttack
+
+Attack
+Id 99
+Name Rage
+Type Normal
+Power 20.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 117
+Name Bide
+Type Normal
+Power 40
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 120
+Name Self Destruct
+Type Normal
+Power 200.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 121
+Name Egg Bomb
+Type Normal
+Power 100.0
+NbUse 10
+Fail 0.25
+EndAttack
+
+Attack
+Id 125
+Name Bone Club
+Type Earth
+Power 65.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 126
+Name Fire Blast
+Type Fire
+Power 110.0
+NbUse 5
+Fail 0.15
+EndAttack
+
+Attack
+Id 127
+Name Waterfall
+Type Water
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 128
+Name Clamp
+Type Water
+Power 35.0
+NbUse 15
+Fail 0.15
+EndAttack
+
+Attack
+Id 129
+Name Swift
+Type Normal
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 130
+Name Skull Bash
+Type Normal
+Power 130.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 131
+Name Spike Cannon
+Type Normal
+Power 20.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 132
+Name Constrict
+Type Normal
+Power 10.0
+NbUse 35
+Fail 0.0
+EndAttack
+
+Attack
+Id 140
+Name Barrage
+Type Normal
+Power 15.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 141
+Name Leech Life
+Type Insect
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 145
+Name Bubble
+Type Water
+Power 40.0
+NbUse 30
+Fail 0.0
+EndAttack
+
+Attack
+Id 146
+Name Dizzy Punch
+Type Normal
+Power 70.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 152
+Name Crabhammer
+Type Water
+Power 100.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 153
+Name Explosion
+Type Normal
+Power 250.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 154
+Name Fury Swipes
+Type Normal
+Power 18.0
+NbUse 15
+Fail 0.2
+EndAttack
+
+Attack
+Id 155
+Name Bonemerang
+Type Earth
+Power 50.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 158
+Name Hyper Fang
+Type Normal
+Power 80.0
+NbUse 15
+Fail 0.1
+EndAttack
+
+Attack
+Id 161
+Name Tri Attack
+Type Normal
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 162
+Name Super Fang
+Type Normal
+Power 40
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 163
+Name Slash
+Type Normal
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 165
+Name Struggle
+Type Normal
+Power 50.0
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 172
+Name Flame Wheel
+Type Fire
+Power 60.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 173
+Name Snore
+Type Normal
+Power 50.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 175
+Name Flail
+Type Normal
+Power 40
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 189
+Name Mud Slap
+Type Earth
+Power 20.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 190
+Name Octazooka
+Type Water
+Power 65.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 192
+Name Zap Cannon
+Type Electric
+Power 120.0
+NbUse 5
+Fail 0.5
+EndAttack
+
+Attack
+Id 198
+Name Bone Rush
+Type Earth
+Power 25.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 202
+Name Giga Drain
+Type Grass
+Power 75.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 206
+Name False Swipe
+Type Normal
+Power 40.0
+NbUse 40
+Fail 0.0
+EndAttack
+
+Attack
+Id 209
+Name Spark
+Type Electric
+Power 65.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 210
+Name Fury Cutter
+Type Insect
+Power 40.0
+NbUse 20
+Fail 0.05
+EndAttack
+
+Attack
+Id 216
+Name Return
+Type Normal
+Power 40
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 217
+Name Present
+Type Normal
+Power 40
+NbUse 15
+Fail 0.1
+EndAttack
+
+Attack
+Id 218
+Name Frustration
+Type Normal
+Power 40
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 221
+Name Sacred Fire
+Type Fire
+Power 100.0
+NbUse 5
+Fail 0.05
+EndAttack
+
+Attack
+Id 222
+Name Magnitude
+Type Earth
+Power 40
+NbUse 30
+Fail 0.0
+EndAttack
+
+Attack
+Id 224
+Name Megahorn
+Type Insect
+Power 120.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 229
+Name Rapid Spin
+Type Normal
+Power 50.0
+NbUse 40
+Fail 0.0
+EndAttack
+
+Attack
+Id 237
+Name Hidden Power
+Type Normal
+Power 60.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 245
+Name Extreme Speed
+Type Normal
+Power 80.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 250
+Name Whirlpool
+Type Water
+Power 35.0
+NbUse 15
+Fail 0.15
+EndAttack
+
+Attack
+Id 252
+Name Fake Out
+Type Normal
+Power 40.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 253
+Name Uproar
+Type Normal
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 255
+Name Spit Up
+Type Normal
+Power 40
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 257
+Name Heat Wave
+Type Fire
+Power 95.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 263
+Name Facade
+Type Normal
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 265
+Name Smelling Salts
+Type Normal
+Power 70.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 283
+Name Endeavor
+Type Normal
+Power 40
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 284
+Name Eruption
+Type Fire
+Power 150.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 290
+Name Secret Power
+Type Normal
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 291
+Name Dive
+Type Water
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 299
+Name Blaze Kick
+Type Fire
+Power 85.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 302
+Name Needle Arm
+Type Grass
+Power 60.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 304
+Name Hyper Voice
+Type Normal
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 306
+Name Crush Claw
+Type Normal
+Power 75.0
+NbUse 10
+Fail 0.05
+EndAttack
+
+Attack
+Id 307
+Name Blast Burn
+Type Fire
+Power 150.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 308
+Name Hydro Cannon
+Type Water
+Power 150.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 311
+Name Weather Ball
+Type Normal
+Power 50.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 315
+Name Overheat
+Type Fire
+Power 130.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 318
+Name Silver Wind
+Type Insect
+Power 60.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 323
+Name Water Spout
+Type Water
+Power 150.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 324
+Name Signal Beam
+Type Insect
+Power 75.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 328
+Name Sand Tomb
+Type Earth
+Power 35.0
+NbUse 15
+Fail 0.15
+EndAttack
+
+Attack
+Id 330
+Name Muddy Water
+Type Water
+Power 90.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 331
+Name Bullet Seed
+Type Grass
+Power 25.0
+NbUse 30
+Fail 0.0
+EndAttack
+
+Attack
+Id 338
+Name Frenzy Plant
+Type Grass
+Power 150.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 341
+Name Mud Shot
+Type Earth
+Power 55.0
+NbUse 15
+Fail 0.05
+EndAttack
+
+Attack
+Id 343
+Name Covet
+Type Normal
+Power 60.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 344
+Name Volt Tackle
+Type Electric
+Power 120.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 345
+Name Magical Leaf
+Type Grass
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 348
+Name Leaf Blade
+Type Grass
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 351
+Name Shock Wave
+Type Electric
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 352
+Name Water Pulse
+Type Water
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 362
+Name Brine
+Type Water
+Power 65.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 363
+Name Natural Gift
+Type Normal
+Power 40
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 364
+Name Feint
+Type Normal
+Power 30.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 369
+Name U Turn
+Type Insect
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 376
+Name Trump Card
+Type Normal
+Power 40
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 378
+Name Wring Out
+Type Normal
+Power 40
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 387
+Name Last Resort
+Type Normal
+Power 140.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 394
+Name Flare Blitz
+Type Fire
+Power 120.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 401
+Name Aqua Tail
+Type Water
+Power 90.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 402
+Name Seed Bomb
+Type Grass
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 404
+Name X Scissor
+Type Insect
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 405
+Name Bug Buzz
+Type Insect
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 412
+Name Energy Ball
+Type Grass
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 414
+Name Earth Power
+Type Earth
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 416
+Name Giga Impact
+Type Normal
+Power 150.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 422
+Name Thunder Fang
+Type Electric
+Power 65.0
+NbUse 15
+Fail 0.05
+EndAttack
+
+Attack
+Id 424
+Name Fire Fang
+Type Fire
+Power 65.0
+NbUse 15
+Fail 0.05
+EndAttack
+
+Attack
+Id 426
+Name Mud Bomb
+Type Earth
+Power 65.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 431
+Name Rock Climb
+Type Normal
+Power 90.0
+NbUse 20
+Fail 0.15
+EndAttack
+
+Attack
+Id 435
+Name Discharge
+Type Electric
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 436
+Name Lava Plume
+Type Fire
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 437
+Name Leaf Storm
+Type Grass
+Power 130.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 438
+Name Power Whip
+Type Grass
+Power 120.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 447
+Name Grass Knot
+Type Grass
+Power 40
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 449
+Name Judgment
+Type Normal
+Power 100.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 450
+Name Bug Bite
+Type Insect
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 451
+Name Charge Beam
+Type Electric
+Power 50.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 452
+Name Wood Hammer
+Type Grass
+Power 120.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 453
+Name Aqua Jet
+Type Water
+Power 40.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 454
+Name Attack Order
+Type Insect
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 458
+Name Double Hit
+Type Normal
+Power 35.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 462
+Name Crush Grip
+Type Normal
+Power 40
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 463
+Name Magma Storm
+Type Fire
+Power 100.0
+NbUse 5
+Fail 0.25
+EndAttack
+
+Attack
+Id 465
+Name Seed Flare
+Type Grass
+Power 120.0
+NbUse 5
+Fail 0.15
+EndAttack
+
+Attack
+Id 481
+Name Flame Burst
+Type Fire
+Power 70.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 486
+Name Electro Ball
+Type Electric
+Power 40
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 488
+Name Flame Charge
+Type Fire
+Power 50.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 496
+Name Round
+Type Normal
+Power 60.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 497
+Name Echoed Voice
+Type Normal
+Power 40.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 498
+Name Chip Away
+Type Normal
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 503
+Name Scald
+Type Water
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 510
+Name Incinerate
+Type Fire
+Power 60.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 514
+Name Retaliate
+Type Normal
+Power 70.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 517
+Name Inferno
+Type Fire
+Power 100.0
+NbUse 5
+Fail 0.5
+EndAttack
+
+Attack
+Id 518
+Name Water Pledge
+Type Water
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 519
+Name Fire Pledge
+Type Fire
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 520
+Name Grass Pledge
+Type Grass
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 521
+Name Volt Switch
+Type Electric
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 522
+Name Struggle Bug
+Type Insect
+Power 50.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 523
+Name Bulldoze
+Type Earth
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 527
+Name Electroweb
+Type Electric
+Power 55.0
+NbUse 15
+Fail 0.05
+EndAttack
+
+Attack
+Id 528
+Name Wild Charge
+Type Electric
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 529
+Name Drill Run
+Type Earth
+Power 80.0
+NbUse 10
+Fail 0.05
+EndAttack
+
+Attack
+Id 532
+Name Horn Leech
+Type Grass
+Power 75.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 534
+Name Razor Shell
+Type Water
+Power 75.0
+NbUse 10
+Fail 0.05
+EndAttack
+
+Attack
+Id 535
+Name Heat Crash
+Type Fire
+Power 40
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 536
+Name Leaf Tornado
+Type Grass
+Power 65.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 537
+Name Steamroller
+Type Insect
+Power 65.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 541
+Name Tail Slap
+Type Normal
+Power 25.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 543
+Name Head Charge
+Type Normal
+Power 120.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 545
+Name Searing Shot
+Type Fire
+Power 100.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 546
+Name Techno Blast
+Type Normal
+Power 120.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 547
+Name Relic Song
+Type Normal
+Power 75.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 550
+Name Bolt Strike
+Type Electric
+Power 130.0
+NbUse 5
+Fail 0.15
+EndAttack
+
+Attack
+Id 551
+Name Blue Flare
+Type Fire
+Power 130.0
+NbUse 5
+Fail 0.15
+EndAttack
+
+Attack
+Id 552
+Name Fiery Dance
+Type Fire
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 557
+Name V Create
+Type Fire
+Power 180.0
+NbUse 5
+Fail 0.05
+EndAttack
+
+Attack
+Id 558
+Name Fusion Flare
+Type Fire
+Power 100.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 559
+Name Fusion Bolt
+Type Electric
+Power 100.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 565
+Name Fell Stinger
+Type Insect
+Power 50.0
+NbUse 25
+Fail 0.0
+EndAttack
+
+Attack
+Id 570
+Name Parabolic Charge
+Type Electric
+Power 65.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 572
+Name Petal Blizzard
+Type Grass
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 586
+Name Boomburst
+Type Normal
+Power 140.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 592
+Name Steam Eruption
+Type Water
+Power 110.0
+NbUse 5
+Fail 0.05
+EndAttack
+
+Attack
+Id 594
+Name Water Shuriken
+Type Water
+Power 15.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 595
+Name Mystical Fire
+Type Fire
+Power 75.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 609
+Name Nuzzle
+Type Electric
+Power 20.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 610
+Name Hold Back
+Type Normal
+Power 40.0
+NbUse 40
+Fail 0.0
+EndAttack
+
+Attack
+Id 611
+Name Infestation
+Type Insect
+Power 20.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 614
+Name Thousand Arrows
+Type Earth
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 615
+Name Thousand Waves
+Type Earth
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 616
+Name Lands Wrath
+Type Earth
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 618
+Name Origin Pulse
+Type Water
+Power 110.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 619
+Name Precipice Blades
+Type Earth
+Power 120.0
+NbUse 10
+Fail 0.15
+EndAttack
+
+Attack
+Id 622
+Name Breakneck Blitz  Physical
+Type Normal
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 623
+Name Breakneck Blitz  Special
+Type Normal
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 630
+Name Tectonic Rage  Physical
+Type Earth
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 631
+Name Tectonic Rage  Special
+Type Earth
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 634
+Name Savage Spin Out  Physical
+Type Insect
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 635
+Name Savage Spin Out  Special
+Type Insect
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 640
+Name Inferno Overdrive  Physical
+Type Fire
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 641
+Name Inferno Overdrive  Special
+Type Fire
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 642
+Name Hydro Vortex  Physical
+Type Water
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 643
+Name Hydro Vortex  Special
+Type Water
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 644
+Name Bloom Doom  Physical
+Type Grass
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 645
+Name Bloom Doom  Special
+Type Grass
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 646
+Name Gigavolt Havoc  Physical
+Type Electric
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 647
+Name Gigavolt Havoc  Special
+Type Electric
+Power 40
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 658
+Name Catastropika
+Type Electric
+Power 210.0
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 660
+Name First Impression
+Type Insect
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 664
+Name Sparkling Aria
+Type Water
+Power 90.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 667
+Name High Horsepower
+Type Earth
+Power 95.0
+NbUse 10
+Fail 0.05
+EndAttack
+
+Attack
+Id 669
+Name Solar Blade
+Type Grass
+Power 125.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 670
+Name Leafage
+Type Grass
+Power 40.0
+NbUse 40
+Fail 0.0
+EndAttack
+
+Attack
+Id 676
+Name Pollen Puff
+Type Insect
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 679
+Name Lunge
+Type Insect
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 680
+Name Fire Lash
+Type Fire
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 682
+Name Burn Up
+Type Fire
+Power 130.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 686
+Name Revelation Dance
+Type Normal
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 688
+Name Trop Kick
+Type Grass
+Power 70.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 697
+Name Oceanic Operetta
+Type Water
+Power 195.0
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 700
+Name Stoked Sparksurfer
+Type Electric
+Power 175.0
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 701
+Name Pulverizing Pancake
+Type Normal
+Power 210.0
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 704
+Name Shell Trap
+Type Fire
+Power 150.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 707
+Name Stomping Tantrum
+Type Earth
+Power 75.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 710
+Name Liquidation
+Type Water
+Power 85.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 716
+Name Zing Zap
+Type Electric
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 718
+Name Multi Attack
+Type Normal
+Power 120.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 719
+Name 10 000 000 Volt Thunderbolt
+Type Electric
+Power 195.0
+NbUse 1
+Fail 0.0
+EndAttack
+
+Attack
+Id 720
+Name Mind Blown
+Type Fire
+Power 150.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 721
+Name Plasma Fists
+Type Electric
+Power 100.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 729
+Name Zippy Zap
+Type Electric
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 730
+Name Splishy Splash
+Type Water
+Power 90.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 732
+Name Pika Papow
+Type Electric
+Power 40
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 733
+Name Bouncy Bubble
+Type Water
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 734
+Name Buzzy Buzz
+Type Electric
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 735
+Name Sizzly Slide
+Type Fire
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 738
+Name Sappy Seed
+Type Grass
+Power 100.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 741
+Name Veevee Volley
+Type Normal
+Power 40
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 745
+Name Snipe Shot
+Type Water
+Power 80.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 757
+Name Max Flare
+Type Fire
+Power 100.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 758
+Name Max Flutterby
+Type Insect
+Power 10.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 759
+Name Max Lightning
+Type Electric
+Power 10.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 760
+Name Max Strike
+Type Normal
+Power 10.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 765
+Name Max Geyser
+Type Water
+Power 10.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 771
+Name Max Quake
+Type Earth
+Power 10.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 773
+Name Max Overgrowth
+Type Grass
+Power 10.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 778
+Name Drum Beating
+Type Grass
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 779
+Name Snap Trap
+Type Grass
+Power 35.0
+NbUse 15
+Fail 0.0
+EndAttack
+
+Attack
+Id 780
+Name Pyro Ball
+Type Fire
+Power 120.0
+NbUse 5
+Fail 0.1
+EndAttack
+
+Attack
+Id 785
+Name Branch Poke
+Type Grass
+Power 40.0
+NbUse 40
+Fail 0.0
+EndAttack
+
+Attack
+Id 788
+Name Grav Apple
+Type Grass
+Power 80.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 803
+Name Grassy Glide
+Type Grass
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 804
+Name Rising Voltage
+Type Electric
+Power 70.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 805
+Name Terrain Pulse
+Type Normal
+Power 50.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 806
+Name Skitter Smack
+Type Insect
+Power 70.0
+NbUse 10
+Fail 0.1
+EndAttack
+
+Attack
+Id 807
+Name Burning Jealousy
+Type Fire
+Power 70.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 812
+Name Flip Turn
+Type Water
+Power 60.0
+NbUse 20
+Fail 0.0
+EndAttack
+
+Attack
+Id 815
+Name Scorching Sands
+Type Earth
+Power 70.0
+NbUse 10
+Fail 0.0
+EndAttack
+
+Attack
+Id 818
+Name Surging Strikes
+Type Water
+Power 25.0
+NbUse 5
+Fail 0.0
+EndAttack
+
+Attack
+Id 819
+Name Thunder Cage
+Type Electric
+Power 80.0
+NbUse 15
+Fail 0.1
+EndAttack
+

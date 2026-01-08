@@ -1,64 +1,6443 @@
 Monster
 Number 1
-Name Pikachu
-Type Electric
-HP 110 141
-Speed 110 141
-Attack 75 106
-Defense 50 82
-Paralysis 0.2
+Name Bulbasaur
+Type Grass
+HP 105 152
+Speed 85 207
+Attack 121 251
+Defense 121 251
+Heal 0.22
 EndMonster
 
 Monster
 Number 2
-Name Cerapuca
-Type Water
-HP 119 150
-Attack 68 99
-Speed 63 94
-Defense 85 116
-Flood 0.25
-Fall 0.35
+Name Ivysaur
+Type Grass
+HP 120 167
+Speed 112 240
+Attack 148 284
+Defense 148 284
+Heal 0.23
 EndMonster
 
 Monster
 Number 3
-Name Magmaros
-Type Fire
-HP 130 165
-Attack 95 120
-Speed 85 110
-Defense 70 95
-Burn 0.3
+Name Venusaur
+Type Grass
+HP 140 187
+Speed 148 284
+Attack 184 328
+Defense 184 328
+Heal 0.25
 EndMonster
 
 Monster
 Number 4
-Name Terratitan
-Type Earth
-HP 160 200
-Attack 110 140
-Speed 40 65
-Defense 120 150
+Name Charmander
+Type Fire
+HP 99 146
+Speed 121 251
+Attack 112 240
+Defense 94 218
+Burn 0.24
 EndMonster
 
 Monster
 Number 5
-Name Florasaur
-Type Grass
-HP 140 175
-Attack 80 105
-Speed 70 95
-Defense 90 115
-Heal 0.2
+Name Charmeleon
+Type Fire
+HP 118 165
+Speed 148 284
+Attack 148 284
+Defense 121 251
+Burn 0.1
 EndMonster
 
 Monster
 Number 6
-Name Scolopid
-Type Insect
-HP 100 130
-Attack 115 145
-Speed 125 155
-Defense 60 85
+Name Charizard
+Type Fire
+HP 138 185
+Speed 184 328
+Attack 200 348
+Defense 157 295
+Burn 0.12
 EndMonster
+
+Monster
+Number 7
+Name Squirtle
+Type Water
+HP 104 151
+Speed 81 203
+Attack 94 218
+Defense 121 251
+Flood 0.19
+Fall 0.4
+EndMonster
+
+Monster
+Number 8
+Name Wartortle
+Type Water
+HP 119 166
+Speed 108 236
+Attack 121 251
+Defense 148 284
+Flood 0.29
+Fall 0.31
+EndMonster
+
+Monster
+Number 9
+Name Blastoise
+Type Water
+HP 139 186
+Speed 144 280
+Attack 157 295
+Defense 193 339
+Flood 0.27
+Fall 0.36
+EndMonster
+
+Monster
+Number 10
+Name Caterpie
+Type Insect
+HP 105 152
+Speed 85 207
+Attack 58 174
+Defense 67 185
+EndMonster
+
+Monster
+Number 11
+Name Metapod
+Type Insect
+HP 110 157
+Speed 58 174
+Attack 49 163
+Defense 103 229
+EndMonster
+
+Monster
+Number 12
+Name Butterfree
+Type Insect
+HP 120 167
+Speed 130 262
+Attack 166 306
+Defense 148 284
+EndMonster
+
+Monster
+Number 13
+Name Weedle
+Type Insect
+HP 100 147
+Speed 94 218
+Attack 67 185
+Defense 58 174
+EndMonster
+
+Monster
+Number 14
+Name Kakuna
+Type Insect
+HP 105 152
+Speed 67 185
+Attack 49 163
+Defense 94 218
+EndMonster
+
+Monster
+Number 15
+Name Beedrill
+Type Insect
+HP 125 172
+Speed 139 273
+Attack 166 306
+Defense 148 284
+EndMonster
+
+Monster
+Number 16
+Name Pidgey
+Type Normal
+HP 100 147
+Speed 105 232
+Attack 85 207
+Defense 76 196
+EndMonster
+
+Monster
+Number 17
+Name Pidgeotto
+Type Normal
+HP 123 170
+Speed 132 265
+Attack 112 240
+Defense 103 229
+EndMonster
+
+Monster
+Number 18
+Name Pidgeot
+Type Normal
+HP 143 190
+Speed 186 331
+Attack 148 284
+Defense 139 273
+EndMonster
+
+Monster
+Number 19
+Name Rattata
+Type Normal
+HP 90 137
+Speed 134 267
+Attack 105 232
+Defense 67 185
+EndMonster
+
+Monster
+Number 20
+Name Raticate
+Type Normal
+HP 115 162
+Speed 179 322
+Attack 150 287
+Defense 130 262
+EndMonster
+
+Monster
+Number 21
+Name Spearow
+Type Normal
+HP 100 147
+Speed 130 262
+Attack 112 240
+Defense 60 177
+EndMonster
+
+Monster
+Number 22
+Name Fearow
+Type Normal
+HP 125 172
+Speed 184 328
+Attack 166 306
+Defense 121 251
+EndMonster
+
+Monster
+Number 25
+Name Pikachu
+Type Electric
+HP 95 142
+Speed 166 306
+Attack 103 229
+Defense 94 218
+Paralysis 0.24
+EndMonster
+
+Monster
+Number 26
+Name Raichu
+Type Electric
+HP 120 167
+Speed 202 350
+Attack 166 306
+Defense 148 284
+Paralysis 0.24
+EndMonster
+
+Monster
+Number 27
+Name Sandshrew
+Type Earth
+HP 110 157
+Speed 76 196
+Attack 139 273
+Defense 157 295
+EndMonster
+
+Monster
+Number 28
+Name Sandslash
+Type Earth
+HP 135 182
+Speed 121 251
+Attack 184 328
+Defense 202 350
+EndMonster
+
+Monster
+Number 37
+Name Vulpix
+Type Fire
+HP 98 145
+Speed 121 251
+Attack 94 218
+Defense 121 251
+Burn 0.16
+EndMonster
+
+Monster
+Number 38
+Name Ninetales
+Type Fire
+HP 133 180
+Speed 184 328
+Attack 150 287
+Defense 184 328
+Burn 0.26
+EndMonster
+
+Monster
+Number 39
+Name Jigglypuff
+Type Normal
+HP 175 222
+Speed 40 152
+Attack 85 207
+Defense 49 163
+EndMonster
+
+Monster
+Number 40
+Name Wigglytuff
+Type Normal
+HP 200 247
+Speed 85 207
+Attack 157 295
+Defense 94 218
+EndMonster
+
+Monster
+Number 43
+Name Oddish
+Type Grass
+HP 105 152
+Speed 58 174
+Attack 139 273
+Defense 121 251
+Heal 0.21
+EndMonster
+
+Monster
+Number 44
+Name Gloom
+Type Grass
+HP 120 167
+Speed 76 196
+Attack 157 295
+Defense 139 273
+Heal 0.12
+EndMonster
+
+Monster
+Number 45
+Name Vileplume
+Type Grass
+HP 135 182
+Speed 94 218
+Attack 202 350
+Defense 166 306
+Heal 0.12
+EndMonster
+
+Monster
+Number 46
+Name Paras
+Type Insect
+HP 95 142
+Speed 49 163
+Attack 130 262
+Defense 103 229
+EndMonster
+
+Monster
+Number 47
+Name Parasect
+Type Insect
+HP 120 167
+Speed 58 174
+Attack 175 317
+Defense 148 284
+EndMonster
+
+Monster
+Number 48
+Name Venonat
+Type Insect
+HP 120 167
+Speed 85 207
+Attack 103 229
+Defense 103 229
+EndMonster
+
+Monster
+Number 49
+Name Venomoth
+Type Insect
+HP 130 177
+Speed 166 306
+Attack 166 306
+Defense 139 273
+EndMonster
+
+Monster
+Number 50
+Name Diglett
+Type Earth
+HP 70 117
+Speed 175 317
+Attack 103 229
+Defense 85 207
+EndMonster
+
+Monster
+Number 51
+Name Dugtrio
+Type Earth
+HP 95 142
+Speed 220 372
+Attack 184 328
+Defense 130 262
+EndMonster
+
+Monster
+Number 52
+Name Meowth
+Type Normal
+HP 100 147
+Speed 166 306
+Attack 85 207
+Defense 76 196
+EndMonster
+
+Monster
+Number 53
+Name Persian
+Type Normal
+HP 125 172
+Speed 211 361
+Attack 130 262
+Defense 121 251
+EndMonster
+
+Monster
+Number 54
+Name Psyduck
+Type Water
+HP 110 157
+Speed 103 229
+Attack 121 251
+Defense 94 218
+Flood 0.17
+Fall 0.26
+EndMonster
+
+Monster
+Number 55
+Name Golduck
+Type Water
+HP 140 187
+Speed 157 295
+Attack 175 317
+Defense 148 284
+Flood 0.2
+Fall 0.2
+EndMonster
+
+Monster
+Number 58
+Name Growlithe
+Type Fire
+HP 115 162
+Speed 112 240
+Attack 130 262
+Defense 94 218
+Burn 0.28
+EndMonster
+
+Monster
+Number 59
+Name Arcanine
+Type Fire
+HP 150 197
+Speed 175 317
+Attack 202 350
+Defense 148 284
+Burn 0.21
+EndMonster
+
+Monster
+Number 60
+Name Poliwag
+Type Water
+HP 100 147
+Speed 166 306
+Attack 94 218
+Defense 76 196
+Flood 0.27
+Fall 0.35
+EndMonster
+
+Monster
+Number 61
+Name Poliwhirl
+Type Water
+HP 125 172
+Speed 166 306
+Attack 121 251
+Defense 121 251
+Flood 0.22
+Fall 0.25
+EndMonster
+
+Monster
+Number 62
+Name Poliwrath
+Type Water
+HP 150 197
+Speed 130 262
+Attack 175 317
+Defense 175 317
+Flood 0.18
+Fall 0.3
+EndMonster
+
+Monster
+Number 69
+Name Bellsprout
+Type Grass
+HP 110 157
+Speed 76 196
+Attack 139 273
+Defense 67 185
+Heal 0.25
+EndMonster
+
+Monster
+Number 70
+Name Weepinbell
+Type Grass
+HP 125 172
+Speed 103 229
+Attack 166 306
+Defense 94 218
+Heal 0.21
+EndMonster
+
+Monster
+Number 71
+Name Victreebel
+Type Grass
+HP 140 187
+Speed 130 262
+Attack 193 339
+Defense 130 262
+Heal 0.17
+EndMonster
+
+Monster
+Number 72
+Name Tentacool
+Type Water
+HP 100 147
+Speed 130 262
+Attack 94 218
+Defense 184 328
+Flood 0.16
+Fall 0.3
+EndMonster
+
+Monster
+Number 73
+Name Tentacruel
+Type Water
+HP 140 187
+Speed 184 328
+Attack 148 284
+Defense 220 372
+Flood 0.23
+Fall 0.37
+EndMonster
+
+Monster
+Number 77
+Name Ponyta
+Type Fire
+HP 110 157
+Speed 166 306
+Attack 157 295
+Defense 121 251
+Burn 0.3
+EndMonster
+
+Monster
+Number 78
+Name Rapidash
+Type Fire
+HP 125 172
+Speed 193 339
+Attack 184 328
+Defense 148 284
+Burn 0.13
+EndMonster
+
+Monster
+Number 79
+Name Slowpoke
+Type Water
+HP 150 197
+Speed 31 141
+Attack 121 251
+Defense 121 251
+Flood 0.29
+Fall 0.37
+EndMonster
+
+Monster
+Number 80
+Name Slowbro
+Type Water
+HP 155 202
+Speed 58 174
+Attack 184 328
+Defense 202 350
+Flood 0.19
+Fall 0.34
+EndMonster
+
+Monster
+Number 81
+Name Magnemite
+Type Electric
+HP 85 132
+Speed 85 207
+Attack 175 317
+Defense 130 262
+Paralysis 0.29
+EndMonster
+
+Monster
+Number 82
+Name Magneton
+Type Electric
+HP 110 157
+Speed 130 262
+Attack 220 372
+Defense 175 317
+Paralysis 0.18
+EndMonster
+
+Monster
+Number 83
+Name Farfetch'd
+Type Normal
+HP 112 159
+Speed 112 240
+Attack 166 306
+Defense 116 245
+EndMonster
+
+Monster
+Number 84
+Name Doduo
+Type Normal
+HP 95 142
+Speed 139 273
+Attack 157 295
+Defense 85 207
+EndMonster
+
+Monster
+Number 85
+Name Dodrio
+Type Normal
+HP 120 167
+Speed 202 350
+Attack 202 350
+Defense 130 262
+EndMonster
+
+Monster
+Number 86
+Name Seel
+Type Water
+HP 125 172
+Speed 85 207
+Attack 85 207
+Defense 130 262
+Flood 0.27
+Fall 0.25
+EndMonster
+
+Monster
+Number 87
+Name Dewgong
+Type Water
+HP 150 197
+Speed 130 262
+Attack 130 262
+Defense 175 317
+Flood 0.2
+Fall 0.32
+EndMonster
+
+Monster
+Number 90
+Name Shellder
+Type Water
+HP 90 137
+Speed 76 196
+Attack 121 251
+Defense 184 328
+Flood 0.25
+Fall 0.25
+EndMonster
+
+Monster
+Number 91
+Name Cloyster
+Type Water
+HP 110 157
+Speed 130 262
+Attack 175 317
+Defense 328 504
+Flood 0.22
+Fall 0.32
+EndMonster
+
+Monster
+Number 98
+Name Krabby
+Type Water
+HP 90 137
+Speed 94 218
+Attack 193 339
+Defense 166 306
+Flood 0.17
+Fall 0.23
+EndMonster
+
+Monster
+Number 99
+Name Kingler
+Type Water
+HP 115 162
+Speed 139 273
+Attack 238 394
+Defense 211 361
+Flood 0.24
+Fall 0.24
+EndMonster
+
+Monster
+Number 100
+Name Voltorb
+Type Electric
+HP 100 147
+Speed 184 328
+Attack 103 229
+Defense 103 229
+Paralysis 0.13
+EndMonster
+
+Monster
+Number 101
+Name Electrode
+Type Electric
+HP 120 167
+Speed 274 438
+Attack 148 284
+Defense 148 284
+Paralysis 0.23
+EndMonster
+
+Monster
+Number 102
+Name Exeggcute
+Type Grass
+HP 120 167
+Speed 76 196
+Attack 112 240
+Defense 148 284
+Heal 0.14
+EndMonster
+
+Monster
+Number 103
+Name Exeggutor
+Type Grass
+HP 155 202
+Speed 103 229
+Attack 229 383
+Defense 157 295
+Heal 0.24
+EndMonster
+
+Monster
+Number 104
+Name Cubone
+Type Earth
+HP 110 157
+Speed 67 185
+Attack 94 218
+Defense 175 317
+EndMonster
+
+Monster
+Number 105
+Name Marowak
+Type Earth
+HP 120 167
+Speed 85 207
+Attack 148 284
+Defense 202 350
+EndMonster
+
+Monster
+Number 108
+Name Lickitung
+Type Normal
+HP 150 197
+Speed 58 174
+Attack 112 240
+Defense 139 273
+EndMonster
+
+Monster
+Number 111
+Name Rhyhorn
+Type Earth
+HP 140 187
+Speed 49 163
+Attack 157 295
+Defense 175 317
+EndMonster
+
+Monster
+Number 112
+Name Rhydon
+Type Earth
+HP 165 212
+Speed 76 196
+Attack 238 394
+Defense 220 372
+EndMonster
+
+Monster
+Number 113
+Name Chansey
+Type Normal
+HP 310 357
+Speed 94 218
+Attack 67 185
+Defense 193 339
+EndMonster
+
+Monster
+Number 114
+Name Tangela
+Type Grass
+HP 125 172
+Speed 112 240
+Attack 184 328
+Defense 211 361
+Heal 0.13
+EndMonster
+
+Monster
+Number 115
+Name Kangaskhan
+Type Normal
+HP 165 212
+Speed 166 306
+Attack 175 317
+Defense 148 284
+EndMonster
+
+Monster
+Number 116
+Name Horsea
+Type Water
+HP 90 137
+Speed 112 240
+Attack 130 262
+Defense 130 262
+Flood 0.29
+Fall 0.27
+EndMonster
+
+Monster
+Number 117
+Name Seadra
+Type Water
+HP 115 162
+Speed 157 295
+Attack 175 317
+Defense 175 317
+Flood 0.25
+Fall 0.36
+EndMonster
+
+Monster
+Number 118
+Name Goldeen
+Type Water
+HP 105 152
+Speed 117 247
+Attack 125 256
+Defense 112 240
+Flood 0.19
+Fall 0.2
+EndMonster
+
+Monster
+Number 119
+Name Seaking
+Type Water
+HP 140 187
+Speed 126 258
+Attack 170 311
+Defense 148 284
+Flood 0.18
+Fall 0.21
+EndMonster
+
+Monster
+Number 120
+Name Staryu
+Type Water
+HP 90 137
+Speed 157 295
+Attack 130 262
+Defense 103 229
+Flood 0.3
+Fall 0.23
+EndMonster
+
+Monster
+Number 121
+Name Starmie
+Type Water
+HP 120 167
+Speed 211 361
+Attack 184 328
+Defense 157 295
+Flood 0.27
+Fall 0.39
+EndMonster
+
+Monster
+Number 123
+Name Scyther
+Type Insect
+HP 130 177
+Speed 193 339
+Attack 202 350
+Defense 148 284
+EndMonster
+
+Monster
+Number 125
+Name Electabuzz
+Type Electric
+HP 125 172
+Speed 193 339
+Attack 175 317
+Defense 157 295
+Paralysis 0.2
+EndMonster
+
+Monster
+Number 126
+Name Magmar
+Type Fire
+HP 125 172
+Speed 171 313
+Attack 184 328
+Defense 157 295
+Burn 0.18
+EndMonster
+
+Monster
+Number 127
+Name Pinsir
+Type Insect
+HP 125 172
+Speed 157 295
+Attack 229 383
+Defense 184 328
+EndMonster
+
+Monster
+Number 128
+Name Tauros
+Type Normal
+HP 135 182
+Speed 202 350
+Attack 184 328
+Defense 175 317
+EndMonster
+
+Monster
+Number 129
+Name Magikarp
+Type Water
+HP 80 127
+Speed 148 284
+Attack 31 141
+Defense 103 229
+Flood 0.28
+Fall 0.32
+EndMonster
+
+Monster
+Number 130
+Name Gyarados
+Type Water
+HP 155 202
+Speed 150 287
+Attack 229 383
+Defense 184 328
+Flood 0.17
+Fall 0.27
+EndMonster
+
+Monster
+Number 131
+Name Lapras
+Type Water
+HP 190 237
+Speed 112 240
+Attack 157 295
+Defense 175 317
+Flood 0.2
+Fall 0.23
+EndMonster
+
+Monster
+Number 132
+Name Ditto
+Type Normal
+HP 108 155
+Speed 90 214
+Attack 90 214
+Defense 90 214
+EndMonster
+
+Monster
+Number 133
+Name Eevee
+Type Normal
+HP 115 162
+Speed 103 229
+Attack 103 229
+Defense 121 251
+EndMonster
+
+Monster
+Number 134
+Name Vaporeon
+Type Water
+HP 190 237
+Speed 121 251
+Attack 202 350
+Defense 175 317
+Flood 0.2
+Fall 0.35
+EndMonster
+
+Monster
+Number 135
+Name Jolteon
+Type Electric
+HP 125 172
+Speed 238 394
+Attack 202 350
+Defense 175 317
+Paralysis 0.26
+EndMonster
+
+Monster
+Number 136
+Name Flareon
+Type Fire
+HP 125 172
+Speed 121 251
+Attack 238 394
+Defense 202 350
+Burn 0.11
+EndMonster
+
+Monster
+Number 137
+Name Porygon
+Type Normal
+HP 125 172
+Speed 76 196
+Attack 157 295
+Defense 139 273
+EndMonster
+
+Monster
+Number 143
+Name Snorlax
+Type Normal
+HP 220 267
+Speed 58 174
+Attack 202 350
+Defense 202 350
+EndMonster
+
+Monster
+Number 145
+Name Zapdos
+Type Electric
+HP 150 197
+Speed 184 328
+Attack 229 383
+Defense 166 306
+Paralysis 0.15
+EndMonster
+
+Monster
+Number 146
+Name Moltres
+Type Fire
+HP 150 197
+Speed 166 306
+Attack 229 383
+Defense 166 306
+Burn 0.22
+EndMonster
+
+Monster
+Number 152
+Name Chikorita
+Type Grass
+HP 105 152
+Speed 85 207
+Attack 92 216
+Defense 121 251
+Heal 0.17
+EndMonster
+
+Monster
+Number 153
+Name Bayleef
+Type Grass
+HP 120 167
+Speed 112 240
+Attack 117 247
+Defense 148 284
+Heal 0.12
+EndMonster
+
+Monster
+Number 154
+Name Meganium
+Type Grass
+HP 140 187
+Speed 148 284
+Attack 153 291
+Defense 184 328
+Heal 0.1
+EndMonster
+
+Monster
+Number 155
+Name Cyndaquil
+Type Fire
+HP 99 146
+Speed 121 251
+Attack 112 240
+Defense 94 218
+Burn 0.15
+EndMonster
+
+Monster
+Number 156
+Name Quilava
+Type Fire
+HP 118 165
+Speed 148 284
+Attack 148 284
+Defense 121 251
+Burn 0.19
+EndMonster
+
+Monster
+Number 157
+Name Typhlosion
+Type Fire
+HP 138 185
+Speed 184 328
+Attack 200 348
+Defense 157 295
+Burn 0.22
+EndMonster
+
+Monster
+Number 158
+Name Totodile
+Type Water
+HP 110 157
+Speed 81 203
+Attack 121 251
+Defense 119 249
+Flood 0.29
+Fall 0.28
+EndMonster
+
+Monster
+Number 159
+Name Croconaw
+Type Water
+HP 125 172
+Speed 108 236
+Attack 148 284
+Defense 148 284
+Flood 0.17
+Fall 0.31
+EndMonster
+
+Monster
+Number 160
+Name Feraligatr
+Type Water
+HP 145 192
+Speed 144 280
+Attack 193 339
+Defense 184 328
+Flood 0.3
+Fall 0.31
+EndMonster
+
+Monster
+Number 161
+Name Sentret
+Type Normal
+HP 95 142
+Speed 40 152
+Attack 87 210
+Defense 85 207
+EndMonster
+
+Monster
+Number 162
+Name Furret
+Type Normal
+HP 145 192
+Speed 166 306
+Attack 141 276
+Defense 119 249
+EndMonster
+
+Monster
+Number 163
+Name Hoothoot
+Type Normal
+HP 120 167
+Speed 94 218
+Attack 69 188
+Defense 105 232
+EndMonster
+
+Monster
+Number 164
+Name Noctowl
+Type Normal
+HP 160 207
+Speed 130 262
+Attack 159 298
+Defense 177 320
+EndMonster
+
+Monster
+Number 165
+Name Ledyba
+Type Insect
+HP 100 147
+Speed 103 229
+Attack 76 196
+Defense 148 284
+EndMonster
+
+Monster
+Number 166
+Name Ledian
+Type Insect
+HP 115 162
+Speed 157 295
+Attack 103 229
+Defense 202 350
+EndMonster
+
+Monster
+Number 167
+Name Spinarak
+Type Insect
+HP 100 147
+Speed 58 174
+Attack 112 240
+Defense 76 196
+EndMonster
+
+Monster
+Number 168
+Name Ariados
+Type Insect
+HP 130 177
+Speed 76 196
+Attack 166 306
+Defense 130 262
+EndMonster
+
+Monster
+Number 170
+Name Chinchou
+Type Water
+HP 135 182
+Speed 125 256
+Attack 105 232
+Defense 105 232
+Flood 0.21
+Fall 0.27
+EndMonster
+
+Monster
+Number 171
+Name Lanturn
+Type Water
+HP 185 232
+Speed 125 256
+Attack 141 276
+Defense 141 276
+Flood 0.3
+Fall 0.28
+EndMonster
+
+Monster
+Number 172
+Name Pichu
+Type Electric
+HP 80 127
+Speed 112 240
+Attack 76 196
+Defense 67 185
+Paralysis 0.24
+EndMonster
+
+Monster
+Number 174
+Name Igglybuff
+Type Normal
+HP 150 197
+Speed 31 141
+Attack 76 196
+Defense 40 152
+EndMonster
+
+Monster
+Number 179
+Name Mareep
+Type Electric
+HP 115 162
+Speed 67 185
+Attack 121 251
+Defense 85 207
+Paralysis 0.26
+EndMonster
+
+Monster
+Number 180
+Name Flaaffy
+Type Electric
+HP 130 177
+Speed 85 207
+Attack 148 284
+Defense 112 240
+Paralysis 0.11
+EndMonster
+
+Monster
+Number 181
+Name Ampharos
+Type Electric
+HP 150 197
+Speed 103 229
+Attack 211 361
+Defense 166 306
+Paralysis 0.11
+EndMonster
+
+Monster
+Number 182
+Name Bellossom
+Type Grass
+HP 135 182
+Speed 94 218
+Attack 166 306
+Defense 184 328
+Heal 0.17
+EndMonster
+
+Monster
+Number 183
+Name Marill
+Type Water
+HP 130 177
+Speed 76 196
+Attack 40 152
+Defense 94 218
+Flood 0.22
+Fall 0.25
+EndMonster
+
+Monster
+Number 184
+Name Azumarill
+Type Water
+HP 160 207
+Speed 94 218
+Attack 112 240
+Defense 148 284
+Flood 0.25
+Fall 0.32
+EndMonster
+
+Monster
+Number 186
+Name Politoed
+Type Water
+HP 150 197
+Speed 130 262
+Attack 166 306
+Defense 184 328
+Flood 0.29
+Fall 0.34
+EndMonster
+
+Monster
+Number 187
+Name Hoppip
+Type Grass
+HP 95 142
+Speed 94 218
+Attack 67 185
+Defense 103 229
+Heal 0.23
+EndMonster
+
+Monster
+Number 188
+Name Skiploom
+Type Grass
+HP 115 162
+Speed 148 284
+Attack 85 207
+Defense 121 251
+Heal 0.18
+EndMonster
+
+Monster
+Number 189
+Name Jumpluff
+Type Grass
+HP 135 182
+Speed 202 350
+Attack 103 229
+Defense 175 317
+Heal 0.14
+EndMonster
+
+Monster
+Number 190
+Name Aipom
+Type Normal
+HP 115 162
+Speed 157 295
+Attack 130 262
+Defense 103 229
+EndMonster
+
+Monster
+Number 191
+Name Sunkern
+Type Grass
+HP 90 137
+Speed 58 174
+Attack 58 174
+Defense 58 174
+Heal 0.17
+EndMonster
+
+Monster
+Number 192
+Name Sunflora
+Type Grass
+HP 135 182
+Speed 58 174
+Attack 193 339
+Defense 157 295
+Heal 0.16
+EndMonster
+
+Monster
+Number 193
+Name Yanma
+Type Insect
+HP 125 172
+Speed 175 317
+Attack 139 273
+Defense 85 207
+EndMonster
+
+Monster
+Number 194
+Name Wooper
+Type Water
+HP 115 162
+Speed 31 141
+Attack 85 207
+Defense 85 207
+Flood 0.21
+Fall 0.21
+EndMonster
+
+Monster
+Number 195
+Name Quagsire
+Type Water
+HP 155 202
+Speed 67 185
+Attack 157 295
+Defense 157 295
+Flood 0.16
+Fall 0.24
+EndMonster
+
+Monster
+Number 199
+Name Slowking
+Type Water
+HP 155 202
+Speed 58 174
+Attack 184 328
+Defense 202 350
+Flood 0.21
+Fall 0.25
+EndMonster
+
+Monster
+Number 203
+Name Girafarig
+Type Normal
+HP 130 177
+Speed 157 295
+Attack 166 306
+Defense 121 251
+EndMonster
+
+Monster
+Number 204
+Name Pineco
+Type Insect
+HP 110 157
+Speed 31 141
+Attack 121 251
+Defense 166 306
+EndMonster
+
+Monster
+Number 205
+Name Forretress
+Type Insect
+HP 135 182
+Speed 76 196
+Attack 166 306
+Defense 256 416
+EndMonster
+
+Monster
+Number 206
+Name Dunsparce
+Type Normal
+HP 160 207
+Speed 85 207
+Attack 130 262
+Defense 130 262
+EndMonster
+
+Monster
+Number 207
+Name Gligar
+Type Earth
+HP 125 172
+Speed 157 295
+Attack 139 273
+Defense 193 339
+EndMonster
+
+Monster
+Number 211
+Name Qwilfish
+Type Water
+HP 125 172
+Speed 157 295
+Attack 175 317
+Defense 157 295
+Flood 0.26
+Fall 0.23
+EndMonster
+
+Monster
+Number 212
+Name Scizor
+Type Insect
+HP 130 177
+Speed 121 251
+Attack 238 394
+Defense 184 328
+EndMonster
+
+Monster
+Number 213
+Name Shuckle
+Type Insect
+HP 80 127
+Speed 13 119
+Attack 22 130
+Defense 418 614
+EndMonster
+
+Monster
+Number 214
+Name Heracross
+Type Insect
+HP 140 187
+Speed 157 295
+Attack 229 383
+Defense 175 317
+EndMonster
+
+Monster
+Number 216
+Name Teddiursa
+Type Normal
+HP 120 167
+Speed 76 196
+Attack 148 284
+Defense 94 218
+EndMonster
+
+Monster
+Number 217
+Name Ursaring
+Type Normal
+HP 150 197
+Speed 103 229
+Attack 238 394
+Defense 139 273
+EndMonster
+
+Monster
+Number 218
+Name Slugma
+Type Fire
+HP 100 147
+Speed 40 152
+Attack 130 262
+Defense 76 196
+Burn 0.35
+EndMonster
+
+Monster
+Number 219
+Name Magcargo
+Type Fire
+HP 120 167
+Speed 58 174
+Attack 166 306
+Defense 220 372
+Burn 0.16
+EndMonster
+
+Monster
+Number 222
+Name Corsola
+Type Water
+HP 125 172
+Speed 67 185
+Attack 121 251
+Defense 175 317
+Flood 0.19
+Fall 0.21
+EndMonster
+
+Monster
+Number 223
+Name Remoraid
+Type Water
+HP 95 142
+Speed 121 251
+Attack 121 251
+Defense 67 185
+Flood 0.15
+Fall 0.38
+EndMonster
+
+Monster
+Number 224
+Name Octillery
+Type Water
+HP 135 182
+Speed 85 207
+Attack 193 339
+Defense 139 273
+Flood 0.27
+Fall 0.29
+EndMonster
+
+Monster
+Number 226
+Name Mantine
+Type Water
+HP 145 192
+Speed 130 262
+Attack 148 284
+Defense 256 416
+Flood 0.2
+Fall 0.36
+EndMonster
+
+Monster
+Number 230
+Name Kingdra
+Type Water
+HP 135 182
+Speed 157 295
+Attack 175 317
+Defense 175 317
+Flood 0.26
+Fall 0.31
+EndMonster
+
+Monster
+Number 231
+Name Phanpy
+Type Earth
+HP 150 197
+Speed 76 196
+Attack 112 240
+Defense 112 240
+EndMonster
+
+Monster
+Number 232
+Name Donphan
+Type Earth
+HP 150 197
+Speed 94 218
+Attack 220 372
+Defense 220 372
+EndMonster
+
+Monster
+Number 233
+Name Porygon2
+Type Normal
+HP 145 192
+Speed 112 240
+Attack 193 339
+Defense 175 317
+EndMonster
+
+Monster
+Number 234
+Name Stantler
+Type Normal
+HP 133 180
+Speed 157 295
+Attack 175 317
+Defense 121 251
+EndMonster
+
+Monster
+Number 235
+Name Smeargle
+Type Normal
+HP 115 162
+Speed 139 273
+Attack 40 152
+Defense 85 207
+EndMonster
+
+Monster
+Number 239
+Name Elekid
+Type Electric
+HP 105 152
+Speed 175 317
+Attack 121 251
+Defense 103 229
+Paralysis 0.12
+EndMonster
+
+Monster
+Number 240
+Name Magby
+Type Fire
+HP 105 152
+Speed 153 291
+Attack 139 273
+Defense 103 229
+Burn 0.12
+EndMonster
+
+Monster
+Number 241
+Name Miltank
+Type Normal
+HP 155 202
+Speed 184 328
+Attack 148 284
+Defense 193 339
+EndMonster
+
+Monster
+Number 242
+Name Blissey
+Type Normal
+HP 315 362
+Speed 103 229
+Attack 139 273
+Defense 247 405
+EndMonster
+
+Monster
+Number 243
+Name Raikou
+Type Electric
+HP 150 197
+Speed 211 361
+Attack 211 361
+Defense 184 328
+Paralysis 0.26
+EndMonster
+
+Monster
+Number 244
+Name Entei
+Type Fire
+HP 175 222
+Speed 184 328
+Attack 211 361
+Defense 157 295
+Burn 0.13
+EndMonster
+
+Monster
+Number 245
+Name Suicune
+Type Water
+HP 160 207
+Speed 157 295
+Attack 166 306
+Defense 211 361
+Flood 0.2
+Fall 0.38
+EndMonster
+
+Monster
+Number 250
+Name Ho-oh
+Type Fire
+HP 166 213
+Speed 166 306
+Attack 238 394
+Defense 281 447
+Burn 0.18
+EndMonster
+
+Monster
+Number 252
+Name Treecko
+Type Grass
+HP 100 147
+Speed 130 262
+Attack 121 251
+Defense 103 229
+Heal 0.25
+EndMonster
+
+Monster
+Number 253
+Name Grovyle
+Type Grass
+HP 110 157
+Speed 175 317
+Attack 157 295
+Defense 121 251
+Heal 0.11
+EndMonster
+
+Monster
+Number 254
+Name Sceptile
+Type Grass
+HP 130 177
+Speed 220 372
+Attack 193 339
+Defense 157 295
+Heal 0.11
+EndMonster
+
+Monster
+Number 255
+Name Torchic
+Type Fire
+HP 105 152
+Speed 85 207
+Attack 130 262
+Defense 94 218
+Burn 0.23
+EndMonster
+
+Monster
+Number 256
+Name Combusken
+Type Fire
+HP 120 167
+Speed 103 229
+Attack 157 295
+Defense 112 240
+Burn 0.18
+EndMonster
+
+Monster
+Number 257
+Name Blaziken
+Type Fire
+HP 140 187
+Speed 148 284
+Attack 220 372
+Defense 130 262
+Burn 0.26
+EndMonster
+
+Monster
+Number 258
+Name Mudkip
+Type Water
+HP 110 157
+Speed 76 196
+Attack 130 262
+Defense 94 218
+Flood 0.28
+Fall 0.29
+EndMonster
+
+Monster
+Number 259
+Name Marshtomp
+Type Water
+HP 130 177
+Speed 94 218
+Attack 157 295
+Defense 130 262
+Flood 0.27
+Fall 0.23
+EndMonster
+
+Monster
+Number 260
+Name Swampert
+Type Water
+HP 160 207
+Speed 112 240
+Attack 202 350
+Defense 166 306
+Flood 0.28
+Fall 0.37
+EndMonster
+
+Monster
+Number 263
+Name Zigzagoon
+Type Normal
+HP 98 145
+Speed 112 240
+Attack 58 174
+Defense 78 199
+EndMonster
+
+Monster
+Number 264
+Name Linoone
+Type Normal
+HP 138 185
+Speed 184 328
+Attack 130 262
+Defense 114 243
+EndMonster
+
+Monster
+Number 265
+Name Wurmple
+Type Insect
+HP 105 152
+Speed 40 152
+Attack 85 207
+Defense 67 185
+EndMonster
+
+Monster
+Number 266
+Name Silcoon
+Type Insect
+HP 110 157
+Speed 31 141
+Attack 67 185
+Defense 103 229
+EndMonster
+
+Monster
+Number 267
+Name Beautifly
+Type Insect
+HP 120 167
+Speed 121 251
+Attack 184 328
+Defense 94 218
+EndMonster
+
+Monster
+Number 268
+Name Cascoon
+Type Insect
+HP 110 157
+Speed 31 141
+Attack 67 185
+Defense 103 229
+EndMonster
+
+Monster
+Number 269
+Name Dustox
+Type Insect
+HP 120 167
+Speed 121 251
+Attack 94 218
+Defense 166 306
+EndMonster
+
+Monster
+Number 270
+Name Lotad
+Type Water
+HP 100 147
+Speed 58 174
+Attack 76 196
+Defense 94 218
+Flood 0.29
+Fall 0.34
+EndMonster
+
+Monster
+Number 271
+Name Lombre
+Type Water
+HP 120 167
+Speed 94 218
+Attack 112 240
+Defense 130 262
+Flood 0.19
+Fall 0.21
+EndMonster
+
+Monster
+Number 272
+Name Ludicolo
+Type Water
+HP 140 187
+Speed 130 262
+Attack 166 306
+Defense 184 328
+Flood 0.27
+Fall 0.22
+EndMonster
+
+Monster
+Number 273
+Name Seedot
+Type Grass
+HP 100 147
+Speed 58 174
+Attack 76 196
+Defense 94 218
+Heal 0.15
+EndMonster
+
+Monster
+Number 274
+Name Nuzleaf
+Type Grass
+HP 130 177
+Speed 112 240
+Attack 130 262
+Defense 76 196
+Heal 0.12
+EndMonster
+
+Monster
+Number 275
+Name Shiftry
+Type Grass
+HP 150 197
+Speed 148 284
+Attack 184 328
+Defense 112 240
+Heal 0.22
+EndMonster
+
+Monster
+Number 276
+Name Taillow
+Type Normal
+HP 100 147
+Speed 157 295
+Attack 103 229
+Defense 58 174
+EndMonster
+
+Monster
+Number 277
+Name Swellow
+Type Normal
+HP 120 167
+Speed 229 383
+Attack 157 295
+Defense 112 240
+EndMonster
+
+Monster
+Number 278
+Name Wingull
+Type Water
+HP 100 147
+Speed 157 295
+Attack 103 229
+Defense 58 174
+Flood 0.28
+Fall 0.34
+EndMonster
+
+Monster
+Number 279
+Name Pelipper
+Type Water
+HP 120 167
+Speed 121 251
+Attack 175 317
+Defense 184 328
+Flood 0.28
+Fall 0.24
+EndMonster
+
+Monster
+Number 283
+Name Surskit
+Type Insect
+HP 100 147
+Speed 121 251
+Attack 94 218
+Defense 98 223
+EndMonster
+
+Monster
+Number 284
+Name Masquerain
+Type Insect
+HP 130 177
+Speed 148 284
+Attack 184 328
+Defense 152 289
+EndMonster
+
+Monster
+Number 285
+Name Shroomish
+Type Grass
+HP 120 167
+Speed 67 185
+Attack 76 196
+Defense 112 240
+Heal 0.14
+EndMonster
+
+Monster
+Number 286
+Name Breloom
+Type Grass
+HP 120 167
+Speed 130 262
+Attack 238 394
+Defense 148 284
+Heal 0.11
+EndMonster
+
+Monster
+Number 287
+Name Slakoth
+Type Normal
+HP 120 167
+Speed 58 174
+Attack 112 240
+Defense 112 240
+EndMonster
+
+Monster
+Number 288
+Name Vigoroth
+Type Normal
+HP 140 187
+Speed 166 306
+Attack 148 284
+Defense 148 284
+EndMonster
+
+Monster
+Number 289
+Name Slaking
+Type Normal
+HP 210 257
+Speed 184 328
+Attack 292 460
+Defense 184 328
+EndMonster
+
+Monster
+Number 290
+Name Nincada
+Type Insect
+HP 91 138
+Speed 76 196
+Attack 85 207
+Defense 166 306
+EndMonster
+
+Monster
+Number 291
+Name Ninjask
+Type Insect
+HP 121 168
+Speed 292 460
+Attack 166 306
+Defense 94 218
+EndMonster
+
+Monster
+Number 292
+Name Shedinja
+Type Insect
+HP 61 108
+Speed 76 196
+Attack 166 306
+Defense 85 207
+EndMonster
+
+Monster
+Number 293
+Name Whismur
+Type Normal
+HP 124 171
+Speed 54 170
+Attack 96 221
+Defense 45 159
+EndMonster
+
+Monster
+Number 294
+Name Loudred
+Type Normal
+HP 144 191
+Speed 90 214
+Attack 132 265
+Defense 81 203
+EndMonster
+
+Monster
+Number 295
+Name Exploud
+Type Normal
+HP 164 211
+Speed 126 258
+Attack 168 309
+Defense 135 269
+EndMonster
+
+Monster
+Number 298
+Name Azurill
+Type Normal
+HP 110 157
+Speed 40 152
+Attack 40 152
+Defense 76 196
+EndMonster
+
+Monster
+Number 300
+Name Skitty
+Type Normal
+HP 110 157
+Speed 94 218
+Attack 85 207
+Defense 85 207
+EndMonster
+
+Monster
+Number 301
+Name Delcatty
+Type Normal
+HP 130 177
+Speed 166 306
+Attack 121 251
+Defense 121 251
+EndMonster
+
+Monster
+Number 309
+Name Electrike
+Type Electric
+HP 100 147
+Speed 121 251
+Attack 121 251
+Defense 76 196
+Paralysis 0.16
+EndMonster
+
+Monster
+Number 310
+Name Manectric
+Type Electric
+HP 130 177
+Speed 193 339
+Attack 193 339
+Defense 112 240
+Paralysis 0.12
+EndMonster
+
+Monster
+Number 311
+Name Plusle
+Type Electric
+HP 120 167
+Speed 175 317
+Attack 157 295
+Defense 139 273
+Paralysis 0.25
+EndMonster
+
+Monster
+Number 312
+Name Minun
+Type Electric
+HP 120 167
+Speed 175 317
+Attack 139 273
+Defense 157 295
+Paralysis 0.26
+EndMonster
+
+Monster
+Number 313
+Name Volbeat
+Type Insect
+HP 125 172
+Speed 157 295
+Attack 135 269
+Defense 157 295
+EndMonster
+
+Monster
+Number 314
+Name Illumise
+Type Insect
+HP 125 172
+Speed 157 295
+Attack 135 269
+Defense 157 295
+EndMonster
+
+Monster
+Number 315
+Name Roselia
+Type Grass
+HP 110 157
+Speed 121 251
+Attack 184 328
+Defense 148 284
+Heal 0.22
+EndMonster
+
+Monster
+Number 318
+Name Carvanha
+Type Water
+HP 105 152
+Speed 121 251
+Attack 166 306
+Defense 40 152
+Flood 0.2
+Fall 0.27
+EndMonster
+
+Monster
+Number 319
+Name Sharpedo
+Type Water
+HP 130 177
+Speed 175 317
+Attack 220 372
+Defense 76 196
+Flood 0.21
+Fall 0.28
+EndMonster
+
+Monster
+Number 320
+Name Wailmer
+Type Water
+HP 190 237
+Speed 112 240
+Attack 130 262
+Defense 67 185
+Flood 0.17
+Fall 0.34
+EndMonster
+
+Monster
+Number 321
+Name Wailord
+Type Water
+HP 230 277
+Speed 112 240
+Attack 166 306
+Defense 85 207
+Flood 0.23
+Fall 0.3
+EndMonster
+
+Monster
+Number 322
+Name Numel
+Type Fire
+HP 120 167
+Speed 67 185
+Attack 121 251
+Defense 85 207
+Burn 0.15
+EndMonster
+
+Monster
+Number 323
+Name Camerupt
+Type Fire
+HP 130 177
+Speed 76 196
+Attack 193 339
+Defense 139 273
+Burn 0.14
+EndMonster
+
+Monster
+Number 324
+Name Torkoal
+Type Fire
+HP 130 177
+Speed 40 152
+Attack 157 295
+Defense 256 416
+Burn 0.27
+EndMonster
+
+Monster
+Number 327
+Name Spinda
+Type Normal
+HP 120 167
+Speed 112 240
+Attack 112 240
+Defense 112 240
+EndMonster
+
+Monster
+Number 328
+Name Trapinch
+Type Earth
+HP 105 152
+Speed 22 130
+Attack 184 328
+Defense 85 207
+EndMonster
+
+Monster
+Number 329
+Name Vibrava
+Type Earth
+HP 110 157
+Speed 130 262
+Attack 130 262
+Defense 94 218
+EndMonster
+
+Monster
+Number 330
+Name Flygon
+Type Earth
+HP 140 187
+Speed 184 328
+Attack 184 328
+Defense 148 284
+EndMonster
+
+Monster
+Number 331
+Name Cacnea
+Type Grass
+HP 110 157
+Speed 67 185
+Attack 157 295
+Defense 76 196
+Heal 0.16
+EndMonster
+
+Monster
+Number 332
+Name Cacturne
+Type Grass
+HP 130 177
+Speed 103 229
+Attack 211 361
+Defense 112 240
+Heal 0.14
+EndMonster
+
+Monster
+Number 333
+Name Swablu
+Type Normal
+HP 105 152
+Speed 94 218
+Attack 76 196
+Defense 139 273
+EndMonster
+
+Monster
+Number 335
+Name Zangoose
+Type Normal
+HP 133 180
+Speed 166 306
+Attack 211 361
+Defense 112 240
+EndMonster
+
+Monster
+Number 339
+Name Barboach
+Type Water
+HP 110 157
+Speed 112 240
+Attack 90 214
+Defense 81 203
+Flood 0.23
+Fall 0.39
+EndMonster
+
+Monster
+Number 340
+Name Whiscash
+Type Water
+HP 170 217
+Speed 112 240
+Attack 144 280
+Defense 135 269
+Flood 0.16
+Fall 0.23
+EndMonster
+
+Monster
+Number 341
+Name Corphish
+Type Water
+HP 103 150
+Speed 67 185
+Attack 148 284
+Defense 121 251
+Flood 0.28
+Fall 0.26
+EndMonster
+
+Monster
+Number 342
+Name Crawdaunt
+Type Water
+HP 123 170
+Speed 103 229
+Attack 220 372
+Defense 157 295
+Flood 0.2
+Fall 0.23
+EndMonster
+
+Monster
+Number 343
+Name Baltoy
+Type Earth
+HP 100 147
+Speed 103 229
+Attack 76 196
+Defense 130 262
+EndMonster
+
+Monster
+Number 344
+Name Claydol
+Type Earth
+HP 120 167
+Speed 139 273
+Attack 130 262
+Defense 220 372
+EndMonster
+
+Monster
+Number 349
+Name Feebas
+Type Water
+HP 80 127
+Speed 148 284
+Attack 31 141
+Defense 103 229
+Flood 0.19
+Fall 0.24
+EndMonster
+
+Monster
+Number 350
+Name Milotic
+Type Water
+HP 155 202
+Speed 150 287
+Attack 184 328
+Defense 229 383
+Flood 0.23
+Fall 0.24
+EndMonster
+
+Monster
+Number 352
+Name Kecleon
+Type Normal
+HP 120 167
+Speed 76 196
+Attack 166 306
+Defense 220 372
+EndMonster
+
+Monster
+Number 357
+Name Tropius
+Type Grass
+HP 159 206
+Speed 96 221
+Attack 134 267
+Defense 161 300
+Heal 0.2
+EndMonster
+
+Monster
+Number 366
+Name Clamperl
+Type Water
+HP 95 142
+Speed 62 179
+Attack 137 271
+Defense 157 295
+Flood 0.28
+Fall 0.25
+EndMonster
+
+Monster
+Number 367
+Name Huntail
+Type Water
+HP 115 162
+Speed 98 223
+Attack 191 337
+Defense 193 339
+Flood 0.16
+Fall 0.27
+EndMonster
+
+Monster
+Number 368
+Name Gorebyss
+Type Water
+HP 115 162
+Speed 98 223
+Attack 209 359
+Defense 193 339
+Flood 0.19
+Fall 0.22
+EndMonster
+
+Monster
+Number 369
+Name Relicanth
+Type Water
+HP 160 207
+Speed 103 229
+Attack 166 306
+Defense 238 394
+Flood 0.24
+Fall 0.22
+EndMonster
+
+Monster
+Number 370
+Name Luvdisc
+Type Water
+HP 103 150
+Speed 179 322
+Attack 76 196
+Defense 121 251
+Flood 0.17
+Fall 0.31
+EndMonster
+
+Monster
+Number 382
+Name Kyogre
+Type Water
+HP 160 207
+Speed 166 306
+Attack 274 438
+Defense 256 416
+Flood 0.25
+Fall 0.33
+EndMonster
+
+Monster
+Number 383
+Name Groudon
+Type Earth
+HP 160 207
+Speed 166 306
+Attack 274 438
+Defense 256 416
+EndMonster
+
+Monster
+Number 387
+Name Turtwig
+Type Grass
+HP 115 162
+Speed 60 177
+Attack 126 258
+Defense 119 249
+Heal 0.12
+EndMonster
+
+Monster
+Number 388
+Name Grotle
+Type Grass
+HP 135 182
+Speed 69 188
+Attack 164 304
+Defense 157 295
+Heal 0.12
+EndMonster
+
+Monster
+Number 389
+Name Torterra
+Type Grass
+HP 155 202
+Speed 105 232
+Attack 200 348
+Defense 193 339
+Heal 0.1
+EndMonster
+
+Monster
+Number 390
+Name Chimchar
+Type Fire
+HP 104 151
+Speed 114 243
+Attack 108 236
+Defense 83 205
+Burn 0.26
+EndMonster
+
+Monster
+Number 391
+Name Monferno
+Type Fire
+HP 124 171
+Speed 150 287
+Attack 144 280
+Defense 98 223
+Burn 0.18
+EndMonster
+
+Monster
+Number 392
+Name Infernape
+Type Fire
+HP 136 183
+Speed 198 346
+Attack 191 337
+Defense 132 265
+Burn 0.23
+EndMonster
+
+Monster
+Number 393
+Name Piplup
+Type Water
+HP 113 160
+Speed 76 196
+Attack 114 243
+Defense 105 232
+Flood 0.17
+Fall 0.28
+EndMonster
+
+Monster
+Number 394
+Name Prinplup
+Type Water
+HP 124 171
+Speed 94 218
+Attack 150 287
+Defense 141 276
+Flood 0.3
+Fall 0.31
+EndMonster
+
+Monster
+Number 395
+Name Empoleon
+Type Water
+HP 144 191
+Speed 112 240
+Attack 204 353
+Defense 186 331
+Flood 0.28
+Fall 0.3
+EndMonster
+
+Monster
+Number 396
+Name Starly
+Type Normal
+HP 100 147
+Speed 112 240
+Attack 103 229
+Defense 58 174
+EndMonster
+
+Monster
+Number 397
+Name Staravia
+Type Normal
+HP 115 162
+Speed 148 284
+Attack 139 273
+Defense 94 218
+EndMonster
+
+Monster
+Number 398
+Name Staraptor
+Type Normal
+HP 145 192
+Speed 184 328
+Attack 220 372
+Defense 130 262
+EndMonster
+
+Monster
+Number 399
+Name Bidoof
+Type Normal
+HP 119 166
+Speed 60 177
+Attack 85 207
+Defense 76 196
+EndMonster
+
+Monster
+Number 400
+Name Bibarel
+Type Normal
+HP 139 186
+Speed 132 265
+Attack 157 295
+Defense 112 240
+EndMonster
+
+Monster
+Number 401
+Name Kricketot
+Type Insect
+HP 97 144
+Speed 49 163
+Attack 49 163
+Defense 78 199
+EndMonster
+
+Monster
+Number 402
+Name Kricketune
+Type Insect
+HP 137 184
+Speed 121 251
+Attack 157 295
+Defense 96 221
+EndMonster
+
+Monster
+Number 403
+Name Shinx
+Type Electric
+HP 105 152
+Speed 85 207
+Attack 121 251
+Defense 65 183
+Paralysis 0.21
+EndMonster
+
+Monster
+Number 404
+Name Luxio
+Type Electric
+HP 120 167
+Speed 112 240
+Attack 157 295
+Defense 92 216
+Paralysis 0.2
+EndMonster
+
+Monster
+Number 405
+Name Luxray
+Type Electric
+HP 140 187
+Speed 130 262
+Attack 220 372
+Defense 146 282
+Paralysis 0.17
+EndMonster
+
+Monster
+Number 406
+Name Budew
+Type Grass
+HP 100 147
+Speed 103 229
+Attack 94 218
+Defense 130 262
+Heal 0.19
+EndMonster
+
+Monster
+Number 407
+Name Roserade
+Type Grass
+HP 120 167
+Speed 166 306
+Attack 229 383
+Defense 193 339
+Heal 0.15
+EndMonster
+
+Monster
+Number 414
+Name Mothim
+Type Insect
+HP 130 177
+Speed 123 254
+Attack 173 315
+Defense 94 218
+EndMonster
+
+Monster
+Number 415
+Name Combee
+Type Insect
+HP 90 137
+Speed 130 262
+Attack 58 174
+Defense 80 201
+EndMonster
+
+Monster
+Number 416
+Name Vespiquen
+Type Insect
+HP 130 177
+Speed 76 196
+Attack 148 284
+Defense 188 333
+EndMonster
+
+Monster
+Number 417
+Name Pachirisu
+Type Electric
+HP 120 167
+Speed 175 317
+Attack 85 207
+Defense 166 306
+Paralysis 0.14
+EndMonster
+
+Monster
+Number 418
+Name Buizel
+Type Water
+HP 115 162
+Speed 157 295
+Attack 121 251
+Defense 67 185
+Flood 0.17
+Fall 0.33
+EndMonster
+
+Monster
+Number 419
+Name Floatzel
+Type Water
+HP 145 192
+Speed 211 361
+Attack 193 339
+Defense 103 229
+Flood 0.28
+Fall 0.38
+EndMonster
+
+Monster
+Number 420
+Name Cherubi
+Type Grass
+HP 105 152
+Speed 67 185
+Attack 116 245
+Defense 99 225
+Heal 0.11
+EndMonster
+
+Monster
+Number 421
+Name Cherrim
+Type Grass
+HP 130 177
+Speed 157 295
+Attack 161 300
+Defense 144 280
+Heal 0.16
+EndMonster
+
+Monster
+Number 422
+Name Shellos
+Type Water
+HP 136 183
+Speed 65 183
+Attack 107 234
+Defense 116 245
+Flood 0.19
+Fall 0.22
+EndMonster
+
+Monster
+Number 423
+Name Gastrodon
+Type Water
+HP 171 218
+Speed 74 194
+Attack 170 311
+Defense 152 289
+Flood 0.25
+Fall 0.26
+EndMonster
+
+Monster
+Number 424
+Name Ambipom
+Type Normal
+HP 135 182
+Speed 211 361
+Attack 184 328
+Defense 123 254
+EndMonster
+
+Monster
+Number 427
+Name Buneary
+Type Normal
+HP 115 162
+Speed 157 295
+Attack 123 254
+Defense 105 232
+EndMonster
+
+Monster
+Number 428
+Name Lopunny
+Type Normal
+HP 125 172
+Speed 193 339
+Attack 141 276
+Defense 177 320
+EndMonster
+
+Monster
+Number 431
+Name Glameow
+Type Normal
+HP 109 156
+Speed 157 295
+Attack 103 229
+Defense 80 201
+EndMonster
+
+Monster
+Number 432
+Name Purugly
+Type Normal
+HP 131 178
+Speed 206 355
+Attack 152 289
+Defense 119 249
+EndMonster
+
+Monster
+Number 440
+Name Happiny
+Type Normal
+HP 160 207
+Speed 58 174
+Attack 31 141
+Defense 121 251
+EndMonster
+
+Monster
+Number 441
+Name Chatot
+Type Normal
+HP 136 183
+Speed 168 309
+Attack 170 311
+Defense 85 207
+EndMonster
+
+Monster
+Number 446
+Name Munchlax
+Type Normal
+HP 195 242
+Speed 13 119
+Attack 157 295
+Defense 157 295
+EndMonster
+
+Monster
+Number 449
+Name Hippopotas
+Type Earth
+HP 128 175
+Speed 62 179
+Attack 134 267
+Defense 144 280
+EndMonster
+
+Monster
+Number 450
+Name Hippowdon
+Type Earth
+HP 168 215
+Speed 89 212
+Attack 206 355
+Defense 216 368
+EndMonster
+
+Monster
+Number 455
+Name Carnivine
+Type Grass
+HP 134 181
+Speed 87 210
+Attack 184 328
+Defense 134 267
+Heal 0.13
+EndMonster
+
+Monster
+Number 456
+Name Finneon
+Type Water
+HP 109 156
+Speed 123 254
+Attack 92 216
+Defense 114 243
+Flood 0.24
+Fall 0.26
+EndMonster
+
+Monster
+Number 457
+Name Lumineon
+Type Water
+HP 129 176
+Speed 168 309
+Attack 128 260
+Defense 159 298
+Flood 0.17
+Fall 0.36
+EndMonster
+
+Monster
+Number 458
+Name Mantyke
+Type Water
+HP 105 152
+Speed 94 218
+Attack 112 240
+Defense 220 372
+Flood 0.17
+Fall 0.34
+EndMonster
+
+Monster
+Number 459
+Name Snover
+Type Grass
+HP 120 167
+Speed 76 196
+Attack 116 245
+Defense 112 240
+Heal 0.23
+EndMonster
+
+Monster
+Number 460
+Name Abomasnow
+Type Grass
+HP 150 197
+Speed 112 240
+Attack 170 311
+Defense 157 295
+Heal 0.16
+EndMonster
+
+Monster
+Number 462
+Name Magnezone
+Type Electric
+HP 130 177
+Speed 112 240
+Attack 238 394
+Defense 211 361
+Paralysis 0.19
+EndMonster
+
+Monster
+Number 463
+Name Lickilicky
+Type Normal
+HP 170 217
+Speed 94 218
+Attack 157 295
+Defense 175 317
+EndMonster
+
+Monster
+Number 464
+Name Rhyperior
+Type Earth
+HP 175 222
+Speed 76 196
+Attack 256 416
+Defense 238 394
+EndMonster
+
+Monster
+Number 465
+Name Tangrowth
+Type Grass
+HP 160 207
+Speed 94 218
+Attack 202 350
+Defense 229 383
+Heal 0.14
+EndMonster
+
+Monster
+Number 466
+Name Electivire
+Type Electric
+HP 135 182
+Speed 175 317
+Attack 225 379
+Defense 157 295
+Paralysis 0.27
+EndMonster
+
+Monster
+Number 467
+Name Magmortar
+Type Fire
+HP 135 182
+Speed 153 291
+Attack 229 383
+Defense 175 317
+Burn 0.12
+EndMonster
+
+Monster
+Number 469
+Name Yanmega
+Type Insect
+HP 146 193
+Speed 175 317
+Attack 213 364
+Defense 159 298
+EndMonster
+
+Monster
+Number 470
+Name Leafeon
+Type Grass
+HP 125 172
+Speed 175 317
+Attack 202 350
+Defense 238 394
+Heal 0.13
+EndMonster
+
+Monster
+Number 472
+Name Gliscor
+Type Earth
+HP 135 182
+Speed 175 317
+Attack 175 317
+Defense 229 383
+EndMonster
+
+Monster
+Number 474
+Name Porygon-Z
+Type Normal
+HP 145 192
+Speed 166 306
+Attack 247 405
+Defense 139 273
+EndMonster
+
+Monster
+Number 484
+Name Palkia
+Type Water
+HP 150 197
+Speed 184 328
+Attack 274 438
+Defense 220 372
+Flood 0.28
+Fall 0.4
+EndMonster
+
+Monster
+Number 485
+Name Heatran
+Type Fire
+HP 151 198
+Speed 143 278
+Attack 238 394
+Defense 195 342
+Burn 0.21
+EndMonster
+
+Monster
+Number 486
+Name Regigigas
+Type Normal
+HP 170 217
+Speed 184 328
+Attack 292 460
+Defense 202 350
+EndMonster
+
+Monster
+Number 489
+Name Phione
+Type Water
+HP 140 187
+Speed 148 284
+Attack 148 284
+Defense 148 284
+Flood 0.24
+Fall 0.27
+EndMonster
+
+Monster
+Number 490
+Name Manaphy
+Type Water
+HP 160 207
+Speed 184 328
+Attack 184 328
+Defense 184 328
+Flood 0.23
+Fall 0.37
+EndMonster
+
+Monster
+Number 493
+Name Arceus
+Type Normal
+HP 180 227
+Speed 220 372
+Attack 220 372
+Defense 220 372
+EndMonster
+
+Monster
+Number 495
+Name Snivy
+Type Grass
+HP 105 152
+Speed 117 247
+Attack 85 207
+Defense 103 229
+Heal 0.14
+EndMonster
+
+Monster
+Number 496
+Name Servine
+Type Grass
+HP 120 167
+Speed 153 291
+Attack 112 240
+Defense 139 273
+Heal 0.17
+EndMonster
+
+Monster
+Number 497
+Name Serperior
+Type Grass
+HP 135 182
+Speed 207 357
+Attack 139 273
+Defense 175 317
+Heal 0.17
+EndMonster
+
+Monster
+Number 498
+Name Tepig
+Type Fire
+HP 125 172
+Speed 85 207
+Attack 117 247
+Defense 85 207
+Burn 0.19
+EndMonster
+
+Monster
+Number 499
+Name Pignite
+Type Fire
+HP 150 197
+Speed 103 229
+Attack 171 313
+Defense 103 229
+Burn 0.25
+EndMonster
+
+Monster
+Number 500
+Name Emboar
+Type Fire
+HP 170 217
+Speed 121 251
+Attack 225 379
+Defense 121 251
+Burn 0.3
+EndMonster
+
+Monster
+Number 501
+Name Oshawott
+Type Water
+HP 115 162
+Speed 85 207
+Attack 117 247
+Defense 85 207
+Flood 0.23
+Fall 0.26
+EndMonster
+
+Monster
+Number 502
+Name Dewott
+Type Water
+HP 135 182
+Speed 112 240
+Attack 153 291
+Defense 112 240
+Flood 0.29
+Fall 0.39
+EndMonster
+
+Monster
+Number 503
+Name Samurott
+Type Water
+HP 155 202
+Speed 130 262
+Attack 198 346
+Defense 157 295
+Flood 0.25
+Fall 0.24
+EndMonster
+
+Monster
+Number 504
+Name Patrat
+Type Normal
+HP 105 152
+Speed 80 201
+Attack 103 229
+Defense 74 194
+EndMonster
+
+Monster
+Number 505
+Name Watchog
+Type Normal
+HP 120 167
+Speed 143 278
+Attack 157 295
+Defense 128 260
+EndMonster
+
+Monster
+Number 506
+Name Lillipup
+Type Normal
+HP 105 152
+Speed 103 229
+Attack 112 240
+Defense 85 207
+EndMonster
+
+Monster
+Number 507
+Name Herdier
+Type Normal
+HP 125 172
+Speed 112 240
+Attack 148 284
+Defense 121 251
+EndMonster
+
+Monster
+Number 508
+Name Stoutland
+Type Normal
+HP 145 192
+Speed 148 284
+Attack 202 350
+Defense 166 306
+EndMonster
+
+Monster
+Number 511
+Name Pansage
+Type Grass
+HP 110 157
+Speed 119 249
+Attack 99 225
+Defense 90 214
+Heal 0.15
+EndMonster
+
+Monster
+Number 512
+Name Simisage
+Type Grass
+HP 135 182
+Speed 186 331
+Attack 180 324
+Defense 117 247
+Heal 0.17
+EndMonster
+
+Monster
+Number 513
+Name Pansear
+Type Fire
+HP 110 157
+Speed 119 249
+Attack 99 225
+Defense 90 214
+Burn 0.22
+EndMonster
+
+Monster
+Number 514
+Name Simisear
+Type Fire
+HP 135 182
+Speed 186 331
+Attack 180 324
+Defense 117 247
+Burn 0.18
+EndMonster
+
+Monster
+Number 515
+Name Panpour
+Type Water
+HP 110 157
+Speed 119 249
+Attack 99 225
+Defense 90 214
+Flood 0.2
+Fall 0.39
+EndMonster
+
+Monster
+Number 516
+Name Simipour
+Type Water
+HP 135 182
+Speed 186 331
+Attack 180 324
+Defense 117 247
+Flood 0.27
+Fall 0.26
+EndMonster
+
+Monster
+Number 519
+Name Pidove
+Type Normal
+HP 110 157
+Speed 81 203
+Attack 103 229
+Defense 94 218
+EndMonster
+
+Monster
+Number 520
+Name Tranquill
+Type Normal
+HP 122 169
+Speed 121 251
+Attack 143 278
+Defense 116 245
+EndMonster
+
+Monster
+Number 521
+Name Unfezant
+Type Normal
+HP 140 187
+Speed 171 313
+Attack 211 361
+Defense 148 284
+EndMonster
+
+Monster
+Number 522
+Name Blitzle
+Type Electric
+HP 105 152
+Speed 141 276
+Attack 112 240
+Defense 62 179
+Paralysis 0.22
+EndMonster
+
+Monster
+Number 523
+Name Zebstrika
+Type Electric
+HP 135 182
+Speed 213 364
+Attack 184 328
+Defense 117 247
+Paralysis 0.16
+EndMonster
+
+Monster
+Number 529
+Name Drilbur
+Type Earth
+HP 120 167
+Speed 126 258
+Attack 157 295
+Defense 85 207
+EndMonster
+
+Monster
+Number 530
+Name Excadrill
+Type Earth
+HP 170 217
+Speed 162 302
+Attack 247 405
+Defense 121 251
+EndMonster
+
+Monster
+Number 531
+Name Audino
+Type Normal
+HP 163 210
+Speed 94 218
+Attack 112 240
+Defense 159 298
+EndMonster
+
+Monster
+Number 535
+Name Tympole
+Type Water
+HP 110 157
+Speed 119 249
+Attack 94 218
+Defense 76 196
+Flood 0.28
+Fall 0.31
+EndMonster
+
+Monster
+Number 536
+Name Palpitoad
+Type Water
+HP 135 182
+Speed 128 260
+Attack 121 251
+Defense 103 229
+Flood 0.17
+Fall 0.35
+EndMonster
+
+Monster
+Number 537
+Name Seismitoad
+Type Water
+HP 165 212
+Speed 137 271
+Attack 175 317
+Defense 139 273
+Flood 0.16
+Fall 0.21
+EndMonster
+
+Monster
+Number 540
+Name Sewaddle
+Type Insect
+HP 105 152
+Speed 80 201
+Attack 99 225
+Defense 130 262
+EndMonster
+
+Monster
+Number 541
+Name Swadloon
+Type Insect
+HP 115 162
+Speed 80 201
+Attack 117 247
+Defense 166 306
+EndMonster
+
+Monster
+Number 542
+Name Leavanny
+Type Insect
+HP 135 182
+Speed 170 311
+Attack 189 335
+Defense 148 284
+EndMonster
+
+Monster
+Number 543
+Name Venipede
+Type Insect
+HP 90 137
+Speed 107 234
+Attack 85 207
+Defense 110 238
+EndMonster
+
+Monster
+Number 544
+Name Whirlipede
+Type Insect
+HP 100 147
+Speed 89 212
+Attack 103 229
+Defense 182 326
+EndMonster
+
+Monster
+Number 545
+Name Scolipede
+Type Insect
+HP 120 167
+Speed 206 355
+Attack 184 328
+Defense 164 304
+EndMonster
+
+Monster
+Number 546
+Name Cottonee
+Type Grass
+HP 100 147
+Speed 123 254
+Attack 71 190
+Defense 112 240
+Heal 0.14
+EndMonster
+
+Monster
+Number 547
+Name Whimsicott
+Type Grass
+HP 120 167
+Speed 213 364
+Attack 143 278
+Defense 157 295
+Heal 0.12
+EndMonster
+
+Monster
+Number 548
+Name Petilil
+Type Grass
+HP 105 152
+Speed 58 174
+Attack 130 262
+Defense 94 218
+Heal 0.12
+EndMonster
+
+Monster
+Number 549
+Name Lilligant
+Type Grass
+HP 130 177
+Speed 166 306
+Attack 202 350
+Defense 139 273
+Heal 0.21
+EndMonster
+
+Monster
+Number 550
+Name Basculin
+Type Water
+HP 130 177
+Speed 180 324
+Attack 170 311
+Defense 121 251
+Flood 0.28
+Fall 0.4
+EndMonster
+
+Monster
+Number 551
+Name Sandile
+Type Earth
+HP 110 157
+Speed 121 251
+Attack 134 267
+Defense 67 185
+EndMonster
+
+Monster
+Number 552
+Name Krokorok
+Type Earth
+HP 120 167
+Speed 137 271
+Attack 152 289
+Defense 85 207
+EndMonster
+
+Monster
+Number 553
+Name Krookodile
+Type Earth
+HP 155 202
+Speed 170 311
+Attack 215 366
+Defense 148 284
+EndMonster
+
+Monster
+Number 554
+Name Darumaka
+Type Fire
+HP 130 177
+Speed 94 218
+Attack 166 306
+Defense 85 207
+Burn 0.12
+EndMonster
+
+Monster
+Number 555
+Name Darmanitan
+Type Fire
+HP 165 212
+Speed 175 317
+Attack 256 416
+Defense 103 229
+Burn 0.28
+EndMonster
+
+Monster
+Number 556
+Name Maractus
+Type Grass
+HP 135 182
+Speed 112 240
+Attack 195 342
+Defense 125 256
+Heal 0.12
+EndMonster
+
+Monster
+Number 557
+Name Dwebble
+Type Insect
+HP 110 157
+Speed 103 229
+Attack 121 251
+Defense 157 295
+EndMonster
+
+Monster
+Number 558
+Name Crustle
+Type Insect
+HP 130 177
+Speed 85 207
+Attack 193 339
+Defense 229 383
+EndMonster
+
+Monster
+Number 564
+Name Tirtouga
+Type Water
+HP 114 161
+Speed 44 157
+Attack 144 280
+Defense 189 335
+Flood 0.2
+Fall 0.23
+EndMonster
+
+Monster
+Number 565
+Name Carracosta
+Type Water
+HP 134 181
+Speed 62 179
+Attack 198 346
+Defense 243 401
+Flood 0.25
+Fall 0.22
+EndMonster
+
+Monster
+Number 572
+Name Minccino
+Type Normal
+HP 115 162
+Speed 139 273
+Attack 94 218
+Defense 76 196
+EndMonster
+
+Monster
+Number 573
+Name Cinccino
+Type Normal
+HP 135 182
+Speed 211 361
+Attack 175 317
+Defense 112 240
+EndMonster
+
+Monster
+Number 580
+Name Ducklett
+Type Water
+HP 122 169
+Speed 103 229
+Attack 83 205
+Defense 94 218
+Flood 0.16
+Fall 0.22
+EndMonster
+
+Monster
+Number 581
+Name Swanna
+Type Water
+HP 135 182
+Speed 180 324
+Attack 161 300
+Defense 117 247
+Flood 0.23
+Fall 0.3
+EndMonster
+
+Monster
+Number 585
+Name Deerling
+Type Normal
+HP 120 167
+Speed 139 273
+Attack 112 240
+Defense 94 218
+EndMonster
+
+Monster
+Number 586
+Name Sawsbuck
+Type Normal
+HP 140 187
+Speed 175 317
+Attack 184 328
+Defense 130 262
+EndMonster
+
+Monster
+Number 587
+Name Emolga
+Type Electric
+HP 115 162
+Speed 189 335
+Attack 139 273
+Defense 112 240
+Paralysis 0.16
+EndMonster
+
+Monster
+Number 588
+Name Karrablast
+Type Insect
+HP 110 157
+Speed 112 240
+Attack 139 273
+Defense 85 207
+EndMonster
+
+Monster
+Number 589
+Name Escavalier
+Type Insect
+HP 130 177
+Speed 40 152
+Attack 247 405
+Defense 193 339
+EndMonster
+
+Monster
+Number 590
+Name Foongus
+Type Grass
+HP 129 176
+Speed 31 141
+Attack 103 229
+Defense 103 229
+Heal 0.15
+EndMonster
+
+Monster
+Number 591
+Name Amoonguss
+Type Grass
+HP 174 221
+Speed 58 174
+Attack 157 295
+Defense 148 284
+Heal 0.13
+EndMonster
+
+Monster
+Number 592
+Name Frillish
+Type Water
+HP 115 162
+Speed 76 196
+Attack 121 251
+Defense 157 295
+Flood 0.19
+Fall 0.4
+EndMonster
+
+Monster
+Number 593
+Name Jellicent
+Type Water
+HP 160 207
+Speed 112 240
+Attack 157 295
+Defense 193 339
+Flood 0.28
+Fall 0.21
+EndMonster
+
+Monster
+Number 594
+Name Alomomola
+Type Water
+HP 225 272
+Speed 121 251
+Attack 139 273
+Defense 148 284
+Flood 0.23
+Fall 0.35
+EndMonster
+
+Monster
+Number 595
+Name Joltik
+Type Insect
+HP 110 157
+Speed 121 251
+Attack 107 234
+Defense 94 218
+EndMonster
+
+Monster
+Number 596
+Name Galvantula
+Type Insect
+HP 130 177
+Speed 198 346
+Attack 179 322
+Defense 112 240
+EndMonster
+
+Monster
+Number 597
+Name Ferroseed
+Type Grass
+HP 104 151
+Speed 22 130
+Attack 94 218
+Defense 168 309
+Heal 0.11
+EndMonster
+
+Monster
+Number 598
+Name Ferrothorn
+Type Grass
+HP 134 181
+Speed 40 152
+Attack 173 315
+Defense 240 397
+Heal 0.12
+EndMonster
+
+Monster
+Number 602
+Name Tynamo
+Type Electric
+HP 95 142
+Speed 112 240
+Attack 103 229
+Defense 76 196
+Paralysis 0.25
+EndMonster
+
+Monster
+Number 603
+Name Eelektrik
+Type Electric
+HP 125 172
+Speed 76 196
+Attack 157 295
+Defense 130 262
+Paralysis 0.28
+EndMonster
+
+Monster
+Number 604
+Name Eelektross
+Type Electric
+HP 145 192
+Speed 94 218
+Attack 211 361
+Defense 148 284
+Paralysis 0.2
+EndMonster
+
+Monster
+Number 616
+Name Shelmet
+Type Insect
+HP 110 157
+Speed 49 163
+Attack 76 196
+Defense 157 295
+EndMonster
+
+Monster
+Number 617
+Name Accelgor
+Type Insect
+HP 140 187
+Speed 265 427
+Attack 184 328
+Defense 112 240
+EndMonster
+
+Monster
+Number 618
+Name Stunfisk
+Type Earth
+HP 169 216
+Speed 62 179
+Attack 150 287
+Defense 182 326
+EndMonster
+
+Monster
+Number 622
+Name Golett
+Type Earth
+HP 119 166
+Speed 67 185
+Attack 137 271
+Defense 94 218
+EndMonster
+
+Monster
+Number 623
+Name Golurk
+Type Earth
+HP 149 196
+Speed 103 229
+Attack 227 381
+Defense 148 284
+EndMonster
+
+Monster
+Number 626
+Name Bouffalant
+Type Normal
+HP 155 202
+Speed 103 229
+Attack 202 350
+Defense 175 317
+EndMonster
+
+Monster
+Number 627
+Name Rufflet
+Type Normal
+HP 130 177
+Speed 112 240
+Attack 153 291
+Defense 94 218
+EndMonster
+
+Monster
+Number 628
+Name Braviary
+Type Normal
+HP 160 207
+Speed 148 284
+Attack 225 379
+Defense 139 273
+EndMonster
+
+Monster
+Number 631
+Name Heatmor
+Type Fire
+HP 145 192
+Speed 121 251
+Attack 193 339
+Defense 123 254
+Burn 0.2
+EndMonster
+
+Monster
+Number 632
+Name Durant
+Type Insect
+HP 118 165
+Speed 200 348
+Attack 200 348
+Defense 206 355
+EndMonster
+
+Monster
+Number 636
+Name Larvesta
+Type Insect
+HP 115 162
+Speed 112 240
+Attack 157 295
+Defense 103 229
+EndMonster
+
+Monster
+Number 637
+Name Volcarona
+Type Insect
+HP 145 192
+Speed 184 328
+Attack 247 405
+Defense 193 339
+EndMonster
+
+Monster
+Number 640
+Name Virizion
+Type Grass
+HP 151 198
+Speed 198 346
+Attack 166 306
+Defense 236 392
+Heal 0.2
+EndMonster
+
+Monster
+Number 642
+Name Thundurus
+Type Electric
+HP 139 186
+Speed 204 353
+Attack 229 383
+Defense 148 284
+Paralysis 0.11
+EndMonster
+
+Monster
+Number 645
+Name Landorus
+Type Earth
+HP 149 196
+Speed 186 331
+Attack 229 383
+Defense 166 306
+EndMonster
+
+Monster
+Number 647
+Name Keldeo
+Type Water
+HP 151 198
+Speed 198 346
+Attack 236 392
+Defense 166 306
+Flood 0.17
+Fall 0.24
+EndMonster
+
+Monster
+Number 648
+Name Meloetta
+Type Normal
+HP 160 207
+Speed 166 306
+Attack 234 390
+Defense 234 390
+EndMonster
+
+Monster
+Number 649
+Name Genesect
+Type Insect
+HP 131 178
+Speed 182 326
+Attack 220 372
+Defense 175 317
+EndMonster
+
+Monster
+Number 650
+Name Chespin
+Type Grass
+HP 116 163
+Speed 72 192
+Attack 114 243
+Defense 121 251
+Heal 0.15
+EndMonster
+
+Monster
+Number 651
+Name Quilladin
+Type Grass
+HP 121 168
+Speed 107 234
+Attack 144 280
+Defense 175 317
+Heal 0.21
+EndMonster
+
+Monster
+Number 652
+Name Chesnaught
+Type Grass
+HP 148 195
+Speed 119 249
+Attack 197 344
+Defense 224 377
+Heal 0.22
+EndMonster
+
+Monster
+Number 653
+Name Fennekin
+Type Fire
+HP 100 147
+Speed 112 240
+Attack 116 245
+Defense 112 240
+Burn 0.27
+EndMonster
+
+Monster
+Number 654
+Name Braixen
+Type Fire
+HP 119 166
+Speed 135 269
+Attack 166 306
+Defense 130 262
+Burn 0.13
+EndMonster
+
+Monster
+Number 655
+Name Delphox
+Type Fire
+HP 135 182
+Speed 191 337
+Attack 209 359
+Defense 184 328
+Burn 0.2
+EndMonster
+
+Monster
+Number 656
+Name Froakie
+Type Water
+HP 101 148
+Speed 132 265
+Attack 116 245
+Defense 83 205
+Flood 0.25
+Fall 0.33
+EndMonster
+
+Monster
+Number 657
+Name Frogadier
+Type Water
+HP 114 161
+Speed 179 322
+Attack 153 291
+Defense 105 232
+Flood 0.17
+Fall 0.35
+EndMonster
+
+Monster
+Number 658
+Name Greninja
+Type Water
+HP 132 179
+Speed 224 377
+Attack 189 335
+Defense 132 265
+Flood 0.27
+Fall 0.36
+EndMonster
+
+Monster
+Number 659
+Name Bunnelby
+Type Normal
+HP 98 145
+Speed 107 234
+Attack 69 188
+Defense 72 192
+EndMonster
+
+Monster
+Number 660
+Name Diggersby
+Type Normal
+HP 145 192
+Speed 144 280
+Attack 105 232
+Defense 143 278
+EndMonster
+
+Monster
+Number 661
+Name Fletchling
+Type Normal
+HP 105 152
+Speed 116 245
+Attack 94 218
+Defense 81 203
+EndMonster
+
+Monster
+Number 662
+Name Fletchinder
+Type Fire
+HP 122 169
+Speed 155 293
+Attack 135 269
+Defense 103 229
+Burn 0.13
+EndMonster
+
+Monster
+Number 663
+Name Talonflame
+Type Fire
+HP 138 185
+Speed 231 386
+Attack 150 287
+Defense 132 265
+Burn 0.35
+EndMonster
+
+Monster
+Number 664
+Name Scatterbug
+Type Insect
+HP 98 145
+Speed 67 185
+Attack 67 185
+Defense 76 196
+EndMonster
+
+Monster
+Number 665
+Name Spewpa
+Type Insect
+HP 105 152
+Speed 56 172
+Attack 53 168
+Defense 112 240
+EndMonster
+
+Monster
+Number 666
+Name Vivillon
+Type Insect
+HP 140 187
+Speed 164 304
+Attack 166 306
+Defense 94 218
+EndMonster
+
+Monster
+Number 667
+Name Litleo
+Type Fire
+HP 122 169
+Speed 134 267
+Attack 135 269
+Defense 108 236
+Burn 0.26
+EndMonster
+
+Monster
+Number 668
+Name Pyroar
+Type Fire
+HP 146 193
+Speed 195 342
+Attack 200 348
+Defense 134 267
+Burn 0.29
+EndMonster
+
+Monster
+Number 672
+Name Skiddo
+Type Grass
+HP 126 173
+Speed 98 223
+Attack 121 251
+Defense 107 234
+Heal 0.18
+EndMonster
+
+Monster
+Number 673
+Name Gogoat
+Type Grass
+HP 183 230
+Speed 126 258
+Attack 184 328
+Defense 150 287
+Heal 0.19
+EndMonster
+
+Monster
+Number 676
+Name Furfrou
+Type Normal
+HP 135 182
+Speed 188 333
+Attack 148 284
+Defense 166 306
+EndMonster
+
+Monster
+Number 692
+Name Clauncher
+Type Water
+HP 110 157
+Speed 83 205
+Attack 108 236
+Defense 117 247
+Flood 0.22
+Fall 0.38
+EndMonster
+
+Monster
+Number 693
+Name Clawitzer
+Type Water
+HP 131 178
+Speed 110 238
+Attack 220 372
+Defense 164 304
+Flood 0.16
+Fall 0.39
+EndMonster
+
+Monster
+Number 694
+Name Helioptile
+Type Electric
+HP 104 151
+Speed 130 262
+Attack 114 243
+Defense 81 203
+Paralysis 0.24
+EndMonster
+
+Monster
+Number 695
+Name Heliolisk
+Type Electric
+HP 122 169
+Speed 200 348
+Attack 200 348
+Defense 173 315
+Paralysis 0.26
+EndMonster
+
+Monster
+Number 702
+Name Dedenne
+Type Electric
+HP 127 174
+Speed 186 331
+Attack 150 287
+Defense 125 256
+Paralysis 0.18
+EndMonster
+
+Monster
+Number 721
+Name Volcanion
+Type Fire
+HP 140 187
+Speed 130 262
+Attack 238 394
+Defense 220 372
+Burn 0.1
+EndMonster
+
+Monster
+Number 722
+Name Rowlet
+Type Grass
+HP 128 175
+Speed 80 201
+Attack 103 229
+Defense 103 229
+Heal 0.18
+EndMonster
+
+Monster
+Number 723
+Name Dartrix
+Type Grass
+HP 138 185
+Speed 98 223
+Attack 139 273
+Defense 139 273
+Heal 0.21
+EndMonster
+
+Monster
+Number 724
+Name Decidueye
+Type Grass
+HP 138 185
+Speed 130 262
+Attack 197 344
+Defense 184 328
+Heal 0.25
+EndMonster
+
+Monster
+Number 725
+Name Litten
+Type Fire
+HP 105 152
+Speed 130 262
+Attack 121 251
+Defense 76 196
+Burn 0.24
+EndMonster
+
+Monster
+Number 726
+Name Torracat
+Type Fire
+HP 125 172
+Speed 166 306
+Attack 157 295
+Defense 94 218
+Burn 0.34
+EndMonster
+
+Monster
+Number 727
+Name Incineroar
+Type Fire
+HP 155 202
+Speed 112 240
+Attack 211 361
+Defense 166 306
+Burn 0.12
+EndMonster
+
+Monster
+Number 728
+Name Popplio
+Type Water
+HP 110 157
+Speed 76 196
+Attack 123 254
+Defense 105 232
+Flood 0.26
+Fall 0.28
+EndMonster
+
+Monster
+Number 729
+Name Brionne
+Type Water
+HP 120 167
+Speed 94 218
+Attack 168 309
+Defense 150 287
+Flood 0.19
+Fall 0.32
+EndMonster
+
+Monster
+Number 730
+Name Primarina
+Type Water
+HP 140 187
+Speed 112 240
+Attack 231 386
+Defense 213 364
+Flood 0.26
+Fall 0.39
+EndMonster
+
+Monster
+Number 731
+Name Pikipek
+Type Normal
+HP 95 142
+Speed 121 251
+Attack 139 273
+Defense 58 174
+EndMonster
+
+Monster
+Number 732
+Name Trumbeak
+Type Normal
+HP 115 162
+Speed 139 273
+Attack 157 295
+Defense 94 218
+EndMonster
+
+Monster
+Number 733
+Name Toucannon
+Type Normal
+HP 140 187
+Speed 112 240
+Attack 220 372
+Defense 139 273
+EndMonster
+
+Monster
+Number 734
+Name Yungoos
+Type Normal
+HP 108 155
+Speed 85 207
+Attack 130 262
+Defense 58 174
+EndMonster
+
+Monster
+Number 735
+Name Gumshoos
+Type Normal
+HP 148 195
+Speed 85 207
+Attack 202 350
+Defense 112 240
+EndMonster
+
+Monster
+Number 736
+Name Grubbin
+Type Insect
+HP 107 154
+Speed 87 210
+Attack 116 245
+Defense 85 207
+EndMonster
+
+Monster
+Number 737
+Name Charjabug
+Type Insect
+HP 117 164
+Speed 69 188
+Attack 152 289
+Defense 175 317
+EndMonster
+
+Monster
+Number 738
+Name Vikavolt
+Type Insect
+HP 137 184
+Speed 81 203
+Attack 265 427
+Defense 166 306
+EndMonster
+
+Monster
+Number 741
+Name Oricorio
+Type Fire
+HP 135 182
+Speed 171 313
+Attack 180 324
+Defense 130 262
+Burn 0.32
+EndMonster
+
+Monster
+Number 742
+Name Cutiefly
+Type Insect
+HP 100 147
+Speed 155 293
+Attack 103 229
+Defense 76 196
+EndMonster
+
+Monster
+Number 743
+Name Ribombee
+Type Insect
+HP 120 167
+Speed 227 381
+Attack 175 317
+Defense 130 262
+EndMonster
+
+Monster
+Number 746
+Name Wishiwashi
+Type Water
+HP 105 152
+Speed 76 196
+Attack 49 163
+Defense 49 163
+Flood 0.18
+Fall 0.27
+EndMonster
+
+Monster
+Number 749
+Name Mudbray
+Type Earth
+HP 130 177
+Speed 85 207
+Attack 184 328
+Defense 130 262
+EndMonster
+
+Monster
+Number 750
+Name Mudsdale
+Type Earth
+HP 160 207
+Speed 67 185
+Attack 229 383
+Defense 184 328
+EndMonster
+
+Monster
+Number 751
+Name Dewpider
+Type Water
+HP 98 145
+Speed 53 168
+Attack 76 196
+Defense 134 267
+Flood 0.16
+Fall 0.38
+EndMonster
+
+Monster
+Number 752
+Name Araquanid
+Type Water
+HP 128 175
+Speed 80 201
+Attack 130 262
+Defense 242 399
+Flood 0.19
+Fall 0.27
+EndMonster
+
+Monster
+Number 753
+Name Fomantis
+Type Grass
+HP 100 147
+Speed 67 185
+Attack 103 229
+Defense 67 185
+Heal 0.18
+EndMonster
+
+Monster
+Number 754
+Name Lurantis
+Type Grass
+HP 130 177
+Speed 85 207
+Attack 193 339
+Defense 166 306
+Heal 0.12
+EndMonster
+
+Monster
+Number 755
+Name Morelull
+Type Grass
+HP 100 147
+Speed 31 141
+Attack 121 251
+Defense 139 273
+Heal 0.17
+EndMonster
+
+Monster
+Number 756
+Name Shiinotic
+Type Grass
+HP 120 167
+Speed 58 174
+Attack 166 306
+Defense 184 328
+Heal 0.22
+EndMonster
+
+Monster
+Number 759
+Name Stufful
+Type Normal
+HP 130 177
+Speed 94 218
+Attack 139 273
+Defense 94 218
+EndMonster
+
+Monster
+Number 760
+Name Bewear
+Type Normal
+HP 180 227
+Speed 112 240
+Attack 229 383
+Defense 148 284
+EndMonster
+
+Monster
+Number 761
+Name Bounsweet
+Type Grass
+HP 102 149
+Speed 62 179
+Attack 58 174
+Defense 72 192
+Heal 0.12
+EndMonster
+
+Monster
+Number 762
+Name Steenee
+Type Grass
+HP 112 159
+Speed 116 245
+Attack 76 196
+Defense 90 214
+Heal 0.21
+EndMonster
+
+Monster
+Number 763
+Name Tsareena
+Type Grass
+HP 132 179
+Speed 134 267
+Attack 220 372
+Defense 180 324
+Heal 0.16
+EndMonster
+
+Monster
+Number 765
+Name Oranguru
+Type Normal
+HP 150 197
+Speed 112 240
+Attack 166 306
+Defense 202 350
+EndMonster
+
+Monster
+Number 767
+Name Wimpod
+Type Insect
+HP 85 132
+Speed 148 284
+Attack 67 185
+Defense 76 196
+EndMonster
+
+Monster
+Number 768
+Name Golisopod
+Type Insect
+HP 135 182
+Speed 76 196
+Attack 229 383
+Defense 256 416
+EndMonster
+
+Monster
+Number 771
+Name Pyukumuku
+Type Water
+HP 115 162
+Speed 13 119
+Attack 112 240
+Defense 238 394
+Flood 0.3
+Fall 0.26
+EndMonster
+
+Monster
+Number 772
+Name Type: Null
+Type Normal
+HP 155 202
+Speed 110 238
+Attack 175 317
+Defense 175 317
+EndMonster
+
+Monster
+Number 773
+Name Silvally
+Type Normal
+HP 155 202
+Speed 175 317
+Attack 175 317
+Defense 175 317
+EndMonster
+
+Monster
+Number 775
+Name Komala
+Type Normal
+HP 125 172
+Speed 121 251
+Attack 211 361
+Defense 175 317
+EndMonster
+
+Monster
+Number 776
+Name Turtonator
+Type Fire
+HP 120 167
+Speed 69 188
+Attack 168 309
+Defense 247 405
+Burn 0.24
+EndMonster
+
+Monster
+Number 777
+Name Togedemaru
+Type Electric
+HP 125 172
+Speed 177 320
+Attack 180 324
+Defense 135 269
+Paralysis 0.22
+EndMonster
+
+Monster
+Number 779
+Name Bruxish
+Type Water
+HP 128 175
+Speed 170 311
+Attack 193 339
+Defense 130 262
+Flood 0.16
+Fall 0.29
+EndMonster
+
+Monster
+Number 780
+Name Drampa
+Type Normal
+HP 138 185
+Speed 69 188
+Attack 247 405
+Defense 168 309
+EndMonster
+
+Monster
+Number 785
+Name Tapu Koko
+Type Electric
+HP 130 177
+Speed 238 394
+Attack 211 361
+Defense 157 295
+Paralysis 0.28
+EndMonster
+
+Monster
+Number 787
+Name Tapu Bulu
+Type Grass
+HP 130 177
+Speed 139 273
+Attack 238 394
+Defense 211 361
+Heal 0.13
+EndMonster
+
+Monster
+Number 788
+Name Tapu Fini
+Type Water
+HP 130 177
+Speed 157 295
+Attack 175 317
+Defense 238 394
+Flood 0.29
+Fall 0.36
+EndMonster
+
+Monster
+Number 794
+Name Buzzwole
+Type Insect
+HP 167 214
+Speed 146 282
+Attack 254 414
+Defense 254 414
+EndMonster
+
+Monster
+Number 795
+Name Pheromosa
+Type Insect
+HP 131 178
+Speed 276 441
+Attack 251 410
+Defense 71 190
+EndMonster
+
+Monster
+Number 796
+Name Xurkitree
+Type Electric
+HP 143 190
+Speed 153 291
+Attack 315 489
+Defense 132 265
+Paralysis 0.26
+EndMonster
+
+Monster
+Number 798
+Name Kartana
+Type Grass
+HP 119 166
+Speed 200 348
+Attack 330 507
+Defense 240 397
+Heal 0.14
+EndMonster
+
+Monster
+Number 806
+Name Blacephalon
+Type Fire
+HP 113 160
+Speed 197 344
+Attack 276 441
+Defense 146 282
+Burn 0.13
+EndMonster
+
+Monster
+Number 807
+Name Zeraora
+Type Electric
+HP 148 195
+Speed 261 423
+Attack 206 355
+Defense 148 284
+Paralysis 0.22
+EndMonster
+
+Monster
+Number 810
+Name Grookey
+Type Grass
+HP 110 157
+Speed 121 251
+Attack 121 251
+Defense 94 218
+Heal 0.2
+EndMonster
+
+Monster
+Number 811
+Name Thwackey
+Type Grass
+HP 130 177
+Speed 148 284
+Attack 157 295
+Defense 130 262
+Heal 0.17
+EndMonster
+
+Monster
+Number 812
+Name Rillaboom
+Type Grass
+HP 160 207
+Speed 157 295
+Attack 229 383
+Defense 166 306
+Heal 0.25
+EndMonster
+
+Monster
+Number 813
+Name Scorbunny
+Type Fire
+HP 110 157
+Speed 128 260
+Attack 132 265
+Defense 76 196
+Burn 0.13
+EndMonster
+
+Monster
+Number 814
+Name Raboot
+Type Fire
+HP 125 172
+Speed 173 315
+Attack 159 298
+Defense 112 240
+Burn 0.3
+EndMonster
+
+Monster
+Number 815
+Name Cinderace
+Type Fire
+HP 140 187
+Speed 218 370
+Attack 213 364
+Defense 139 273
+Burn 0.14
+EndMonster
+
+Monster
+Number 816
+Name Sobble
+Type Water
+HP 110 157
+Speed 130 262
+Attack 130 262
+Defense 76 196
+Flood 0.26
+Fall 0.21
+EndMonster
+
+Monster
+Number 817
+Name Drizzile
+Type Water
+HP 125 172
+Speed 166 306
+Attack 175 317
+Defense 103 229
+Flood 0.21
+Fall 0.24
+EndMonster
+
+Monster
+Number 818
+Name Inteleon
+Type Water
+HP 130 177
+Speed 220 372
+Attack 229 383
+Defense 121 251
+Flood 0.25
+Fall 0.23
+EndMonster
+
+Monster
+Number 819
+Name Skwovet
+Type Normal
+HP 130 177
+Speed 49 163
+Attack 103 229
+Defense 103 229
+EndMonster
+
+Monster
+Number 820
+Name Greedent
+Type Normal
+HP 180 227
+Speed 40 152
+Attack 175 317
+Defense 175 317
+EndMonster
+
+Monster
+Number 824
+Name Blipbug
+Type Insect
+HP 85 132
+Speed 85 207
+Attack 49 163
+Defense 85 207
+EndMonster
+
+Monster
+Number 825
+Name Dottler
+Type Insect
+HP 110 157
+Speed 58 174
+Attack 94 218
+Defense 166 306
+EndMonster
+
+Monster
+Number 826
+Name Orbeetle
+Type Insect
+HP 120 167
+Speed 166 306
+Attack 148 284
+Defense 220 372
+EndMonster
+
+Monster
+Number 829
+Name Gossifleur
+Type Grass
+HP 100 147
+Speed 22 130
+Attack 76 196
+Defense 112 240
+Heal 0.14
+EndMonster
+
+Monster
+Number 830
+Name Eldegoss
+Type Grass
+HP 120 167
+Speed 112 240
+Attack 148 284
+Defense 220 372
+Heal 0.17
+EndMonster
+
+Monster
+Number 831
+Name Wooloo
+Type Normal
+HP 102 149
+Speed 90 214
+Attack 76 196
+Defense 103 229
+EndMonster
+
+Monster
+Number 832
+Name Dubwool
+Type Normal
+HP 132 179
+Speed 162 302
+Attack 148 284
+Defense 184 328
+EndMonster
+
+Monster
+Number 833
+Name Chewtle
+Type Water
+HP 110 157
+Speed 83 205
+Attack 119 249
+Defense 94 218
+Flood 0.16
+Fall 0.24
+EndMonster
+
+Monster
+Number 834
+Name Drednaw
+Type Water
+HP 150 197
+Speed 137 271
+Attack 211 361
+Defense 166 306
+Flood 0.17
+Fall 0.25
+EndMonster
+
+Monster
+Number 835
+Name Yamper
+Type Electric
+HP 119 166
+Speed 51 166
+Attack 85 207
+Defense 94 218
+Paralysis 0.21
+EndMonster
+
+Monster
+Number 836
+Name Boltund
+Type Electric
+HP 129 176
+Speed 222 375
+Attack 166 306
+Defense 112 240
+Paralysis 0.3
+EndMonster
+
+Monster
+Number 840
+Name Applin
+Type Grass
+HP 100 147
+Speed 40 152
+Attack 76 196
+Defense 148 284
+Heal 0.18
+EndMonster
+
+Monster
+Number 841
+Name Flapple
+Type Grass
+HP 130 177
+Speed 130 262
+Attack 202 350
+Defense 148 284
+Heal 0.25
+EndMonster
+
+Monster
+Number 842
+Name Appletun
+Type Grass
+HP 170 217
+Speed 58 174
+Attack 184 328
+Defense 148 284
+Heal 0.21
+EndMonster
+
+Monster
+Number 843
+Name Silicobra
+Type Earth
+HP 112 159
+Speed 87 210
+Attack 107 234
+Defense 139 273
+EndMonster
+
+Monster
+Number 844
+Name Sandaconda
+Type Earth
+HP 132 179
+Speed 132 265
+Attack 197 344
+Defense 229 383
+EndMonster
+
+Monster
+Number 846
+Name Arrokuda
+Type Water
+HP 101 148
+Speed 123 254
+Attack 117 247
+Defense 76 196
+Flood 0.28
+Fall 0.24
+EndMonster
+
+Monster
+Number 847
+Name Barraskewda
+Type Water
+HP 121 168
+Speed 249 408
+Attack 225 379
+Defense 112 240
+Flood 0.17
+Fall 0.4
+EndMonster
+
+Monster
+Number 848
+Name Toxel
+Type Electric
+HP 100 147
+Speed 76 196
+Attack 101 227
+Defense 67 185
+Paralysis 0.27
+EndMonster
+
+Monster
+Number 849
+Name Toxtricity
+Type Electric
+HP 135 182
+Speed 139 273
+Attack 209 359
+Defense 130 262
+Paralysis 0.23
+EndMonster
+
+Monster
+Number 850
+Name Sizzlipede
+Type Fire
+HP 110 157
+Speed 85 207
+Attack 121 251
+Defense 94 218
+Burn 0.33
+EndMonster
+
+Monster
+Number 851
+Name Centiskorch
+Type Fire
+HP 160 207
+Speed 121 251
+Attack 211 361
+Defense 166 306
+Burn 0.21
+EndMonster
+
+Monster
+Number 867
+Name Runerigus
+Type Earth
+HP 118 165
+Speed 58 174
+Attack 175 317
+Defense 265 427
+EndMonster
+
+Monster
+Number 871
+Name Pincurchin
+Type Electric
+HP 108 155
+Speed 31 141
+Attack 186 331
+Defense 175 317
+Paralysis 0.28
+EndMonster
+
+Monster
+Number 877
+Name Morpeko
+Type Electric
+HP 118 165
+Speed 179 322
+Attack 175 317
+Defense 108 236
+Paralysis 0.16
+EndMonster
+
+Monster
+Number 880
+Name Dracozolt
+Type Electric
+HP 150 197
+Speed 139 273
+Attack 184 328
+Defense 166 306
+Paralysis 0.27
+EndMonster
+
+Monster
+Number 881
+Name Arctozolt
+Type Electric
+HP 150 197
+Speed 103 229
+Attack 184 328
+Defense 166 306
+Paralysis 0.12
+EndMonster
+
+Monster
+Number 882
+Name Dracovish
+Type Water
+HP 150 197
+Speed 139 273
+Attack 166 306
+Defense 184 328
+Flood 0.19
+Fall 0.21
+EndMonster
+
+Monster
+Number 883
+Name Arctovish
+Type Water
+HP 150 197
+Speed 103 229
+Attack 166 306
+Defense 184 328
+Flood 0.29
+Fall 0.37
+EndMonster
+
+Monster
+Number 894
+Name Regieleki
+Type Electric
+HP 140 187
+Speed 364 548
+Attack 184 328
+Defense 94 218
+Paralysis 0.19
+EndMonster
+
+Monster
+Number 899
+Name Wyrdeer
+Type Normal
+HP 163 210
+Speed 121 251
+Attack 193 339
+Defense 139 273
+EndMonster
+
+Monster
+Number 900
+Name Kleavor
+Type Insect
+HP 130 177
+Speed 157 295
+Attack 247 405
+Defense 175 317
+EndMonster
+
+Monster
+Number 901
+Name Ursaluna
+Type Earth
+HP 190 237
+Speed 94 218
+Attack 256 416
+Defense 193 339
+EndMonster
+
+Monster
+Number 902
+Name Basculegion
+Type Water
+HP 180 227
+Speed 144 280
+Attack 206 355
+Defense 139 273
+Flood 0.19
+Fall 0.37
+EndMonster
+
+Monster
+Number 906
+Name Sprigatito
+Type Grass
+HP 100 147
+Speed 121 251
+Attack 114 243
+Defense 101 227
+Heal 0.15
+EndMonster
+
+Monster
+Number 907
+Name Floragato
+Type Grass
+HP 121 168
+Speed 153 291
+Attack 148 284
+Defense 117 247
+Heal 0.13
+EndMonster
+
+Monster
+Number 908
+Name Meowscarada
+Type Grass
+HP 136 183
+Speed 225 379
+Attack 202 350
+Defense 130 262
+Heal 0.18
+EndMonster
+
+Monster
+Number 909
+Name Fuecoco
+Type Fire
+HP 127 174
+Speed 69 188
+Attack 117 247
+Defense 110 238
+Burn 0.34
+EndMonster
+
+Monster
+Number 910
+Name Crocalor
+Type Fire
+HP 141 188
+Speed 92 216
+Attack 166 306
+Defense 144 280
+Burn 0.2
+EndMonster
+
+Monster
+Number 911
+Name Skeledirge
+Type Fire
+HP 164 211
+Speed 123 254
+Attack 202 350
+Defense 184 328
+Burn 0.14
+EndMonster
+
+Monster
+Number 912
+Name Quaxly
+Type Water
+HP 115 162
+Speed 94 218
+Attack 121 251
+Defense 85 207
+Flood 0.25
+Fall 0.34
+EndMonster
+
+Monster
+Number 913
+Name Quaxwell
+Type Water
+HP 130 177
+Speed 121 251
+Attack 157 295
+Defense 121 251
+Flood 0.24
+Fall 0.37
+EndMonster
+
+Monster
+Number 914
+Name Quaquaval
+Type Water
+HP 145 192
+Speed 157 295
+Attack 220 372
+Defense 148 284
+Flood 0.2
+Fall 0.2
+EndMonster
+
+Monster
+Number 915
+Name Lechonk
+Type Normal
+HP 114 161
+Speed 67 185
+Attack 85 207
+Defense 85 207
+EndMonster
+
+Monster
+Number 916
+Name Oinkologne
+Type Normal
+HP 170 217
+Speed 121 251
+Attack 184 328
+Defense 148 284
+EndMonster
+
+Monster
+Number 917
+Name Tarountula
+Type Insect
+HP 95 142
+Speed 40 152
+Attack 78 199
+Defense 85 207
+EndMonster
+
+Monster
+Number 918
+Name Spidops
+Type Insect
+HP 120 167
+Speed 67 185
+Attack 146 282
+Defense 170 311
+EndMonster
+
+Monster
+Number 919
+Name Nymble
+Type Insect
+HP 93 140
+Speed 85 207
+Attack 87 210
+Defense 76 196
+EndMonster
+
+Monster
+Number 920
+Name Lokix
+Type Insect
+HP 131 178
+Speed 170 311
+Attack 188 333
+Defense 144 280
+EndMonster
+
+Monster
+Number 921
+Name Pawmi
+Type Electric
+HP 105 152
+Speed 112 240
+Attack 94 218
+Defense 49 163
+Paralysis 0.21
+EndMonster
+
+Monster
+Number 922
+Name Pawmo
+Type Electric
+HP 120 167
+Speed 157 295
+Attack 139 273
+Defense 76 196
+Paralysis 0.29
+EndMonster
+
+Monster
+Number 923
+Name Pawmot
+Type Electric
+HP 130 177
+Speed 193 339
+Attack 211 361
+Defense 130 262
+Paralysis 0.29
+EndMonster
+
+Monster
+Number 924
+Name Tandemaus
+Type Normal
+HP 110 157
+Speed 139 273
+Attack 94 218
+Defense 85 207
+EndMonster
+
+Monster
+Number 925
+Name Maushold
+Type Normal
+HP 134 181
+Speed 204 353
+Attack 139 273
+Defense 139 273
+EndMonster
+
+Monster
+Number 928
+Name Smoliv
+Type Grass
+HP 101 148
+Speed 58 174
+Attack 108 236
+Defense 96 221
+Heal 0.22
+EndMonster
+
+Monster
+Number 929
+Name Dolliv
+Type Grass
+HP 112 159
+Speed 63 181
+Attack 144 280
+Defense 144 280
+Heal 0.12
+EndMonster
+
+Monster
+Number 930
+Name Arboliva
+Type Grass
+HP 138 185
+Speed 74 194
+Attack 229 383
+Defense 200 348
+Heal 0.16
+EndMonster
+
+Monster
+Number 935
+Name Charcadet
+Type Fire
+HP 100 147
+Speed 67 185
+Attack 94 218
+Defense 76 196
+Burn 0.27
+EndMonster
+
+Monster
+Number 936
+Name Armarouge
+Type Fire
+HP 145 192
+Speed 139 273
+Attack 229 383
+Defense 184 328
+Burn 0.15
+EndMonster
+
+Monster
+Number 937
+Name Ceruledge
+Type Fire
+HP 135 182
+Speed 157 295
+Attack 229 383
+Defense 184 328
+Burn 0.12
+EndMonster
+
+Monster
+Number 938
+Name Tadbulb
+Type Electric
+HP 121 168
+Speed 85 207
+Attack 110 238
+Defense 78 199
+Paralysis 0.23
+EndMonster
+
+Monster
+Number 939
+Name Bellibolt
+Type Electric
+HP 169 216
+Speed 85 207
+Attack 189 335
+Defense 168 309
+Paralysis 0.13
+EndMonster
+
+Monster
+Number 940
+Name Wattrel
+Type Electric
+HP 100 147
+Speed 130 262
+Attack 103 229
+Defense 76 196
+Paralysis 0.28
+EndMonster
+
+Monster
+Number 941
+Name Kilowattrel
+Type Electric
+HP 130 177
+Speed 229 383
+Attack 193 339
+Defense 112 240
+Paralysis 0.17
+EndMonster
+
+Monster
+Number 946
+Name Bramblin
+Type Grass
+HP 100 147
+Speed 112 240
+Attack 121 251
+Defense 67 185
+Heal 0.1
+EndMonster
+
+Monster
+Number 947
+Name Brambleghast
+Type Grass
+HP 115 162
+Speed 166 306
+Attack 211 361
+Defense 130 262
+Heal 0.14
+EndMonster
+
+Monster
+Number 948
+Name Toedscool
+Type Earth
+HP 100 147
+Speed 130 262
+Attack 94 218
+Defense 184 328
+EndMonster
+
+Monster
+Number 949
+Name Toedscruel
+Type Earth
+HP 140 187
+Speed 184 328
+Attack 148 284
+Defense 220 372
+EndMonster
+
+Monster
+Number 951
+Name Capsakid
+Type Grass
+HP 110 157
+Speed 94 218
+Attack 116 245
+Defense 76 196
+Heal 0.1
+EndMonster
+
+Monster
+Number 952
+Name Scovillain
+Type Grass
+HP 125 172
+Speed 139 273
+Attack 198 346
+Defense 121 251
+Heal 0.24
+EndMonster
+
+Monster
+Number 953
+Name Rellor
+Type Insect
+HP 101 148
+Speed 58 174
+Attack 94 218
+Defense 112 240
+EndMonster
+
+Monster
+Number 954
+Name Rabsca
+Type Insect
+HP 135 182
+Speed 85 207
+Attack 211 361
+Defense 184 328
+EndMonster
+
+Monster
+Number 960
+Name Wiglett
+Type Water
+HP 70 117
+Speed 175 317
+Attack 103 229
+Defense 49 163
+Flood 0.24
+Fall 0.27
+EndMonster
+
+Monster
+Number 961
+Name Wugtrio
+Type Water
+HP 95 142
+Speed 220 372
+Attack 184 328
+Defense 130 262
+Flood 0.25
+Fall 0.34
+EndMonster
+
+Monster
+Number 963
+Name Finizen
+Type Water
+HP 130 177
+Speed 139 273
+Attack 85 207
+Defense 76 196
+Flood 0.23
+Fall 0.24
+EndMonster
+
+Monster
+Number 964
+Name Palafin
+Type Water
+HP 160 207
+Speed 184 328
+Attack 130 262
+Defense 134 267
+Flood 0.27
+Fall 0.4
+EndMonster
+
+Monster
+Number 976
+Name Veluza
+Type Water
+HP 150 197
+Speed 130 262
+Attack 188 333
+Defense 135 269
+Flood 0.26
+Fall 0.32
+EndMonster
+
+Monster
+Number 977
+Name Dondozo
+Type Water
+HP 210 257
+Speed 67 185
+Attack 184 328
+Defense 211 361
+Flood 0.24
+Fall 0.27
+EndMonster
+
+Monster
+Number 981
+Name Farigiraf
+Type Normal
+HP 180 227
+Speed 112 240
+Attack 202 350
+Defense 130 262
+EndMonster
+
+Monster
+Number 982
+Name Dudunsparce
+Type Normal
+HP 185 232
+Speed 103 229
+Attack 184 328
+Defense 148 284
+EndMonster
+
+Monster
+Number 984
+Name Great Tusk
+Type Earth
+HP 175 222
+Speed 161 300
+Attack 240 397
+Defense 240 397
+EndMonster
+
+Monster
+Number 986
+Name Brute Bonnet
+Type Grass
+HP 171 218
+Speed 103 229
+Attack 233 388
+Defense 182 326
+Heal 0.14
+EndMonster
+
+Monster
+Number 988
+Name Slither Wing
+Type Insect
+HP 145 192
+Speed 150 287
+Attack 247 405
+Defense 193 339
+EndMonster
+
+Monster
+Number 989
+Name Sandy Shocks
+Type Electric
+HP 145 192
+Speed 186 331
+Attack 222 375
+Defense 179 322
+Paralysis 0.21
+EndMonster
+
+Monster
+Number 990
+Name Iron Treads
+Type Earth
+HP 150 197
+Speed 195 342
+Attack 206 355
+Defense 220 372
+EndMonster
+
+Monster
+Number 994
+Name Iron Moth
+Type Fire
+HP 140 187
+Speed 202 350
+Attack 256 416
+Defense 202 350
+Burn 0.33
+EndMonster
+
+Monster
+Number 1008
+Name Miraidon
+Type Electric
+HP 160 207
+Speed 247 405
+Attack 247 405
+Defense 211 361
+Paralysis 0.22
+EndMonster
+
+Monster
+Number 1009
+Name Walking Wake
+Type Water
+HP 159 206
+Speed 200 348
+Attack 229 383
+Defense 168 309
+Flood 0.28
+Fall 0.34
+EndMonster
+
+Monster
+Number 1010
+Name Iron Leaves
+Type Grass
+HP 150 197
+Speed 191 337
+Attack 238 394
+Defense 198 346
+Heal 0.24
+EndMonster
+
+Monster
+Number 1011
+Name Dipplin
+Type Grass
+HP 140 187
+Speed 76 196
+Attack 175 317
+Defense 202 350
+Heal 0.11
+EndMonster
+
+Monster
+Number 1012
+Name Poltchageist
+Type Grass
+HP 100 147
+Speed 94 218
+Attack 137 271
+Defense 101 227
+Heal 0.15
+EndMonster
+
+Monster
+Number 1013
+Name Sinistcha
+Type Grass
+HP 131 178
+Speed 130 262
+Attack 222 375
+Defense 195 342
+Heal 0.15
+EndMonster
+
+Monster
+Number 1019
+Name Hydrapple
+Type Grass
+HP 166 213
+Speed 83 205
+Attack 220 372
+Defense 202 350
+Heal 0.24
+EndMonster
+
+Monster
+Number 1020
+Name Gouging Fire
+Type Fire
+HP 165 212
+Speed 168 309
+Attack 211 361
+Defense 222 375
+Burn 0.33
+EndMonster
+
+Monster
+Number 1021
+Name Raging Bolt
+Type Electric
+HP 185 232
+Speed 139 273
+Attack 251 410
+Defense 168 309
+Paralysis 0.18
+EndMonster
+

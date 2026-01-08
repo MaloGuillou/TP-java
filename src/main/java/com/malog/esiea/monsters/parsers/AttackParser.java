@@ -54,7 +54,12 @@ public class AttackParser {
             int id = Integer.parseInt(full_found.get("id"));
             String name =  full_found.get("name");
             int nb_use_max = Integer.parseInt(full_found.get("nbuse"));
-            int attack_power = Integer.parseInt(full_found.get("power"));
+            int attack_power;
+            try{
+                attack_power = Integer.parseInt(full_found.get("power"));
+            }catch (NumberFormatException e ){
+                attack_power = (int) Double.parseDouble(full_found.get("power"));
+            }
             int miss_probability = (int) (Double.parseDouble(full_found.get("fail")) * 100);
 
             Type type = null;
