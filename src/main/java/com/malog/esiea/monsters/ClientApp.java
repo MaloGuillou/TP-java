@@ -56,6 +56,10 @@ public class ClientApp {
         this.player.setPseudo(pseudo);
     }
 
+    public String getPlayerPseudo(){
+        return this.player.getPseudo();
+    }
+
     public Team getTeam(){
         return this.player.get_team();
     }
@@ -90,7 +94,7 @@ public class ClientApp {
     }
 
     public void endMatch(UUID matchId) {
-        this.player.get_team().healAll();
+        this.player.afterMatchReset();
         if(this.AI != null) {
             this.AI = null;
         }
@@ -181,5 +185,10 @@ public class ClientApp {
 
     public void waitForAllKOReplacement(UUID matchId) {
         matchesManager.waitForAllKOReplacement(matchId);
+    }
+
+    public Team randomizeTeam() {
+        this.player.randomTeam(monsters, attacks);
+        return this.player.get_team();
     }
 }

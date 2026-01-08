@@ -32,6 +32,11 @@ public class ClientBackend extends BackendLink{
     }
 
     @Override
+    public String getPseudo() {
+        return backend.getPlayerPseudo();
+    }
+
+    @Override
     public Team getTeam() {
         return backend.getTeam();
     }
@@ -114,5 +119,10 @@ public class ClientBackend extends BackendLink{
     @Override
     public boolean getWinner() {
         return backend.getWinner(currentMatch).equals(self_ID);
+    }
+
+    @Override
+    public Team randomizeTeam() {
+        return backend.randomizeTeam();
     }
 }

@@ -1,13 +1,10 @@
 package com.malog.esiea.monsters.view.console;
 
 import com.malog.esiea.monsters.game.Player;
-import com.malog.esiea.monsters.game.event.Event;
-import com.malog.esiea.monsters.game.event.MonsterKOEvent;
+import com.malog.esiea.monsters.game.event.*;
 import com.malog.esiea.monsters.game.user_actions.AttackAction;
 import com.malog.esiea.monsters.game.user_actions.ChangeMonsterAction;
 import com.malog.esiea.monsters.game.user_actions.UseItemAction;
-import com.malog.esiea.monsters.helpers.Randoms;
-import com.malog.esiea.monsters.items.Item;
 import com.malog.esiea.monsters.items.ItemType;
 import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.monsters.attacks.Attack;
@@ -20,38 +17,117 @@ import com.malog.esiea.monsters.view.backend_link.dto.MatchState;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class TerminalUserInterface extends UI {
 
     private final Scanner scanner = new Scanner(System.in);
 
+    // ANSI Colors for visual flair
+    private static final String RESET = "\033[0m";
+    private static final String BLACK = "\033[0;30m";
+    private static final String RED = "\033[0;31m";
+    private static final String GREEN = "\033[0;32m";
+    private static final String YELLOW = "\033[0;33m";
+    private static final String BLUE = "\033[0;34m";
+    private static final String PURPLE = "\033[0;35m";
+    private static final String CYAN = "\033[0;36m";
+    private static final String WHITE = "\033[0;37m";
+
+    private static final String BLACK_BRIGHT = "\033[0;90m";
+    private static final String RED_BRIGHT = "\033[0;91m";
+    private static final String GREEN_BRIGHT = "\033[0;92m";
+    private static final String YELLOW_BRIGHT = "\033[0;93m";
+    private static final String BLUE_BRIGHT = "\033[0;94m";
+    private static final String PURPLE_BRIGHT = "\033[0;95m";
+    private static final String CYAN_BRIGHT = "\033[0;96m";
+    private static final String WHITE_BRIGHT = "\033[0;97m";
+
+    private static final String BOLD = "\033[1m";
+    private static final String UNDERLINE = "\033[4m";
+
+    private static final String BG_BLACK = "\033[40m";
+    private static final String BG_RED = "\033[41m";
+    private static final String BG_GREEN = "\033[42m";
+    private static final String BG_YELLOW = "\033[43m";
+    private static final String BG_BLUE = "\033[44m";
+    private static final String BG_PURPLE = "\033[45m";
+    private static final String BG_CYAN = "\033[46m";
+    private static final String BG_WHITE = "\033[47m";
+
     public TerminalUserInterface(BackendLink backendLink) {
         super(backendLink);
     }
 
+    private void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    private void typeWrite(String text) {
+        if (text == null) return;
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(15);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+
+    private void typeWriteln(String text) {
+        if (text == null) return;
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(15);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println();
+    }
+
+    private void waitForInput() {
+        System.out.println(System.lineSeparator() + "  " + BOLD + CYAN + ">> Press Enter to continue..." + RESET);
+        scanner.nextLine();
+    }
+
     @Override
     protected void quit() {
-        System.out.println("Bye.");
+        clearConsole();
+        typeWrite(BOLD + "Bye." + RESET);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {}
     }
 
     @Override
     protected void renderInitMenu() {
-        System.out.println("Init...");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║       M O N S T E R   B A T T L E      ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        typeWriteln(WHITE + "Initializing systems..." + RESET);
 
         String pseudo = "";
         boolean change_pseudo = true;
         while (change_pseudo){
-            System.out.println("Enter your pseudo:");
+            typeWrite(BOLD + "Enter your pseudo: " + RESET);
             pseudo = scanner.nextLine();
-            System.out.println("Is it the pseudo you want to use : " + pseudo + " ? [Y/n]");
+            if (pseudo.trim().isEmpty()) {
+                typeWriteln(RED + "Pseudo cannot be empty!" + RESET);
+                continue;
+            }
+            typeWrite("Is " + GREEN + BOLD + pseudo + RESET + " the pseudo you want to use? [Y/n]: ");
             String input = scanner.nextLine();
             if(input.equalsIgnoreCase("Y") || input.isEmpty()){
                 change_pseudo = false;
             }
         }
 
-        System.out.println("Hi " + pseudo);
+        typeWriteln("\nWelcome, " + BLUE_BRIGHT + BOLD + pseudo + RESET + "!");
+        waitForInput();
 
         backendLink.sendPseudo(pseudo);
         this.currentState = UIState.MAIN_MENU;
@@ -59,14 +135,19 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMainMenu() {
-        System.out.println("---Main Menu---");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║               MAIN MENU                ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
         List<ConsoleChoice> choices = new ArrayList<>();
-        choices.add(new ConsoleChoice(1, "Edit team"));
-        choices.add(new ConsoleChoice(2, "Edit backpack"));
-        choices.add(new ConsoleChoice(3, "Edit player"));
-        choices.add(new ConsoleChoice(4,"Play Match"));
-        choices.add(new ConsoleChoice(5,"Settings"));
-        choices.add(new ConsoleChoice(6,"Exit"));
+        choices.add(new ConsoleChoice(1, "Edit Team"));
+        choices.add(new ConsoleChoice(2, "Edit Backpack"));
+        choices.add(new ConsoleChoice(3, "Edit Player"));
+        choices.add(new ConsoleChoice(4, GREEN_BRIGHT + "Play Match" + RESET));
+        choices.add(new ConsoleChoice(5, "Settings"));
+        choices.add(new ConsoleChoice(6, RED_BRIGHT + "Exit" + RESET));
+        
+        System.out.println(WHITE + "Select an option:" + RESET);
         switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case 1:
                 this.currentState = UIState.TEAM_MENU;
@@ -91,7 +172,10 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderSettingsMenu() {
-        System.out.println("---Settings Menu---");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║             SETTINGS MENU              ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
         List<ConsoleChoice>  choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
         switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
@@ -103,28 +187,57 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderPlayerMenu() {
-        System.out.println("---Player Menu---");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║               PLAYER MENU              ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        System.out.println("  Pseudo: " + BLUE_BRIGHT + BOLD + backendLink.getPseudo() + RESET);
+        System.out.println(BLACK_BRIGHT + "  ────────────────────────────────────────" + RESET);
         List<ConsoleChoice>  choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(1, "Change Pseudo"));
         switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case -1:
                 this.currentState = UIState.MAIN_MENU;
                 break;
+            case 1:
+                changePseudo();
+                break;
         }
+    }
+
+    private void changePseudo() {
+        String pseudo = "";
+        boolean change_pseudo = true;
+        while (change_pseudo){
+            typeWrite(BOLD + "Enter your new pseudo: " + RESET);
+            pseudo = scanner.nextLine();
+            if (pseudo.trim().isEmpty()) {
+                typeWriteln(RED + "Pseudo cannot be empty!" + RESET);
+                continue;
+            }
+            change_pseudo = false;
+        }
+        backendLink.sendPseudo(pseudo);
     }
 
     @Override
     protected void renderTeamMenu() {
+        clearConsole();
         displayTeamMenuHeader();
         System.out.println("What do you want to do?");
         List<ConsoleChoice>  choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(0, "Randomize team"));
         choices.add(new ConsoleChoice(1, "Modify a monster"));
         choices.add(new ConsoleChoice(2, "Replace a monster"));
         choices.add(new ConsoleChoice(3, "Move a monster"));
         switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case -1:
                 this.currentState = UIState.MAIN_MENU;
+                break;
+            case 0:
+                this.team = this.backendLink.randomizeTeam();
                 break;
             case 1:
                 renderModifyMonster();
@@ -139,13 +252,17 @@ public class TerminalUserInterface extends UI {
     }
 
     private void displayTeamMenuHeader(){
-        System.out.println("---Team Menu---");
-        System.out.println("----------");
-        System.out.println("Current team:");
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║               TEAM MENU                ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        System.out.println(WHITE + "Current team:" + RESET);
         for (int i = 0; i < team.get_team_size(); i++){
-            System.out.println("[#" + i + "] "  + (team.getMonster(i) != null ? team.getMonster(i).getName(): "..."));
+            Monster m = team.getMonster(i);
+            String name = (m != null ? m.getName() : "...");
+            String type = (m != null ? " [" + m.getType() + "]" : "");
+            System.out.println("  " + BLUE_BRIGHT + "#" + i + RESET + " " + name + type);
         }
-        System.out.println("----------");
+        System.out.println(BLACK_BRIGHT + "──────────────────────────────────────────" + RESET);
     }
 
     private void renderModifyMonster(){
@@ -173,6 +290,7 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMonsterMenu() {
+        clearConsole();
         displayMonsterMenuHeader(this.team.getMonster(this.current_monster_team_index));
         System.out.println("What do you want to do?");
         List<ConsoleChoice> choices = new ArrayList<>();
@@ -189,22 +307,19 @@ public class TerminalUserInterface extends UI {
     }
 
     private void displayMonsterMenuHeader(Monster monster){
-        System.out.println("---Monster Menu---");
-        System.out.println("Name: " + monster.getName());
-        System.out.println("Type: " + monster.getType().name());
-        System.out.println("----------");
-        System.out.println("Current attacks: ");
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║             MONSTER DETAILS            ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        System.out.println("  " + BOLD + WHITE + monster.getName() + RESET + " [" + monster.getType().name() + "]");
+        System.out.println("  HP: " + monster.getHP() + "/" + monster.getMaxHP());
+        System.out.println("  Stats: ATK " + monster.getAttack() + " | DEF " + monster.getDefense() + " | SPD " + monster.getSpeed());
+        System.out.println(BLACK_BRIGHT + "  ────────────────────────────────────────" + RESET);
+        System.out.println("  Current Attacks:");
         Attack[] attacks = monster.getAttacks();
         for (int i = 0; i < attacks.length; i++){
-            System.out.println("[#" + i + "] " + attacks[i].getName() + " (" + attacks[i].getType().name() + ") - " + attacks[i].getNb_use_max() + " PP");
+            System.out.println("    " + BLUE_BRIGHT + "#" + i + RESET + " " + attacks[i].getName() + " (" + attacks[i].getType().name() + ") [" + attacks[i].getNb_use_max() + " PP]");
         }
-        System.out.println("----------");
-        System.out.println("Stats: ");
-        System.out.println("HP: " + monster.getMaxHP());
-        System.out.println("attack: " + monster.getAttack());
-        System.out.println("defense: " + monster.getDefense());
-        System.out.println("speed: " + monster.getSpeed());
-        System.out.println("----------");
+        System.out.println(BLACK_BRIGHT + "──────────────────────────────────────────" + RESET);
     }
 
     private void renderModifyAttacks() {
@@ -216,13 +331,15 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderBackpackMenu() {
-        System.out.println("---Backpack Menu---");
-        System.out.println("----------");
-        System.out.println("Current items: ");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║             BACKPACK MENU              ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        System.out.println(WHITE + "Current items:" + RESET);
         for (int i = 0; i < backpack.length; i++){
-            System.out.println("[#" + i + "] " + (backpack[i] == null ? "..." : backpack[i].toString()));
+            System.out.println("  " + BLUE_BRIGHT + "#" + i + RESET + " " + (backpack[i] == null ? "Empty" : backpack[i].toString()));
         }
-        System.out.println("----------");
+        System.out.println(BLACK_BRIGHT + "──────────────────────────────────────────" + RESET);
         System.out.println("What do you want to do?");
         List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
@@ -238,18 +355,22 @@ public class TerminalUserInterface extends UI {
     }
 
     private void renderChangeBackpackMenu(){
-        System.out.println("Which one do you want to change? ");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║             CHANGE ITEM                ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        System.out.println(WHITE + "Which slot do you want to change?" + RESET);
         List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Cancel and go back"));
         for (int i = 0; i < backpack.length; i++){
-            choices.add(new ConsoleChoice(i, backpack[i] == null ? "..." : backpack[i].toString()));
+            choices.add(new ConsoleChoice(i, "Slot #" + i + " [" + (backpack[i] == null ? "Empty" : backpack[i].toString()) + "]"));
         }
         int backpack_slot = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
         if(backpack_slot == -1){
             return;
         }
 
-        System.out.println("Which one do you want instead? ");
+        System.out.println(WHITE + "Select a new item:" + RESET);
         choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Cancel and go back"));
 
@@ -268,8 +389,11 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchSelectionMenu() {
-        System.out.println("---Match Selection Menu---");
-        System.out.println("What do you want to do?");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║             MATCH SELECTION            ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        System.out.println(WHITE + "What do you want to do?" + RESET);
         List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(-1, "Go back"));
         choices.add(new ConsoleChoice(1, "Matchmaking"));
@@ -283,7 +407,8 @@ public class TerminalUserInterface extends UI {
                 if(backendLink.startMatchMaking()){
                     this.currentState = UIState.MATCHMAKING_MENU;
                 }else{
-                    System.out.println("!!!Matchmaking failed, check internet connection!!!");
+                    System.out.println(RED_BRIGHT + "!!! Matchmaking failed, check internet connection !!!" + RESET);
+                    waitForInput();
                 }
                 break;
             case 2:
@@ -296,33 +421,44 @@ public class TerminalUserInterface extends UI {
     //TODO matchmaking
     @Override
     protected void renderMatchMakingMenu() {
-        System.out.println("---Match Making Menu---");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║               MATCHMAKING              ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
 
         int i = 0;
         while (!backendLink.isOpponentFound()) {
-            i = ++i %4;
-            System.out.print("Searching for opponents");
-            for (int j =0; j < i; j++){
+            clearConsole();
+            System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+            System.out.println(CYAN_BRIGHT + BOLD + "║               MATCHMAKING              ║" + RESET);
+            System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+            i = ++i % 4;
+            System.out.print("\n  " + WHITE + "Searching for opponents" + RESET);
+            for (int j = 0; j < i; j++){
                 System.out.print(".");
             }
-            System.out.println();
-            System.out.println("Press Esc to cancel");
+            System.out.println("\n\n  " + BLACK_BRIGHT + "Waiting for opponent..." + RESET);
             try {
                 Thread.sleep(500);
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
         }
+        System.out.println(GREEN_BRIGHT + BOLD + "\n  Opponent found! Match starting..." + RESET);
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        this.currentState = UIState.MATCH_MENU;
     }
 
     @Override
     protected void renderMatchMenu() {
+        clearConsole();
         display_match_menu_header();
 
+        System.out.println(WHITE + "  What do you want to do?" + RESET);
         List<ConsoleChoice> choices = new ArrayList<>();
         choices.add(new ConsoleChoice(1, "Attack"));
-        choices.add(new ConsoleChoice(2, "Change monster"));
-        choices.add(new ConsoleChoice(3, "Use object"));
+        choices.add(new ConsoleChoice(2, "Change Monster"));
+        choices.add(new ConsoleChoice(3, "Use Item"));
 
         switch (ConsoleHelper.selectAction(scanner, choices).getOptionNumber()) {
             case 1:
@@ -339,9 +475,7 @@ public class TerminalUserInterface extends UI {
         }
 
     }
-
     private void display_match_menu_header() {
-        System.out.println("---Match Menu---");
         MatchState state = backendLink.getMatchState();
         Player player_1 = state.getPlayer_1();
 
@@ -353,38 +487,64 @@ public class TerminalUserInterface extends UI {
         Player player_2 = state.getPlayer_2();
         Terrain terrain = state.getTerrain();
 
-        display_player_state(player_1);
-        System.out.println("\n---\n");
-        display_player_state(player_2);
-        System.out.println("\n---\n");
+        System.out.println(CYAN_BRIGHT + BOLD + "╔══════════════════════════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║                        BATTLE ARENA                          ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚══════════════════════════════════════════════════════════════╝" + RESET);
+
+        // Display Enemy (Player 2)
+        display_player_state(player_2, true);
+
+        System.out.println(BLACK_BRIGHT + "────────────────────────────────────────────────────────────────" + RESET);
         display_terrain_state(terrain);
-        System.out.println("\n---\n");
+        System.out.println(BLACK_BRIGHT + "────────────────────────────────────────────────────────────────" + RESET);
+
+        // Display Self (Player 1)
+        display_player_state(player_1, false);
     }
 
-    private void display_player_state(Player player) {
-        System.out.println(player.toString());
-        Monster active_monster_player = player.get_active_monster();
-        System.out.println(active_monster_player);
-        System.out.println(active_monster_player.getHP());
-        System.out.println(active_monster_player.get_current_state() == null ? "" : active_monster_player.get_current_state().toString());
+    private void display_player_state(Player player, boolean isOpponent) {
+        Monster m = player.get_active_monster();
+        String stateStr = m.get_current_state() == null ? "" : " " + PURPLE_BRIGHT + "[" + m.get_current_state().toString() + "]" + RESET;
+
+        // Health Bar visualization (Dynamic Colors)
+        int hp = m.getHP();
+        int maxHp = m.getMaxHP();
+        double ratio = (double) hp / maxHp;
+        int healthPercent = (int) (ratio * 20); // 0 to 20 scale for more precision
+
+        String color = GREEN_BRIGHT;
+        if (ratio <= 0.5) color = YELLOW_BRIGHT;
+        if (ratio <= 0.2) color = RED_BRIGHT;
+
+        String bar = color + "█".repeat(Math.max(0, healthPercent)) + BLACK_BRIGHT + "░".repeat(Math.max(0, 20 - healthPercent)) + RESET;
+
+        String nameColor = isOpponent ? RED_BRIGHT : BLUE_BRIGHT;
+        String prefix = isOpponent ? "  [OPPONENT] " : "  [YOU]      ";
+
+        System.out.println(prefix + nameColor + BOLD + player.getPseudo() + RESET + " sent " + WHITE_BRIGHT + BOLD + m.getName() + RESET + stateStr);
+        System.out.println("             HP: " + bar + " " + BOLD + hp + RESET + "/" + maxHp);
     }
 
     private void display_terrain_state(Terrain terrain) {
         if(terrain.getState() != null){
-            System.out.println("Terrain is under state : " + terrain.getState().toString());
+            System.out.println("  " + YELLOW_BRIGHT + BOLD + "⚡ ENVIRONMENT: " + RESET + BG_YELLOW + BLACK + " " + terrain.getState().toString().toUpperCase() + " " + RESET);
+        } else {
+            System.out.println("  " + WHITE + "  ENVIRONMENT: " + RESET + CYAN + "Clear" + RESET);
         }
     }
 
     @Override
     protected void renderMatchAttackChoiceMenu() {
+        clearConsole();
         display_match_menu_header();
 
+        System.out.println(WHITE + "  Choose an attack:" + RESET);
         List<ConsoleChoice> choices = new ArrayList<>();
-        choices.add(new ConsoleChoice(-1, "Go back"));
-        choices.add(new ConsoleChoice(5, "Attack bare hands"));
+        choices.add(new ConsoleChoice(-1, RED_BRIGHT + "Go back" + RESET));
+        choices.add(new ConsoleChoice(5, YELLOW_BRIGHT + "Attack bare hands" + RESET));
         Attack[] attacks = team.getMonster(current_monster_team_index).getAttacks();
         for(int i = 0; i < attacks.length; i++){
-            String attack_details = attacks[i].toString() + " " + attacks[i].getType() + " " + attacks[i].getNb_use_remaining() + "/" + attacks[i].getNb_use_max();
+            String attack_details = attacks[i].getName() + " [" + attacks[i].getType() + "] (" + attacks[i].getNb_use_remaining() + "/" + attacks[i].getNb_use_max() + " PP)";
             choices.add(new ConsoleChoice(i, attack_details));
         }
         int choice = ConsoleHelper.selectAction(scanner, choices).getOptionNumber();
@@ -394,16 +554,17 @@ public class TerminalUserInterface extends UI {
                 break;
             case 0,1,2,3:
                 if(attacks[choice].getNb_use_remaining() <= 0){
-                    System.out.println("!!! Can't use this attack anymore !!!");
+                    System.out.println(RED_BRIGHT + "!!! No PP left for this attack !!!" + RESET);
+                    waitForInput();
                     return;
                 }else {
-                    System.out.println("---Waiting for opponent---");
+                    System.out.println(BLACK_BRIGHT + "--- Waiting for opponent ---" + RESET);
                     events = backendLink.sendUserAction(new AttackAction(choice));
                     this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
                 }
                 break;
             case 5:
-                System.out.println("---Waiting for opponent---");
+                System.out.println(BLACK_BRIGHT + "--- Waiting for opponent ---" + RESET);
                 events = backendLink.sendUserAction(new AttackAction());
                 this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
                 break;
@@ -412,12 +573,12 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchItemChoiceMenu() {
+        clearConsole();
         display_match_menu_header();
 
-        System.out.println("----------");
-        System.out.println("Which item would you like to use?");
+        System.out.println(WHITE + "  Which item would you like to use?" + RESET);
         List<ConsoleChoice> choices = new ArrayList<>();
-        choices.add(new ConsoleChoice(-1, "Go back"));
+        choices.add(new ConsoleChoice(-1, RED_BRIGHT + "Go back" + RESET));
         for (int i = 0; i < backpack.length; i++){
             if(backpack[i] != null){
                 choices.add(new ConsoleChoice(i, backpack[i].toString()));
@@ -429,14 +590,13 @@ public class TerminalUserInterface extends UI {
             return;
         }
 
-
-        int monster_position = ConsoleHelper.getAliveMonsterTeamIdWithGoBackFromUser(scanner, "On which monster do you want to use it? ", team);
+        int monster_position = ConsoleHelper.getAliveMonsterTeamIdWithGoBackFromUser(scanner, WHITE + "  On which monster?" + RESET, team);
         if(monster_position == -1){
             this.currentState = UIState.MATCH_MENU;
             return;
         }
 
-        System.out.println("---Waiting for opponent---");
+        System.out.println(BLACK_BRIGHT + "--- Waiting for opponent ---" + RESET);
         events = this.backendLink.sendUserAction(new UseItemAction(backpack_slot, monster_position));
 
         this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
@@ -444,16 +604,16 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchChangeMonsterMenu() {
+        clearConsole();
         display_match_menu_header();
 
-        int choice = ConsoleHelper.getAliveMonsterTeamIdWithoutActiveWithGoBackFromUser(scanner, "Select the monster you want", team, current_monster_team_index);
+        int choice = ConsoleHelper.getAliveMonsterTeamIdWithoutActiveWithGoBackFromUser(scanner, WHITE + "  Select a monster to switch to:" + RESET, team, current_monster_team_index);
         if(choice == -1){
             this.currentState = UIState.MATCH_MENU;
             return;
         }
 
-        this.current_monster_team_index = choice;
-        System.out.println("---Waiting for opponent---");
+        System.out.println(BLACK_BRIGHT + "--- Waiting for opponent ---" + RESET);
         events = backendLink.sendUserAction(new ChangeMonsterAction(choice));
 
         this.currentState = UIState.MATCH_EVENT_DISPLAY_MENU;
@@ -461,13 +621,28 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchEventDisplayMenu() {
+        clearConsole();
+        display_match_menu_header();
+
         boolean monster_ko = false;
+
+        System.out.println(BOLD + "\n  " + BG_WHITE + BLACK + " BATTLE LOG " + RESET);
+        System.out.println(BLACK_BRIGHT + "  ────────────────────────────────────────────────────────────────" + RESET);
         for (Event e : events) {
-            System.out.println(e.toString());
+            String prefix = "  > ";
+            String color = WHITE;
+
             if(e instanceof MonsterKOEvent){
                 monster_ko = true;
+                prefix = "  /!\\ ";
+                color = RED_BRIGHT;
             }
+
+            typeWriteln(color + prefix + e.toString() + RESET);
+            waitForInput();
         }
+        System.out.println(BLACK_BRIGHT + "  ────────────────────────────────────────────────────────────────\n" + RESET);
+
         //check if match finito
         if (backendLink.isMatchFinished()){
             this.currentState = UIState.MATCH_RESULT_MENU;
@@ -498,9 +673,12 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchChangeMonsterForcedMenu() {
-        System.out.println("---Change Monster Menu---");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(RED_BRIGHT + BOLD + "║             MONSTER FAINTED!           ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
 
-        int choice = ConsoleHelper.getAliveMonsterTeamIdFromUser(scanner, "Your current monster is ko, select another one: ", team);
+        int choice = ConsoleHelper.getAliveMonsterTeamIdFromUser(scanner, WHITE + "  Your current monster is KO, select another one:" + RESET, team);
         this.current_monster_team_index = choice;
         this.backendLink.changeActiveMonsterAfterKO(new ChangeMonsterAction(choice));
 
@@ -509,14 +687,17 @@ public class TerminalUserInterface extends UI {
 
     @Override
     protected void renderMatchResultMenu() {
-        System.out.println("---Match Result---");
+        clearConsole();
+        System.out.println(CYAN_BRIGHT + BOLD + "╔════════════════════════════════════════╗" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "║              MATCH RESULT              ║" + RESET);
+        System.out.println(CYAN_BRIGHT + BOLD + "╚════════════════════════════════════════╝" + RESET);
+        
         if(backendLink.getWinner()){
-            System.out.println("You won!");
+            typeWrite("\n" + GREEN_BRIGHT + BOLD + "    CONGRATULATIONS! YOU WON THE MATCH! " + RESET + "\n");
         }else{
-            System.out.println("You lost!");
+            typeWrite("\n" + RED_BRIGHT + BOLD + "    GAME OVER. YOU LOST THE MATCH. " + RESET + "\n");
         }
-        System.out.println("\n\n\n\npress enter to continue");
-        scanner.nextLine();
+        waitForInput();
 
         backendLink.endMatch();
         this.currentState = UIState.MAIN_MENU;

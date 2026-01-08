@@ -28,7 +28,10 @@ public class Player {
         this.active_monster = 0;
         this.team = new Team();
         this.backpack = new Item[BACKPACK_SIZE];
-        //Init backpack with a default one
+        this.set_default_backpack();
+    }
+
+    public void set_default_backpack(){
         this.backpack[0] = ItemType.POTION.build();
         this.backpack[1] = ItemType.POTION.build();
         this.backpack[2] = ItemType.POTION.build();
@@ -38,6 +41,10 @@ public class Player {
 
     public UUID getId(){
         return this.id;
+    }
+
+    public String getPseudo(){
+        return this.pseudo;
     }
 
     public void setPseudo(String pseudo){
@@ -100,6 +107,11 @@ public class Player {
             }
             team.setMonster(i, random_monster);
         }
+    }
+
+    public void afterMatchReset() {
+        team.healAll();
+        this.set_default_backpack();
     }
 
     @Override

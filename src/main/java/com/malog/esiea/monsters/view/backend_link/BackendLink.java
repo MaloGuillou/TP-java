@@ -26,6 +26,7 @@ public abstract class BackendLink {
 
     //Player
     public abstract void sendPseudo(String pseudo);
+    public abstract String getPseudo();
     public abstract Team getTeam();
 
     //Data
@@ -66,4 +67,5 @@ public abstract class BackendLink {
         return currentMatch != null;
     }
 
+    public abstract Team randomizeTeam();
 }

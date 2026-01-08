@@ -11,7 +11,7 @@ public class ConsoleChoice {
 
     @Override
     public String toString() {
-        return option_number + ". " + option;
+        return "  " + "\033[1;34m" + option_number + ".\033[0m " + option;
     }
 
     public int getOptionNumber(){
