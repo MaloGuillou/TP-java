@@ -22,7 +22,6 @@ public class TerminalUserInterface extends UI {
 
     private final Scanner scanner = new Scanner(System.in);
 
-    // ANSI Colors for visual flair
     private static final String RESET = "\033[0m";
     private static final String BLACK = "\033[0;30m";
     private static final String RED = "\033[0;31m";
@@ -527,7 +526,7 @@ public class TerminalUserInterface extends UI {
 
     private void display_terrain_state(Terrain terrain) {
         if(terrain.getState() != null){
-            System.out.println("  " + YELLOW_BRIGHT + BOLD + "⚡ ENVIRONMENT: " + RESET + BG_YELLOW + BLACK + " " + terrain.getState().toString().toUpperCase() + " " + RESET);
+            System.out.println("  " + YELLOW_BRIGHT + BOLD + " ! ENVIRONMENT: " + RESET + " " + PURPLE + " " + terrain.getState().toString().toUpperCase() + " " + RESET);
         } else {
             System.out.println("  " + WHITE + "  ENVIRONMENT: " + RESET + CYAN + "Clear" + RESET);
         }
