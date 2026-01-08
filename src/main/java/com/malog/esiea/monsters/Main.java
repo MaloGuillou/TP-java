@@ -15,20 +15,23 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        InputStream monsterStream = Main.class.getResourceAsStream("/monsters.txt");
-        InputStream attackStream = Main.class.getResourceAsStream("/attacks.txt");
-
         Map<Integer, MonsterBuilder> monsters;
         Map<Integer, Attack> attacks;
 
-        try {
+        try (
+                InputStream monsterStream = Main.class.getResourceAsStream("/monsters.txt");
+                InputStream attackStream = Main.class.getResourceAsStream("/attacks.txt")
+        ) {
+            if (monsterStream == null || attackStream == null) throw new IOException("Files not found");
+
             monsters = MonsterParser.parse(monsterStream).stream().collect(Collectors.toMap(MonsterBuilder::getId, Function.identity()));
             attacks = AttackParser.parse(attackStream).stream().collect(Collectors.toMap(Attack::getId, Function.identity()));
         } catch (IOException e) {
-            System.out.println("Error reading file");
-            System.out.println(e.getMessage());
+            System.out.println("Game file error");
+            e.printStackTrace();
             return;
         }
+
 
         ClientApp clientApp = new ClientApp(monsters, attacks);
 

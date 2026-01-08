@@ -12,7 +12,7 @@ import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
 
-public class WaterStats extends TypeStats{
+public class WaterStats extends TypeStats {
     private final int flooding_probability;
     private final int falling_probability;
 
@@ -27,8 +27,8 @@ public class WaterStats extends TypeStats{
     public ArrayList<Event> special_trigger(Monster self, Monster opponent, Terrain terrain) {
         ArrayList<Event> events = new ArrayList<>();
 
-        if(terrain.getState() == null){
-            if(this.will_it_flood()){
+        if (terrain.getState() == null) {
+            if (this.will_it_flood()) {
                 TerrainState new_state = new FloodedState(this.falling_probability, self);
                 terrain.setState(new_state);
                 events.add(new TerrainStateAppliedEvent(new_state, terrain));
@@ -45,6 +45,11 @@ public class WaterStats extends TypeStats{
     @Override
     public ArrayList<Event> end_of_round_trigger(Monster self, Monster opponent, Terrain terrain) {
         return new ArrayList<>();
+    }
+
+    @Override
+    public TypeStats clone() {
+        return new WaterStats(this.flooding_probability, this.falling_probability);
     }
 
     private boolean will_it_flood(){

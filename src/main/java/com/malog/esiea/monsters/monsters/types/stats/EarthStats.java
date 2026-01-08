@@ -40,4 +40,9 @@ public class EarthStats extends TypeStats{
     public ArrayList<Event> end_of_round_trigger(Monster self, Monster opponent, Terrain terrain) {
         return new ArrayList<>();
     }
+
+    @Override
+    public TypeStats clone() {
+        return new EarthStats();
+    }
 }

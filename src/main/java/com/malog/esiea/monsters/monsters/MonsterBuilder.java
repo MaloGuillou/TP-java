@@ -52,7 +52,7 @@ public class MonsterBuilder {
 
         return new Monster(
                 this.name,
-                this.type,
+                this.type.clone(),
                 hp,
                 attack,
                 defense,

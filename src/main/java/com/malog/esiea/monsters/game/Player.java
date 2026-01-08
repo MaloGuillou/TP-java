@@ -56,7 +56,7 @@ public class Player {
         if(id >= 0 && id < BACKPACK_SIZE){
             this.backpack[id] = null;
         }else{
-            throw new NullPointerException();
+            throw new IndexOutOfBoundsException();
         }
     }
 
@@ -64,7 +64,7 @@ public class Player {
         if(id >= 0 && id < BACKPACK_SIZE){
             this.backpack[id] = item;
         }else{
-            throw new NullPointerException();
+            throw new IndexOutOfBoundsException();
         }
 
     }
@@ -114,5 +114,10 @@ public class Player {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode(){
+        return this.id.hashCode();
     }
 }

@@ -90,6 +90,7 @@ public class ClientApp {
     }
 
     public void endMatch(UUID matchId) {
+        this.player.get_team().healAll();
         if(this.AI != null) {
             this.AI = null;
         }
@@ -125,18 +126,21 @@ public class ClientApp {
     private UserAction AIChooseAction() {
         UserAction action = null;
         while(action == null){
-            int choice = Randoms.get_random_int_in_range(0, 6);
+            int choice = Randoms.get_random_int_in_range(0, 5);
             switch(choice) {
                 //Special attack
                 case 0,1,2,3:
-                    action = new AttackAction(choice);
+                    Attack attack = AI.get_active_monster().getSpecialAttack(choice);
+                    if (attack != null && attack.getNb_use_remaining() > 0) {
+                        action = new AttackAction(choice);
+                    }
                     break;
                 //Bare hands
-                case 5:
+                case 4:
                     action = new AttackAction();
                     break;
                 //Change active
-                case 6:
+                case 5:
                     List<Integer> possible_monsters = new ArrayList<>();
                     for(int i = 0; i < AI.get_team().get_team_size(); i++){
                         if(AI.get_team().getMonster(i) != null && AI.get_team().getMonster(i).getHP() > 0 && i != AI.get_active_monster_index()){

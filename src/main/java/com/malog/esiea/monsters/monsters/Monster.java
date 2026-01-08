@@ -122,7 +122,7 @@ public class Monster {
         ArrayList<Event> events = new ArrayList<>();
 
         if(!is_pos_valid(attack_number)){
-            throw new NullPointerException();
+            throw new IndexOutOfBoundsException();
         }
         Attack attack = attacks[attack_number];
 

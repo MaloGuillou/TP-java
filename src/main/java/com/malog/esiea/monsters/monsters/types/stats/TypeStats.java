@@ -7,7 +7,7 @@ import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
 
-public abstract class TypeStats {
+public abstract class TypeStats implements Cloneable{
     private final Type type;
 
     public TypeStats(Type type) {
@@ -21,4 +21,7 @@ public abstract class TypeStats {
     public abstract ArrayList<Event> special_trigger(Monster self, Monster opponent, Terrain terrain);
     public abstract ArrayList<Event> start_of_round_trigger(Monster self, Monster opponent, Terrain terrain);
     public abstract ArrayList<Event> end_of_round_trigger(Monster self, Monster opponent, Terrain terrain);
+
+    @Override
+    public abstract TypeStats clone();
 }

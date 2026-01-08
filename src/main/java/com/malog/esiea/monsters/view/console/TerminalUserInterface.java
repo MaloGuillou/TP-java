@@ -299,7 +299,7 @@ public class TerminalUserInterface extends UI {
             System.out.println();
             System.out.println("Press Esc to cancel");
             try {
-                wait(500);
+                Thread.sleep(500);
             }catch (InterruptedException e){
                 e.printStackTrace();
             }

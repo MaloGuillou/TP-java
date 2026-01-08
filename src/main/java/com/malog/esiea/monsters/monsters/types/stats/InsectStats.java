@@ -63,4 +63,9 @@ public class InsectStats extends NatureStats{
     public ArrayList<Event> end_of_round_trigger(Monster self, Monster opponent, Terrain terrain) {
         return super.end_of_round_trigger(self, opponent, terrain);
     }
+
+    @Override
+    public TypeStats clone() {
+        return new InsectStats();
+    }
 }

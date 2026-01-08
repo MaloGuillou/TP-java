@@ -61,4 +61,12 @@ public class Team {
         return pos >= 0 && pos < TEAM_SIZE;
     }
 
+    public void healAll() {
+        for (Monster monster : monsters){
+            if(monster != null){
+                monster.remove_state();
+                monster.heal(monster.getMaxHP());
+            }
+        }
+    }
 }
