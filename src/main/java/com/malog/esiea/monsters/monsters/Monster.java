@@ -226,6 +226,7 @@ public class Monster {
      * @return the real heal value
      */
     public int heal(int heal){
+        if (this.is_ko()) return 0;
         int previous_hp = this.hp;
         this.hp += heal;
         if(this.hp >  this.hp_max){

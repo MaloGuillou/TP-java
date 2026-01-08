@@ -50,6 +50,7 @@ public class MonsterParser {
 
         for (String line : lines) {
             Map<String, String> found = StringHelper.searchInStrings(List.of(line), search_fields);
+            found = StringHelper.getMinMaxValues(found, List.of("hp", "speed", "attack", "defense"));
             if(!found.isEmpty()){
                 full_found.putAll(found);
             }else{
