@@ -2,6 +2,9 @@ package com.malog.esiea.monsters.game.user_actions;
 
 import com.malog.esiea.monsters.game.Player;
 import com.malog.esiea.monsters.game.event.Event;
+import com.malog.esiea.monsters.game.event.UseItemEvent;
+import com.malog.esiea.monsters.items.Item;
+import com.malog.esiea.monsters.monsters.Monster;
 import com.malog.esiea.monsters.terrains.Terrain;
 
 import java.util.ArrayList;
@@ -19,8 +22,14 @@ public class UseItemAction extends UserAction{
     @Override
     public List<Event> execute(Player attacker, Player defender, Terrain terrain) {
         List<Event> events = new ArrayList<>();
-        events.add(attacker.getBackpack()[backpack_item_id].use(attacker.get_team().getMonster(monster_target_id)));
+
+        Item item = attacker.getBackpack()[backpack_item_id];
+        Monster monster = attacker.get_team().getMonster(monster_target_id);
+
+        events.add(new UseItemEvent(attacker, monster, item));
+        events.add(item.use(monster));
         attacker.removeFromBackpack(backpack_item_id);
+
         return events;
     }
 }

@@ -42,6 +42,7 @@ public abstract class UI implements Runnable {
         while (!exit) {
             render();
         }
+        quit();
     }
 
     private void render() {
@@ -64,6 +65,8 @@ public abstract class UI implements Runnable {
             case MATCH_RESULT_MENU -> renderMatchResultMenu();
         }
     }
+
+    protected abstract void quit();
 
 
     protected abstract void renderInitMenu();

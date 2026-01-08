@@ -31,6 +31,11 @@ public class TerminalUserInterface extends UI {
     }
 
     @Override
+    protected void quit() {
+        System.out.println("Bye.");
+    }
+
+    @Override
     protected void renderInitMenu() {
         System.out.println("Init...");
 
@@ -61,6 +66,7 @@ public class TerminalUserInterface extends UI {
         choices.add(new ConsoleChoice(3, "Edit player"));
         choices.add(new ConsoleChoice(4,"Play Match"));
         choices.add(new ConsoleChoice(5,"Settings"));
+        choices.add(new ConsoleChoice(6,"Exit"));
         switch(ConsoleHelper.selectAction(scanner, choices).getOptionNumber()){
             case 1:
                 this.currentState = UIState.TEAM_MENU;
@@ -76,6 +82,9 @@ public class TerminalUserInterface extends UI {
                 break;
             case 5:
                 this.currentState = UIState.SETTINGS;
+                break;
+            case 6:
+                this.exit = true;
                 break;
         }
     }
