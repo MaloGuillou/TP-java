@@ -1,15 +1,16 @@
-#!/bin/bash
+!/bin/bash
 
 rm -rf out
-mkdir out
+mkdir -p out
 
+echo "Compiling..."
 find src/main/java -name "*.java" > sources.txt
 javac -d out @sources.txt
+rm sources.txt
 
-cp -r src/main/resources/* out/
-
-if [ $? -eq 0 ]; then
-    java -cp out com.malog.esiea.monsters.Main
+if [ -d "src/main/resources" ] && [ "$(ls -A src/main/resources)" ]; then
+    cp -r src/main/resources/* out/
 fi
 
-rm sources.txt
+echo "Starting Game..."
+java -cp out com.malog.esiea.monsters.Main
