@@ -111,13 +111,13 @@ public class Match {
         last_round_events.addAll(monster_2.start_of_round(monster_1, terrain));
 
         //Attacks
-        if(player_1_action instanceof AttackAction){
-            if(player_2_action instanceof AttackAction){
+        if(player_1_action instanceof AttackAction && !player_1.get_active_monster().is_ko()){
+            if(player_2_action instanceof AttackAction && !player_2.get_active_monster().is_ko()){
                 mutual_attack(player_1, player_2, (AttackAction) player_1_action, (AttackAction) player_2_action);
             }else{
                 one_sided_attack(player_1, player_2, (AttackAction)  player_1_action);
             }
-        }else if(player_2_action instanceof AttackAction){
+        }else if(player_2_action instanceof AttackAction && !player_2.get_active_monster().is_ko()){
             one_sided_attack(player_2, player_1, (AttackAction)  player_2_action);
         }
         player_1_action = null;
